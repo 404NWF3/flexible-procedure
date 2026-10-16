@@ -1,0 +1,9 @@
+{
+  "horizon": 2400,
+  "setup_time": 10,
+  "policy_name": "aging",
+  "aging_threshold": 120,
+  "machine_counts": {"M1": 2, "M2": 1, "M3": 2, "M4": 1, "M5": 2},
+  "buffer_capacity": 50,
+  "failures_enabled": true
+}

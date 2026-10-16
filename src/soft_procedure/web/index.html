@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="基于 SimPy 的多品种柔性生产线决策仿真工作台。比较产能、排队、换模与设备故障。">
+  <title>Flexline · 柔性生产线决策仿真</title>
+  <style>__STYLES__</style>
+</head>
+<body>
+<aside class="sidebar">
+  <a class="brand" href="#overview" aria-label="Flexline 仿真总览"><span class="brand-mark">f<span>·</span></span><span>FLEXLINE<small>生产决策实验室</small></span></a>
+  <div class="project-label">工作空间 <span>LOCAL</span></div>
+  <div class="project-card"><span class="project-icon">▥</span><div>柔性制造产线<small>案例 22 · 离散事件仿真</small></div></div>
+  <p class="nav-label">实验工作台</p>
+  <nav aria-label="主导航">
+    <a href="#overview" data-view="overview"><span>◫</span>仿真总览</a>
+    <a href="#comparison" data-view="comparison"><span>▤</span>方案对比 <b>05</b></a>
+    <a href="#timeline" data-view="timeline"><span>▥</span>机床时间线</a>
+    <a href="#model" data-view="model"><span>⌘</span>模型与假设</a>
+  </nav>
+  <div class="sidebar-note"><span class="tiny-label">从假设到证据</span><p>在同一条产线上，<br>验证不同的生产决策。</p><div class="mini-line"><i></i><i></i><i></i><i></i><i></i></div></div>
+  <div class="engine-label"><span class="dot"></span> SimPy 离散事件引擎<small>可复现 · 独立随机流</small></div>
+</aside>
+<div class="workspace">
+  <header class="topbar"><div><span class="muted">工作空间</span><span class="slash">/</span><span id="breadcrumb">仿真总览</span></div><div class="top-right"><span id="mode-badge" class="mode-badge">结果快照</span><span class="avatar">FL</span></div></header>
+  <main>
+    <section class="page-heading"><div><div class="eyebrow"><span></span> FLEXIBLE MANUFACTURING / CASE 22</div><h1>柔性生产线<span>决策仿真</span></h1><p>让每一次扩容、排序与优化，都有数据可循。</p></div><div class="header-actions"><button class="button secondary" id="export-button">↓ <span>导出结果</span></button><button class="button primary" id="config-button"><span>⚙</span> 配置与运行</button></div></section>
+    <div id="run-status" class="status-message" role="status" aria-live="polite" hidden></div>
+    <div class="context-strip"><span><i class="dot"></i> <b id="run-count">10</b> 次独立重复</span><span>观察窗口 <b id="horizon-label">2,400 min</b></span><span>种子 <b id="seed-label">42–51</b></span><span class="context-tail" id="generated-label"></span></div>
+    <div class="scenario-bar"><div id="scenario-tabs" class="scenario-tabs" role="group" aria-label="选择方案"></div><span class="scenario-hint">同一到达样本 · 配对比较</span></div>
+
+    <section id="view-overview" class="view">
+      <div class="metric-grid" id="metrics"></div>
+      <div class="chart-grid">
+        <article class="panel trend-panel"><div class="panel-heading"><div><h2>产出趋势</h2><p id="trend-subtitle">各时点累计成品数 · 重复实验均值</p></div><div class="segmented" aria-label="趋势指标"><button class="active" data-trend="completed">累计产出</button><button data-trend="inventory">在制与待投料</button></div></div><div id="trend-chart" class="trend-chart"></div><div class="chart-legend" id="trend-legend"></div></article>
+        <article class="panel product-panel"><div class="panel-heading"><div><h2>产品产出</h2><p>四种产品 · 成品均值</p></div><span class="small-tag">P1—P4</span></div><div id="product-chart"></div><div class="subtle-note">产出结构受工艺路线与调度影响，<br>不等于毛坯到达比例。</div></article>
+      </div>
+      <article class="panel replay-panel"><div class="panel-heading"><div><h2>产线运行回放 <span class="small-tag">第 1 次重复</span></h2><p id="replay-subtitle"></p></div><div id="product-filters" class="product-filters" role="group" aria-label="高亮产品路线"></div></div><div class="flow-meta"><span id="route-description"></span><span id="replay-inventory"></span></div><div id="production-line" class="production-line"></div><div class="playback"><button id="play-button" class="icon-button" aria-label="播放回放">▶</button><span id="playback-time" class="mono"></span><input id="time-slider" type="range" min="0" max="2400" step="20" value="0" aria-label="回放时间"><span class="playback-end" id="playback-end"></span><label class="speed-label">速度<select id="playback-speed" aria-label="回放速度"><option value="1">1×</option><option value="2">2×</option><option value="4">4×</option></select></label></div><div class="state-legend" id="state-legend"></div></article>
+      <div class="resource-grid">
+        <article class="panel"><div class="panel-heading"><div><h2>设备时间分配</h2><p>按机床数量加权 · 各状态占观察时间的比例</p></div><button class="text-button" data-navigate="timeline">查看时间线 ↗</button></div><div id="utilization-chart"></div><div id="station-detail" class="station-detail"></div></article>
+        <article class="panel"><div class="panel-heading"><div><h2>工位排队</h2><p>队长按时间加权；等待统计已派工样本</p></div></div><div id="queue-table"></div><div class="subtle-note">截止时仍在等待的工件另列；其已等待时长在模型说明中可查。</div></article>
+      </div>
+      <div id="insight" class="insight"></div>
+    </section>
+
+    <section id="view-comparison" class="view" hidden>
+      <article class="panel"><div class="panel-heading"><div><h2>同一条产线，五种决策</h2><p>点估计与 95% t 置信区间 · 每个种子对应一组配对实验</p></div><span class="small-tag">单因素对照</span></div><div id="comparison-chart"></div><div id="comparison-table" class="table-scroll"></div></article>
+      <div class="comparison-notes"><article class="panel"><h3>如何读差值</h3><p>相对基准的产量差值按同种子逐轮相减，再计算均值和 95% t 区间。区间跨越 0 时，当前重复实验不足以确认变化方向。</p></article><article class="panel"><h3>产能之外，还要看什么</h3><p>同类优先可能延长部分产品的等待。消除换模、关闭故障是理想对照；最终选择还需结合成本、交期和维护约束。</p></article></div>
+      <article class="panel"><div class="panel-heading"><div><h2>逐轮实验记录</h2><p>当前选中方案 · 原始样本用于复核均值与波动</p></div><button class="text-button" id="download-runs">下载逐轮 CSV ↓</button></div><div id="runs-table" class="table-scroll"></div></article>
+    </section>
+
+    <section id="view-timeline" class="view" hidden>
+      <article class="panel"><div class="panel-heading"><div><h2>每一台机床的时间去向</h2><p id="timeline-subtitle"></p></div><label class="inline-label">工位<select id="timeline-station" aria-label="筛选时间线工位"><option value="all">全部工位</option><option>M1</option><option>M2</option><option>M3</option><option>M4</option><option>M5</option></select></label></div><div id="timeline-legend" class="state-legend"></div><div class="table-scroll"><div id="gantt-chart"></div></div><p class="subtle-note">悬停或聚焦色块，查看状态区间、产品与工件编号。零时长状态不绘制。</p></article>
+      <article class="panel"><div class="panel-heading"><div><h2>状态事件记录</h2><p>当前筛选范围中最后 60 段非零状态区间 · 与上方时间线一致</p></div></div><div id="events-table" class="table-scroll"></div></article>
+    </section>
+
+    <section id="view-model" class="view" hidden>
+      <div class="model-grid"><article class="panel"><div class="panel-heading"><div><h2>工艺路线与产品构成</h2><p>来自本地《案例二十二》；工序时间为加工均值，单位 min</p></div></div><div id="routes-table" class="table-scroll"></div></article><article class="panel"><h2>模型边界</h2><p class="model-intro">一个 Job 表示一件产品；Station 管理缓冲与派工；Machine 保存独立的模具、加工和故障状态。</p><div class="model-flow"><span>外部到达</span><i>→</i><span>有限缓冲</span><i>→</i><span>单台机床</span><i>→</i><span>成品</span></div><p class="subtle-note">下游满载时，上游保持占机；尚未投料的毛坯留在线外。</p></article></div>
+      <article class="panel"><div class="panel-heading"><div><h2>统计口径</h2><p>均值不掩盖截止时仍未完成的工作</p></div><span class="small-tag">可追溯</span></div><div class="definitions"><div><h3>产量与置信区间</h3><p>仅计窗口内离开最终工位的成品。主指标为各次实验均值；95% t 区间描述重复实验均值的不确定性，1 次重复不计算区间。</p></div><div><h3>周期与排队等待</h3><p>周期从外部到达到成品完成，含待投料时间，仅统计已完成件；排队等待从进入工位缓冲到派工，不含换模。没有样本时显示 —。</p></div><div><h3>利用率与平均队长</h3><p>加工利用率 = 加工时长 / 总可用机床时间；换模、维修、阻塞、空闲单独记录。平均队长 = 队长曲线面积 / 观察时长。</p></div><div><h3>配对与回放</h3><p>各方案共享到达清单和按工件、工序绑定的加工样本。回放仅展示每方案第 1 次重复；保留的机床故障流按机床名称固定。</p></div></div><div id="censored-table" class="table-scroll"></div></article>
+      <article class="panel"><div class="panel-heading"><div><h2>明确写下的建模假设</h2><p>原文未完全指定的实现口径，沿用参考对话并保持可配置</p></div></div><ol id="assumptions"></ol></article>
+      <article class="panel source-panel"><h2>来源与复现</h2><p>参数依据：<strong>案例二十二.docx</strong>。框架依据：<a href="chatgpt-conversation://6ad0c956-78d4-83ec-82fd-91e8595d09a4">Simpy项目框架</a>。事件终止语义：<a href="https://simpy.readthedocs.io/en/stable/topical_guides/environments.html" target="_blank" rel="noreferrer">SimPy 官方文档 ↗</a>。</p><code>uv run soft-procedure experiments --replications 10 --seed 42</code><p class="subtle-note">outputs/ 保存 HTML、JSON、逐轮汇总，以及每方案第 1 次重复的工件、工序、队列和状态 CSV。</p><div id="model-config" class="table-scroll"></div></article>
+    </section>
+    <footer><span><b>FLEXLINE</b> / 决策由证据开始</span><span>分钟为统一时间单位 · SimPy 实际运行结果</span></footer>
+  </main>
+</div>
+<dialog id="config-dialog" class="config-dialog"><form id="config-form"><div class="dialog-heading"><div class="eyebrow">EXPERIMENT SETTINGS</div><h2>配置下一次实验</h2><button type="button" class="close-button" data-close="config-dialog" aria-label="关闭参数配置">×</button><p>一次运行包含基准与四个对照方案。</p></div><div class="form-body"><h3>实验设置</h3><div class="form-grid" id="main-fields"></div><h3>机床与缓冲</h3><div id="machine-fields" class="machine-fields"></div><div class="form-grid" id="resource-fields"></div><h3>到达与故障</h3><div class="form-grid" id="arrival-fields"></div><label class="checkbox-field"><input type="checkbox" name="failures_enabled"> 启用设备故障</label><label class="full-field">基准调度规则<select name="policy_name"><option value="fifo">FIFO · 先入先出</option><option value="same_family">同类优先</option><option value="aging">超时优先 · 兼顾同类</option></select></label><p class="subtle-note">超时阈值、回放采样间隔与其他参数可在 JSON 配置中修改。M4 对照始终在当前基准上增加 1 台。</p><div id="form-error" class="form-error" role="alert" hidden></div></div><div class="dialog-footer"><button type="button" class="text-button" id="reset-config">恢复案例参数</button><button type="submit" class="button primary" id="run-button">▶ 运行 5 组实验</button></div></form></dialog>
+<dialog id="export-dialog" class="export-dialog"><div class="dialog-heading"><h2>导出本次实验</h2><button class="close-button" data-close="export-dialog" aria-label="关闭导出">×</button><p>保留当前数据，方便分享与复核。</p></div><div class="export-options"><button data-export="html"><b>HTML 交互快照 <span>↗</span></b><small>内嵌结果，可离线查看、筛选和回放</small></button><button data-export="json"><b>JSON 完整面板数据 <span>↓</span></b><small>方案、统计、逐轮数据与第一轮回放</small></button><button data-export="csv"><b>CSV 逐轮汇总 <span>↓</span></b><small>每方案每次重复的指标，UTF-8 编码</small></button></div></dialog>
+<div id="toast" class="toast" role="status" hidden></div>
+<script type="application/json" id="simulation-data">__SIMULATION_DATA__</script>
+<script>__SCRIPT__</script>
+</body>
+</html>

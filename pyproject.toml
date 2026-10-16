@@ -1,0 +1,14 @@
+[project]
+name = "soft-procedure"
+version = "0.1.0"
+description = "SimPy 多品种柔性生产线决策仿真与本地可视化工作台"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = ["simpy>=4.1,<5"]
+
+[project.scripts]
+soft-procedure = "soft_procedure.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.12.17,<0.13.0"]
+build-backend = "uv_build"
