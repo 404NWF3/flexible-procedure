@@ -8,6 +8,8 @@
 # Preserve exported UTF-8 BOM / CRLF CSV bytes, including embedded downloads.
 *.csv -text whitespace=cr-at-eol
 docs/flexline/*.html linguist-generated=true
+docs/sensitivity/*.html linguist-generated=true
+docs/sensitivity/figures/* linguist-generated=true
 outputs/**/*.json linguist-generated=true
 outputs/**/*.csv linguist-generated=true
 outputs/**/*.jsonl linguist-generated=true

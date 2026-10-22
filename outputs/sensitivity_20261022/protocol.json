@@ -1,0 +1,1051 @@
+{
+  "schema_version": 1,
+  "study_id": "sensitivity-20261022-01",
+  "study_type": "fixed-policy-physical-parameter-sensitivity",
+  "registered_at": "2026-10-22T15:26:49.687963+00:00",
+  "source_commit": "f4d9674d664f9e3e90d067496b09c50f9db74498",
+  "not_optimization": true,
+  "previous_study": "contribution-loop-20261022-01",
+  "question": "在三个固定调度策略下，物理参数的 ±2%/±5% 单独变化如何改变 40 小时结果？",
+  "policies": {
+    "fifo": "原始 FIFO",
+    "same_family": "同类优先",
+    "c20_hybrid": "上一轮固定策略 c20"
+  },
+  "policy_sources": {
+    "fifo": {
+      "path": "search_workspace/candidates/fifo/policy.py",
+      "sha256": "556242daa5e0b15205074c905eb4c2b6fd79f9db86c2146fd95d2d6fcfc29b56"
+    },
+    "same_family": {
+      "path": "search_workspace/candidates/same_family/policy.py",
+      "sha256": "4930645c2356a5bce5311a8b013471001fd875110618d86aebdd5ba4e00240f7"
+    },
+    "c20_hybrid": {
+      "path": "search_workspace/candidates/c20_hybrid/policy.py",
+      "sha256": "b71cc82c961477d0a0fcbc1843fa88d647407b8ac5f6476553af81fab81bd42d"
+    }
+  },
+  "factors": {
+    "arrival_rate": {
+      "label": "物件到达速率",
+      "baseline": 1.25,
+      "unit": "件 / min",
+      "meaning": "批量仍为 5–20 件；只改变批次到达率，名义物件率为 12.5 / 平均批间隔"
+    },
+    "processing_speed": {
+      "label": "加工速度",
+      "baseline": 1.0,
+      "unit": "标准速度倍数",
+      "meaning": "所有产品/工序的加工速度同比例变化；工艺时间与标准差除以速度倍率，CV 仍为 0.10"
+    },
+    "mtbf": {
+      "label": "平均无故障工作时间",
+      "baseline": 6000.0,
+      "unit": "有效工作 min",
+      "meaning": "指数寿命均值；只累计加工和换模时间，不是日历时间"
+    },
+    "mttr": {
+      "label": "平均修复时间",
+      "baseline": 240.0,
+      "unit": "min",
+      "meaning": "指数维修时长均值；维修后继续原加工/换模任务"
+    }
+  },
+  "scenarios": [
+    {
+      "id": "standard",
+      "factor": null,
+      "delta": 0.0,
+      "label": "标准参数",
+      "configuration": {
+        "horizon": 2400.0,
+        "arrival_mean": 10.0,
+        "batch_min": 5,
+        "batch_max": 20,
+        "machine_counts": {
+          "M1": 2,
+          "M2": 1,
+          "M3": 2,
+          "M4": 1,
+          "M5": 2
+        },
+        "buffer_capacity": 50,
+        "processing_cv": 0.1,
+        "setup_time": 15.0,
+        "mtbf": 6000.0,
+        "mttr": 240.0,
+        "failures_enabled": true,
+        "policy_name": "fifo",
+        "aging_threshold": 120.0,
+        "sample_interval": 20.0,
+        "product_prices": {
+          "P1": 200.0,
+          "P2": 180.0,
+          "P3": 250.0,
+          "P4": 300.0
+        },
+        "machine_purchase_cost": 500000.0,
+        "operating_cost_per_hour": 100.0,
+        "operating_cost_basis": "machine_active"
+      },
+      "physical_processing_speed": 1.0
+    },
+    {
+      "id": "arrival_rate_minus5",
+      "factor": "arrival_rate",
+      "delta": -0.05,
+      "label": "物件到达速率 -5%",
+      "configuration": {
+        "horizon": 2400.0,
+        "arrival_mean": 10.526315789473685,
+        "batch_min": 5,
+        "batch_max": 20,
+        "machine_counts": {
+          "M1": 2,
+          "M2": 1,
+          "M3": 2,
+          "M4": 1,
+          "M5": 2
+        },
+        "buffer_capacity": 50,
+        "processing_cv": 0.1,
+        "setup_time": 15.0,
+        "mtbf": 6000.0,
+        "mttr": 240.0,
+        "failures_enabled": true,
+        "policy_name": "fifo",
+        "aging_threshold": 120.0,
+        "sample_interval": 20.0,
+        "product_prices": {
+          "P1": 200.0,
+          "P2": 180.0,
+          "P3": 250.0,
+          "P4": 300.0
+        },
+        "machine_purchase_cost": 500000.0,
+        "operating_cost_per_hour": 100.0,
+        "operating_cost_basis": "machine_active"
+      },
+      "physical_processing_speed": 1.0
+    },
+    {
+      "id": "arrival_rate_minus2",
+      "factor": "arrival_rate",
+      "delta": -0.02,
+      "label": "物件到达速率 -2%",
+      "configuration": {
+        "horizon": 2400.0,
+        "arrival_mean": 10.204081632653061,
+        "batch_min": 5,
+        "batch_max": 20,
+        "machine_counts": {
+          "M1": 2,
+          "M2": 1,
+          "M3": 2,
+          "M4": 1,
+          "M5": 2
+        },
+        "buffer_capacity": 50,
+        "processing_cv": 0.1,
+        "setup_time": 15.0,
+        "mtbf": 6000.0,
+        "mttr": 240.0,
+        "failures_enabled": true,
+        "policy_name": "fifo",
+        "aging_threshold": 120.0,
+        "sample_interval": 20.0,
+        "product_prices": {
+          "P1": 200.0,
+          "P2": 180.0,
+          "P3": 250.0,
+          "P4": 300.0
+        },
+        "machine_purchase_cost": 500000.0,
+        "operating_cost_per_hour": 100.0,
+        "operating_cost_basis": "machine_active"
+      },
+      "physical_processing_speed": 1.0
+    },
+    {
+      "id": "arrival_rate_plus2",
+      "factor": "arrival_rate",
+      "delta": 0.02,
+      "label": "物件到达速率 +2%",
+      "configuration": {
+        "horizon": 2400.0,
+        "arrival_mean": 9.803921568627452,
+        "batch_min": 5,
+        "batch_max": 20,
+        "machine_counts": {
+          "M1": 2,
+          "M2": 1,
+          "M3": 2,
+          "M4": 1,
+          "M5": 2
+        },
+        "buffer_capacity": 50,
+        "processing_cv": 0.1,
+        "setup_time": 15.0,
+        "mtbf": 6000.0,
+        "mttr": 240.0,
+        "failures_enabled": true,
+        "policy_name": "fifo",
+        "aging_threshold": 120.0,
+        "sample_interval": 20.0,
+        "product_prices": {
+          "P1": 200.0,
+          "P2": 180.0,
+          "P3": 250.0,
+          "P4": 300.0
+        },
+        "machine_purchase_cost": 500000.0,
+        "operating_cost_per_hour": 100.0,
+        "operating_cost_basis": "machine_active"
+      },
+      "physical_processing_speed": 1.0
+    },
+    {
+      "id": "arrival_rate_plus5",
+      "factor": "arrival_rate",
+      "delta": 0.05,
+      "label": "物件到达速率 +5%",
+      "configuration": {
+        "horizon": 2400.0,
+        "arrival_mean": 9.523809523809524,
+        "batch_min": 5,
+        "batch_max": 20,
+        "machine_counts": {
+          "M1": 2,
+          "M2": 1,
+          "M3": 2,
+          "M4": 1,
+          "M5": 2
+        },
+        "buffer_capacity": 50,
+        "processing_cv": 0.1,
+        "setup_time": 15.0,
+        "mtbf": 6000.0,
+        "mttr": 240.0,
+        "failures_enabled": true,
+        "policy_name": "fifo",
+        "aging_threshold": 120.0,
+        "sample_interval": 20.0,
+        "product_prices": {
+          "P1": 200.0,
+          "P2": 180.0,
+          "P3": 250.0,
+          "P4": 300.0
+        },
+        "machine_purchase_cost": 500000.0,
+        "operating_cost_per_hour": 100.0,
+        "operating_cost_basis": "machine_active"
+      },
+      "physical_processing_speed": 1.0
+    },
+    {
+      "id": "processing_speed_minus5",
+      "factor": "processing_speed",
+      "delta": -0.05,
+      "label": "加工速度 -5%",
+      "configuration": {
+        "horizon": 2400.0,
+        "arrival_mean": 10.0,
+        "batch_min": 5,
+        "batch_max": 20,
+        "machine_counts": {
+          "M1": 2,
+          "M2": 1,
+          "M3": 2,
+          "M4": 1,
+          "M5": 2
+        },
+        "buffer_capacity": 50,
+        "processing_cv": 0.1,
+        "setup_time": 15.0,
+        "mtbf": 6000.0,
+        "mttr": 240.0,
+        "failures_enabled": true,
+        "policy_name": "fifo",
+        "aging_threshold": 120.0,
+        "sample_interval": 20.0,
+        "product_prices": {
+          "P1": 200.0,
+          "P2": 180.0,
+          "P3": 250.0,
+          "P4": 300.0
+        },
+        "machine_purchase_cost": 500000.0,
+        "operating_cost_per_hour": 100.0,
+        "operating_cost_basis": "machine_active"
+      },
+      "physical_processing_speed": 0.95
+    },
+    {
+      "id": "processing_speed_minus2",
+      "factor": "processing_speed",
+      "delta": -0.02,
+      "label": "加工速度 -2%",
+      "configuration": {
+        "horizon": 2400.0,
+        "arrival_mean": 10.0,
+        "batch_min": 5,
+        "batch_max": 20,
+        "machine_counts": {
+          "M1": 2,
+          "M2": 1,
+          "M3": 2,
+          "M4": 1,
+          "M5": 2
+        },
+        "buffer_capacity": 50,
+        "processing_cv": 0.1,
+        "setup_time": 15.0,
+        "mtbf": 6000.0,
+        "mttr": 240.0,
+        "failures_enabled": true,
+        "policy_name": "fifo",
+        "aging_threshold": 120.0,
+        "sample_interval": 20.0,
+        "product_prices": {
+          "P1": 200.0,
+          "P2": 180.0,
+          "P3": 250.0,
+          "P4": 300.0
+        },
+        "machine_purchase_cost": 500000.0,
+        "operating_cost_per_hour": 100.0,
+        "operating_cost_basis": "machine_active"
+      },
+      "physical_processing_speed": 0.98
+    },
+    {
+      "id": "processing_speed_plus2",
+      "factor": "processing_speed",
+      "delta": 0.02,
+      "label": "加工速度 +2%",
+      "configuration": {
+        "horizon": 2400.0,
+        "arrival_mean": 10.0,
+        "batch_min": 5,
+        "batch_max": 20,
+        "machine_counts": {
+          "M1": 2,
+          "M2": 1,
+          "M3": 2,
+          "M4": 1,
+          "M5": 2
+        },
+        "buffer_capacity": 50,
+        "processing_cv": 0.1,
+        "setup_time": 15.0,
+        "mtbf": 6000.0,
+        "mttr": 240.0,
+        "failures_enabled": true,
+        "policy_name": "fifo",
+        "aging_threshold": 120.0,
+        "sample_interval": 20.0,
+        "product_prices": {
+          "P1": 200.0,
+          "P2": 180.0,
+          "P3": 250.0,
+          "P4": 300.0
+        },
+        "machine_purchase_cost": 500000.0,
+        "operating_cost_per_hour": 100.0,
+        "operating_cost_basis": "machine_active"
+      },
+      "physical_processing_speed": 1.02
+    },
+    {
+      "id": "processing_speed_plus5",
+      "factor": "processing_speed",
+      "delta": 0.05,
+      "label": "加工速度 +5%",
+      "configuration": {
+        "horizon": 2400.0,
+        "arrival_mean": 10.0,
+        "batch_min": 5,
+        "batch_max": 20,
+        "machine_counts": {
+          "M1": 2,
+          "M2": 1,
+          "M3": 2,
+          "M4": 1,
+          "M5": 2
+        },
+        "buffer_capacity": 50,
+        "processing_cv": 0.1,
+        "setup_time": 15.0,
+        "mtbf": 6000.0,
+        "mttr": 240.0,
+        "failures_enabled": true,
+        "policy_name": "fifo",
+        "aging_threshold": 120.0,
+        "sample_interval": 20.0,
+        "product_prices": {
+          "P1": 200.0,
+          "P2": 180.0,
+          "P3": 250.0,
+          "P4": 300.0
+        },
+        "machine_purchase_cost": 500000.0,
+        "operating_cost_per_hour": 100.0,
+        "operating_cost_basis": "machine_active"
+      },
+      "physical_processing_speed": 1.05
+    },
+    {
+      "id": "mtbf_minus5",
+      "factor": "mtbf",
+      "delta": -0.05,
+      "label": "平均无故障工作时间 -5%",
+      "configuration": {
+        "horizon": 2400.0,
+        "arrival_mean": 10.0,
+        "batch_min": 5,
+        "batch_max": 20,
+        "machine_counts": {
+          "M1": 2,
+          "M2": 1,
+          "M3": 2,
+          "M4": 1,
+          "M5": 2
+        },
+        "buffer_capacity": 50,
+        "processing_cv": 0.1,
+        "setup_time": 15.0,
+        "mtbf": 5700.0,
+        "mttr": 240.0,
+        "failures_enabled": true,
+        "policy_name": "fifo",
+        "aging_threshold": 120.0,
+        "sample_interval": 20.0,
+        "product_prices": {
+          "P1": 200.0,
+          "P2": 180.0,
+          "P3": 250.0,
+          "P4": 300.0
+        },
+        "machine_purchase_cost": 500000.0,
+        "operating_cost_per_hour": 100.0,
+        "operating_cost_basis": "machine_active"
+      },
+      "physical_processing_speed": 1.0
+    },
+    {
+      "id": "mtbf_minus2",
+      "factor": "mtbf",
+      "delta": -0.02,
+      "label": "平均无故障工作时间 -2%",
+      "configuration": {
+        "horizon": 2400.0,
+        "arrival_mean": 10.0,
+        "batch_min": 5,
+        "batch_max": 20,
+        "machine_counts": {
+          "M1": 2,
+          "M2": 1,
+          "M3": 2,
+          "M4": 1,
+          "M5": 2
+        },
+        "buffer_capacity": 50,
+        "processing_cv": 0.1,
+        "setup_time": 15.0,
+        "mtbf": 5880.0,
+        "mttr": 240.0,
+        "failures_enabled": true,
+        "policy_name": "fifo",
+        "aging_threshold": 120.0,
+        "sample_interval": 20.0,
+        "product_prices": {
+          "P1": 200.0,
+          "P2": 180.0,
+          "P3": 250.0,
+          "P4": 300.0
+        },
+        "machine_purchase_cost": 500000.0,
+        "operating_cost_per_hour": 100.0,
+        "operating_cost_basis": "machine_active"
+      },
+      "physical_processing_speed": 1.0
+    },
+    {
+      "id": "mtbf_plus2",
+      "factor": "mtbf",
+      "delta": 0.02,
+      "label": "平均无故障工作时间 +2%",
+      "configuration": {
+        "horizon": 2400.0,
+        "arrival_mean": 10.0,
+        "batch_min": 5,
+        "batch_max": 20,
+        "machine_counts": {
+          "M1": 2,
+          "M2": 1,
+          "M3": 2,
+          "M4": 1,
+          "M5": 2
+        },
+        "buffer_capacity": 50,
+        "processing_cv": 0.1,
+        "setup_time": 15.0,
+        "mtbf": 6120.0,
+        "mttr": 240.0,
+        "failures_enabled": true,
+        "policy_name": "fifo",
+        "aging_threshold": 120.0,
+        "sample_interval": 20.0,
+        "product_prices": {
+          "P1": 200.0,
+          "P2": 180.0,
+          "P3": 250.0,
+          "P4": 300.0
+        },
+        "machine_purchase_cost": 500000.0,
+        "operating_cost_per_hour": 100.0,
+        "operating_cost_basis": "machine_active"
+      },
+      "physical_processing_speed": 1.0
+    },
+    {
+      "id": "mtbf_plus5",
+      "factor": "mtbf",
+      "delta": 0.05,
+      "label": "平均无故障工作时间 +5%",
+      "configuration": {
+        "horizon": 2400.0,
+        "arrival_mean": 10.0,
+        "batch_min": 5,
+        "batch_max": 20,
+        "machine_counts": {
+          "M1": 2,
+          "M2": 1,
+          "M3": 2,
+          "M4": 1,
+          "M5": 2
+        },
+        "buffer_capacity": 50,
+        "processing_cv": 0.1,
+        "setup_time": 15.0,
+        "mtbf": 6300.0,
+        "mttr": 240.0,
+        "failures_enabled": true,
+        "policy_name": "fifo",
+        "aging_threshold": 120.0,
+        "sample_interval": 20.0,
+        "product_prices": {
+          "P1": 200.0,
+          "P2": 180.0,
+          "P3": 250.0,
+          "P4": 300.0
+        },
+        "machine_purchase_cost": 500000.0,
+        "operating_cost_per_hour": 100.0,
+        "operating_cost_basis": "machine_active"
+      },
+      "physical_processing_speed": 1.0
+    },
+    {
+      "id": "mttr_minus5",
+      "factor": "mttr",
+      "delta": -0.05,
+      "label": "平均修复时间 -5%",
+      "configuration": {
+        "horizon": 2400.0,
+        "arrival_mean": 10.0,
+        "batch_min": 5,
+        "batch_max": 20,
+        "machine_counts": {
+          "M1": 2,
+          "M2": 1,
+          "M3": 2,
+          "M4": 1,
+          "M5": 2
+        },
+        "buffer_capacity": 50,
+        "processing_cv": 0.1,
+        "setup_time": 15.0,
+        "mtbf": 6000.0,
+        "mttr": 228.0,
+        "failures_enabled": true,
+        "policy_name": "fifo",
+        "aging_threshold": 120.0,
+        "sample_interval": 20.0,
+        "product_prices": {
+          "P1": 200.0,
+          "P2": 180.0,
+          "P3": 250.0,
+          "P4": 300.0
+        },
+        "machine_purchase_cost": 500000.0,
+        "operating_cost_per_hour": 100.0,
+        "operating_cost_basis": "machine_active"
+      },
+      "physical_processing_speed": 1.0
+    },
+    {
+      "id": "mttr_minus2",
+      "factor": "mttr",
+      "delta": -0.02,
+      "label": "平均修复时间 -2%",
+      "configuration": {
+        "horizon": 2400.0,
+        "arrival_mean": 10.0,
+        "batch_min": 5,
+        "batch_max": 20,
+        "machine_counts": {
+          "M1": 2,
+          "M2": 1,
+          "M3": 2,
+          "M4": 1,
+          "M5": 2
+        },
+        "buffer_capacity": 50,
+        "processing_cv": 0.1,
+        "setup_time": 15.0,
+        "mtbf": 6000.0,
+        "mttr": 235.2,
+        "failures_enabled": true,
+        "policy_name": "fifo",
+        "aging_threshold": 120.0,
+        "sample_interval": 20.0,
+        "product_prices": {
+          "P1": 200.0,
+          "P2": 180.0,
+          "P3": 250.0,
+          "P4": 300.0
+        },
+        "machine_purchase_cost": 500000.0,
+        "operating_cost_per_hour": 100.0,
+        "operating_cost_basis": "machine_active"
+      },
+      "physical_processing_speed": 1.0
+    },
+    {
+      "id": "mttr_plus2",
+      "factor": "mttr",
+      "delta": 0.02,
+      "label": "平均修复时间 +2%",
+      "configuration": {
+        "horizon": 2400.0,
+        "arrival_mean": 10.0,
+        "batch_min": 5,
+        "batch_max": 20,
+        "machine_counts": {
+          "M1": 2,
+          "M2": 1,
+          "M3": 2,
+          "M4": 1,
+          "M5": 2
+        },
+        "buffer_capacity": 50,
+        "processing_cv": 0.1,
+        "setup_time": 15.0,
+        "mtbf": 6000.0,
+        "mttr": 244.8,
+        "failures_enabled": true,
+        "policy_name": "fifo",
+        "aging_threshold": 120.0,
+        "sample_interval": 20.0,
+        "product_prices": {
+          "P1": 200.0,
+          "P2": 180.0,
+          "P3": 250.0,
+          "P4": 300.0
+        },
+        "machine_purchase_cost": 500000.0,
+        "operating_cost_per_hour": 100.0,
+        "operating_cost_basis": "machine_active"
+      },
+      "physical_processing_speed": 1.0
+    },
+    {
+      "id": "mttr_plus5",
+      "factor": "mttr",
+      "delta": 0.05,
+      "label": "平均修复时间 +5%",
+      "configuration": {
+        "horizon": 2400.0,
+        "arrival_mean": 10.0,
+        "batch_min": 5,
+        "batch_max": 20,
+        "machine_counts": {
+          "M1": 2,
+          "M2": 1,
+          "M3": 2,
+          "M4": 1,
+          "M5": 2
+        },
+        "buffer_capacity": 50,
+        "processing_cv": 0.1,
+        "setup_time": 15.0,
+        "mtbf": 6000.0,
+        "mttr": 252.0,
+        "failures_enabled": true,
+        "policy_name": "fifo",
+        "aging_threshold": 120.0,
+        "sample_interval": 20.0,
+        "product_prices": {
+          "P1": 200.0,
+          "P2": 180.0,
+          "P3": 250.0,
+          "P4": 300.0
+        },
+        "machine_purchase_cost": 500000.0,
+        "operating_cost_per_hour": 100.0,
+        "operating_cost_basis": "machine_active"
+      },
+      "physical_processing_speed": 1.0
+    }
+  ],
+  "replications": 200,
+  "planned_runs": 10200,
+  "primary_comparisons": 48,
+  "baseline_configuration": {
+    "horizon": 2400.0,
+    "arrival_mean": 10.0,
+    "batch_min": 5,
+    "batch_max": 20,
+    "machine_counts": {
+      "M1": 2,
+      "M2": 1,
+      "M3": 2,
+      "M4": 1,
+      "M5": 2
+    },
+    "buffer_capacity": 50,
+    "processing_cv": 0.1,
+    "setup_time": 15.0,
+    "mtbf": 6000.0,
+    "mttr": 240.0,
+    "failures_enabled": true,
+    "policy_name": "fifo",
+    "aging_threshold": 120.0,
+    "sample_interval": 20.0,
+    "product_prices": {
+      "P1": 200.0,
+      "P2": 180.0,
+      "P3": 250.0,
+      "P4": 300.0
+    },
+    "machine_purchase_cost": 500000.0,
+    "operating_cost_per_hour": 100.0,
+    "operating_cost_basis": "machine_active"
+  },
+  "nominal_routes": {
+    "P1": [
+      [
+        "M1",
+        5
+      ],
+      [
+        "M2",
+        8
+      ],
+      [
+        "M3",
+        6
+      ],
+      [
+        "M4",
+        4
+      ],
+      [
+        "M5",
+        3
+      ]
+    ],
+    "P2": [
+      [
+        "M1",
+        4
+      ],
+      [
+        "M3",
+        7
+      ],
+      [
+        "M4",
+        5
+      ],
+      [
+        "M5",
+        6
+      ]
+    ],
+    "P3": [
+      [
+        "M2",
+        6
+      ],
+      [
+        "M3",
+        5
+      ],
+      [
+        "M5",
+        8
+      ]
+    ],
+    "P4": [
+      [
+        "M1",
+        3
+      ],
+      [
+        "M4",
+        9
+      ],
+      [
+        "M5",
+        4
+      ]
+    ]
+  },
+  "seed_commitment": "bdd27c3794fe930d394c1fd9f04471516c587b8eb63a97ca8fe0c17cf921c5aa",
+  "randomization": "200 fresh distinct seeds committed before study; CRN across all 17 scenarios and all 3 fixed policies; no resampling or adaptive extra runs",
+  "statistics": {
+    "primary": "operating_contribution",
+    "family_alpha": 0.05,
+    "family": "48 paired parameter-vs-own-standard contrasts, across 3 fixed policies × 4 factors × 4 nonzero levels",
+    "interval": "two-sided paired Student t, Bonferroni alpha=.05/48 for G; secondary metrics descriptive 95%",
+    "relative": "ratio of mean paired change to mean own baseline; approximate paired delta-method bounds",
+    "elasticity": "central ±5% relative response, approximate paired delta-method descriptive 95%; not a calibrated causal mechanism",
+    "interpretation": "interval crossing zero is unresolved at this sample size, not evidence of zero sensitivity"
+  },
+  "controls": [
+    "fixed policy source and parameters",
+    "fixed nominal means provided to each policy",
+    "no strategy search, retraining or recalibration",
+    "same routes, machine counts, buffer, product mix, batch distribution, setup time, prices and costs",
+    "same empty start, [0,2400) window, unfinished-work costs and no inventory salvage",
+    "new study identity, output folder, ledger, seed bank and inference family; no changes to previous optimization alpha ledger"
+  ],
+  "limitations": [
+    "局部单参数分析，未评估参数交互或长期稳态",
+    "完成周期只统计完成件，不能代表全部到达件的交期",
+    "故障较少；区间跨零时不能据此认定不敏感",
+    "经营贡献不是完整净利润；不包含改变参数的实施成本",
+    "c20 的名义排序信息固定；这是固定控制器面对物理参数偏差的敏感性",
+    "不将任何参数情景作为上一轮可行改进方案或新增胜出候选"
+  ],
+  "runtime": {
+    "python": "3.12.14",
+    "simpy": "4.1.2",
+    "scipy": "1.17.0",
+    "numpy": "2.3.5",
+    "policy_execution": "hash-verified fixed policies in-process; 15 full trajectory/action replays against original isolated worker passed; not a sandbox for new candidates"
+  },
+  "frozen_files": {
+    "research/sensitivity/preflight.py": "2c211c0e25c0daf8ad921d34d99d0828cf58975fa2c300641b12f08c1c9b00b0",
+    "research/sensitivity/runner.py": "55286fd2930e081773ad316251ed7270560d783103ab7f4f130eff9be32e1496",
+    "research/sensitivity/model.py": "fcc5bf7d4552322630774dbd488f2bd3cde33e6e34ba5de159789a25e480ef29",
+    "research/sensitivity/analysis.py": "4cbd36fea59e9643e279bdb36823f408dfe85228b361d8937fd00f67504a6bfc"
+  },
+  "prior_archive_files": {
+    "docs/flexline/README.md": "b52337f352ffd6bb93898af023ce17af0de5bd895d871859228e0caad470409e",
+    "docs/flexline/baseline.html": "5dfb09e4e93f07b8997cc66ffd69fedc7c1d1fc43b8be17931e34d83c24525d0",
+    "docs/flexline/index.html": "a5b7ba413088211ab3d0afc80fe419241c8b4d841276c8bec89bf39f7388b857",
+    "docs/flexline/verification.json": "55a445c14c5b930ac24b7551ef46bf25418596a964428590f960aad8b2116575",
+    "outputs/contribution_loop_20261022/agent_prompt.txt": "94285c107d14bb554d3eef1bdb56bafb76a47a25ab95b928034256c6542a0a27",
+    "outputs/contribution_loop_20261022/candidate_submission.schema.json": "26a6b8b29396d1400cde11a040d8674036d0b04cfedc30efc5931cd4c7e39ca7",
+    "outputs/contribution_loop_20261022/evaluator/alpha_ledger.json": "9ae276092ecf7d6cfa81a64ba049ed119a86cbb4ab09ab4f23201c08fce8d476",
+    "outputs/contribution_loop_20261022/evaluator/batch-01.log": "a0678ebd3343c2aed56e53b71e3530d65695774465d33a0da493491d7dd4a551",
+    "outputs/contribution_loop_20261022/evaluator/batch-02.log": "7ba560b09e94d9b5e503d05b30ed2c5489d4fe00797c1ea5e3f321861d338793",
+    "outputs/contribution_loop_20261022/evaluator/batch-03.log": "f09880a6b7b1bfa01c8d1a2d3efc0b121206c9b66ea6f2a9adacca51c79a6f3d",
+    "outputs/contribution_loop_20261022/evaluator/boundary_tests.json": "c2efc03f248972c88c3b70f457517bc72c6cc022bdd4ffba7ba4ef133496458d",
+    "outputs/contribution_loop_20261022/evaluator/confirmation_preregistration.json": "2ca7265ac2948eee186eb1d8de49322b633573d7bf9a3caabe97b27d31c15886",
+    "outputs/contribution_loop_20261022/evaluator/init.log": "f388077482c60e5779fb9f8d5b1cb617aecf59b596547760f716be25433b190a",
+    "outputs/contribution_loop_20261022/evaluator/ledger/events.jsonl": "23db985ad3dd9718204639522f5e2ffcf508f92deb1bf2d024120b43ffb2caf6",
+    "outputs/contribution_loop_20261022/evaluator/original-tests-network.log": "df7aa25f326537f25afa5faf8b790d2759d2f1ed03123e50d3c51be249853df9",
+    "outputs/contribution_loop_20261022/evaluator/original-tests.log": "86a2976e42ef7302aceec55a010af91f63c46890112d82cbdef5742f6f71ffdd",
+    "outputs/contribution_loop_20261022/evaluator/ready_receipt.json": "ffc2543c9f36b21d91de763ba48145fb1c29036a797b0ecbcf967f6e633739bb",
+    "outputs/contribution_loop_20261022/evaluator/receipts/confirmation-c20_hybrid.json": "eeedbd69f0b37dd2f926008afc5d57cf4aa81d1d2c436508d85ba156e8b9b82e",
+    "outputs/contribution_loop_20261022/evaluator/receipts/confirmation-fifo.json": "5898bc20119a1eda7ce02b4d5e60b99c88804975071b8f2dd3149bb930b1b613",
+    "outputs/contribution_loop_20261022/evaluator/receipts/confirmation-same_family.json": "ad9d4b813653bcd70389205935f78e7ec614342bbaf048742480fc3c50853f66",
+    "outputs/contribution_loop_20261022/evaluator/receipts/development-c01_aging.json": "898af70c4c0284be6a52963386132994dc6e1dd4c828101f534a0a3a4d1723cf",
+    "outputs/contribution_loop_20261022/evaluator/receipts/development-c02_margin.json": "9b19b917a527977894381abe7cb895c87de317004864ec5431a49edca4a31054",
+    "outputs/contribution_loop_20261022/evaluator/receipts/development-c03_local.json": "54ab8a6621402f2000d34db8ebd83f91167a19a88733f9642f19c818cedd8e05",
+    "outputs/contribution_loop_20261022/evaluator/receipts/development-c04_internal.json": "28bf65cb14808a85ee1dbbeb218bce0cef71aa80fd835165283c8f83bfe4b875",
+    "outputs/contribution_loop_20261022/evaluator/receipts/development-c05_flow_family.json": "3b03bf7dbea8ee4cdc3ca806c547185c62331840dbe4571c938a4cb5f09e3d11",
+    "outputs/contribution_loop_20261022/evaluator/receipts/development-c06_wip40.json": "fb6d046f79844889712bdae01ff487a079091b417ccc63edfc3591109664fce7",
+    "outputs/contribution_loop_20261022/evaluator/receipts/development-c07_wip80.json": "e9e14e5a31927d33516fc4d8b87dea3545456266793a3e4240c6fbacdc45cfb8",
+    "outputs/contribution_loop_20261022/evaluator/receipts/development-c08_release.json": "672a103040acdab0e8b3454b063305250044f8e727536fc1a0b61680238de09b",
+    "outputs/contribution_loop_20261022/evaluator/receipts/development-c09_value_open.json": "a863d8e995bb47ee69267ebecf763ce5bbbad2dd3512ca2304b21bbbc32b829b",
+    "outputs/contribution_loop_20261022/evaluator/receipts/development-c10_value_margin.json": "71fd295ae73fa115bc53cbf9cbb70a083d5be9faed49ed0bddb4696903a0c0ec",
+    "outputs/contribution_loop_20261022/evaluator/receipts/development-c11_value_local.json": "d03252415c0667d5959760690407746b0c50925b1480ad1d69295bbce96af63b",
+    "outputs/contribution_loop_20261022/evaluator/receipts/development-c12_age480.json": "a4ec28fc4fa8718c8bd131b87fb334b343389c02c319ccbca17a6ecd21c60c57",
+    "outputs/contribution_loop_20261022/evaluator/receipts/development-c13_margin_s5.json": "39b8990f344dc5e046a64f1990056bd8b087898a935789bc2e54d12c1ae7b23a",
+    "outputs/contribution_loop_20261022/evaluator/receipts/development-c14_local_s5.json": "1347648490ce93b21e1de6f305c170c7056b4303a35f6aecc6fdfaf79eb99413",
+    "outputs/contribution_loop_20261022/evaluator/receipts/development-c15_margin_s0.json": "7cf9ffbd0ef2c10c9b995b5679782aeaddb9e1af027cf7a02b7d3c8f2783733c",
+    "outputs/contribution_loop_20261022/evaluator/receipts/development-c16_local_s10.json": "01ee443aaf6eeeddca970353c0bfc16a55fc282afc54ca06d8b24416605543d1",
+    "outputs/contribution_loop_20261022/evaluator/receipts/development-c17_value_s0.json": "6342ff27fc191ecc82def8879619548803cfb75e8e19550d04a372e95eb4d368",
+    "outputs/contribution_loop_20261022/evaluator/receipts/development-c18_value_s5.json": "ce24f9ba5b7e7d30fd3fe08ec4cb072937fb30d5aabd2268bfa60a5fa44119b3",
+    "outputs/contribution_loop_20261022/evaluator/receipts/development-c19_terminal.json": "1e4d3d5b836a23d2ed5faac7ee42b4c436649a112cb5b418fc23cfaa4a38bac2",
+    "outputs/contribution_loop_20261022/evaluator/receipts/development-c20_hybrid.json": "d9e395f2ce7125c4630150ec3b69ea9f2307fec1dc428781c1f193825e00fb87",
+    "outputs/contribution_loop_20261022/evaluator/receipts/development-c21_ablate_admit.json": "75e31c883cc71c175297be9c4c496aafd6a7b1e670eb6654e34f89d9bfbb30bd",
+    "outputs/contribution_loop_20261022/evaluator/receipts/development-c22_ablate_m2.json": "0573d40fad8a3741caf82d13f3a684993ead9545b94a1033c0980db62cdd0cc4",
+    "outputs/contribution_loop_20261022/evaluator/receipts/development-c23_ablate_m3.json": "29b12adb947869744c52491ed899828ae34638bc61470b41b9fca128b7928353",
+    "outputs/contribution_loop_20261022/evaluator/receipts/development-c24_ablate_m4.json": "d0e4b60179384fda47f878fb2c2134de75e89eef63cf31f4f75871f492936522",
+    "outputs/contribution_loop_20261022/evaluator/receipts/development-fifo.json": "9f3111199218ed3a1f44beba8cc95e9aeeb1268e2257f437f39230df8a96406a",
+    "outputs/contribution_loop_20261022/evaluator/receipts/development-same_family.json": "2e20ed20a859111246a2ab57ae5d4196afc83753062f56a792c9af3a76e9f064",
+    "outputs/contribution_loop_20261022/evaluator/receipts/smoke-c01_aging.json": "0328bbadfc41248a62104ed0e8a559b110b53e66f01d4dac24489a0c01245546",
+    "outputs/contribution_loop_20261022/evaluator/receipts/smoke-c02_margin.json": "d66b463585d10b4ad17e2fa66b7fb4d6f90f09472b9b969842ac0d4734e873ce",
+    "outputs/contribution_loop_20261022/evaluator/receipts/smoke-c03_local.json": "1e6562c5971777d832b414c60991fd104dfc877f3e750922f030b2a9fe5b1b04",
+    "outputs/contribution_loop_20261022/evaluator/receipts/smoke-c04_internal.json": "083909c07d41f49b493ac6cc5c1cd3b096c2ccd0fd489a583b270e016c093aed",
+    "outputs/contribution_loop_20261022/evaluator/receipts/smoke-c05_flow_family.json": "909e3e76b369a560b1b87d92eafe41815acc5d91a64a5e9c54cbfabf8ff78d43",
+    "outputs/contribution_loop_20261022/evaluator/receipts/smoke-c06_wip40.json": "3410435741cc610c40e367f0c8d5b86ae7ebdc4023b7c72d2f45cebe176df096",
+    "outputs/contribution_loop_20261022/evaluator/receipts/smoke-c07_wip80.json": "649bf0b8f4463324358799e84a12053adc0e393c233ed5f987e836eeab0e2bd4",
+    "outputs/contribution_loop_20261022/evaluator/receipts/smoke-c08_release.json": "99e77cfe91ab948c26f0fa04405203c54aac826f9a34fe6cc7090fd0c89da031",
+    "outputs/contribution_loop_20261022/evaluator/receipts/smoke-c09_value_open.json": "78d6eb107c1f52634411bf43fbc86956d2afe06d4936ddf6ce8e0f37f14b21f2",
+    "outputs/contribution_loop_20261022/evaluator/receipts/smoke-c10_value_margin.json": "fa617f54ee9d243f4331ac94f2cb2c3090e202e8a06e2ee3258698a7407f0b55",
+    "outputs/contribution_loop_20261022/evaluator/receipts/smoke-c11_value_local.json": "78c5460faa6702d5d8b8a1ea10d75f9b3209d3e84feff2481b521e53b9342e40",
+    "outputs/contribution_loop_20261022/evaluator/receipts/smoke-c12_age480.json": "a91fb54bebfc46cf4cab98ac07b6313ca45b05506dcefd01d75616f2c6abe175",
+    "outputs/contribution_loop_20261022/evaluator/receipts/smoke-c13_margin_s5.json": "246be4b78af6f3176788c18ba2faa6dacfdbd6f79e441b36518d2d31a1fecd92",
+    "outputs/contribution_loop_20261022/evaluator/receipts/smoke-c14_local_s5.json": "058f8f2d32fe25c195e0f14539bf9340940f25005e22a4c04cd636d13be46e82",
+    "outputs/contribution_loop_20261022/evaluator/receipts/smoke-c15_margin_s0.json": "8933c3748bc70b5dfc1fa5ed9ffea2700403b9db65859bf37c284b35a2cb591d",
+    "outputs/contribution_loop_20261022/evaluator/receipts/smoke-c16_local_s10.json": "edb7f71ceab5e8efaa0b4ca721c026332b0d0edc05afed3de8424ba1ccf2bbeb",
+    "outputs/contribution_loop_20261022/evaluator/receipts/smoke-c17_value_s0.json": "b41d6d67a03796d22ca688e67139f56ab1350a8e882b205708c166ca7c6270aa",
+    "outputs/contribution_loop_20261022/evaluator/receipts/smoke-c18_value_s5.json": "332a2ed8abf49e8b939df8e70b99e0e534cd1832abf2d8bc359ba43569606db8",
+    "outputs/contribution_loop_20261022/evaluator/receipts/smoke-c19_terminal.json": "9ab09de0c1b6515f7f42812aee204167eae5af4e2cbc31585ffb0cf2cfceba08",
+    "outputs/contribution_loop_20261022/evaluator/receipts/smoke-c20_hybrid.json": "5b21b39f82455d4396c1f5fe6f0f1c56d948db39f4d4f878923dd4d965c2ecd8",
+    "outputs/contribution_loop_20261022/evaluator/receipts/smoke-c21_ablate_admit.json": "ba0021e13a5b03479d54aec7a14ed7d2eaa321ca2949d3ace9bf584c2b8f2969",
+    "outputs/contribution_loop_20261022/evaluator/receipts/smoke-c22_ablate_m2.json": "a1cdd08aa1a5dfd77aca6e3505406a144722e51840b455b3e939b4214d319031",
+    "outputs/contribution_loop_20261022/evaluator/receipts/smoke-c23_ablate_m3.json": "9ea6428ff437a20c670aeac1abbfb50a528790b22f7ee8aabbee4a32806d62d6",
+    "outputs/contribution_loop_20261022/evaluator/receipts/smoke-c24_ablate_m4.json": "001d6600099553a701a6d9075b22c7baf3c5b51383e3a1c1bd2033b41c4c1c2e",
+    "outputs/contribution_loop_20261022/evaluator/receipts/validation-c10_value_margin.json": "d5001c4f8f546c7db224d46ecdf1bd51ac75f3ec6a447ac7dd27a27309fa89fe",
+    "outputs/contribution_loop_20261022/evaluator/receipts/validation-c20_hybrid.json": "1da2bef43f5eb69481354f744d1b65fc95eb44cd68af1ca39f618c39e4bc9218",
+    "outputs/contribution_loop_20261022/evaluator/receipts/validation-c22_ablate_m2.json": "41570c10c209fd8ac7452623ad5a0a3ee993fe95666e1a61f1ea400015ef8abc",
+    "outputs/contribution_loop_20261022/evaluator/receipts/validation-fifo.json": "3ae3526fb489fde1a9bc8dc60650ba73cdde832412d09ba31307fda16d826608",
+    "outputs/contribution_loop_20261022/evaluator/receipts/validation-same_family.json": "9c0d31b565d82b010d102f54be2c940190e4935917b31572ad8b4a9eac085296",
+    "outputs/contribution_loop_20261022/evaluator/reference_replay.json": "bd33c9c6da4553fd557a441e6bb2807edbf735c35b958e0212dd7ff17416e088",
+    "outputs/contribution_loop_20261022/evaluator/references/fifo.py": "556242daa5e0b15205074c905eb4c2b6fd79f9db86c2146fd95d2d6fcfc29b56",
+    "outputs/contribution_loop_20261022/evaluator/references/same_family.py": "4930645c2356a5bce5311a8b013471001fd875110618d86aebdd5ba4e00240f7",
+    "outputs/contribution_loop_20261022/evaluator/sealed.log": "ce821477390a155c931b672791575aebf642f81f836a59f67f2e4962e8e0669e",
+    "outputs/contribution_loop_20261022/execution_addendum.json": "24988b410ca48926124f0558e275a895122603761835d32a79a62b30a46ca3d3",
+    "outputs/contribution_loop_20261022/final-audit.log": "80779b89f648c798dfb2e70e5957b6f2d7bc1d06070146bf02c8482a898d8a88",
+    "outputs/contribution_loop_20261022/loop_contract.json": "27232fd7826ebca1e73fe0a0b3e87381da39db2fd007795cf9240b9f527f7449",
+    "outputs/contribution_loop_20261022/raw_manifest.json": "d71d850b8aafa814b47d8b2029eed3f11d662e0ae32970f3bdc8e9048e89df4d",
+    "outputs/contribution_loop_20261022/replications.csv": "78d07bfcd00ba588c6c552768bff379efcf7db88b0f889b2f0b28f2fbe114f50",
+    "outputs/contribution_loop_20261022/state.json": "1a82bf7fac8125e0894b28cbf7c5b03889d63e706f4b60d7ebd5d209dae6b590",
+    "outputs/contribution_loop_20261022/verification.json": "cd645a876a5bd635cf3862f64b7319015be98d8da5748912d4b4e3472d2bc71e",
+    "outputs/contribution_loop_20261022/verify_campaign.py": "00e58a04027f5a6fbaa66bf209b2ce2c701210d634d5573a1144ea7d176bbda5",
+    "pyproject.toml": "04319e214e971329aa86de52f02809c0f56358731fadafcc84f4baa9819bbbfa",
+    "research/contribution_loop/README.txt": "8f62fb373f67cc6c6bc59497022af9118cf82fa305b71b336232d201e2746f36",
+    "research/contribution_loop/adapter.py": "3b718533e09c828d79c36bfbcd059e6726695ed36d247cdaeeca2ffda1d25b06",
+    "research/contribution_loop/evaluator.py": "4d807302c2b290a57c9d93b8829582dd3596472c623aa5bdb4db00c3bbc9f3bd",
+    "research/contribution_loop/policy_template.py": "556242daa5e0b15205074c905eb4c2b6fd79f9db86c2146fd95d2d6fcfc29b56",
+    "research/contribution_loop/policy_worker.py": "eaea63d040796a97d9c4e49b5c254fb94b48f5f1b62b5b901ae71a68daacea43",
+    "research/contribution_loop/preflight.py": "59da933a6a919ed584043fe3380bf71ba35f98d617175a4c5700e0f71e4c9869",
+    "research/contribution_loop/prepare.py": "5f0d2d7969b5bd41f9d4c873ae54e24c0e4c7f992527da78287c7a5b3faa4aab",
+    "research/contribution_loop/runner.py": "b7c8fa472f09d6e5a0c0187844a13a47b058cccaa93cbcc4019cde3178cb31a0",
+    "research/contribution_loop/sandbox.py": "e232e2cafdf82ec42c698a12949dcd2cc72c75c7140a7d36e57db3f49e21e871",
+    "search_workspace/candidates/c01_aging/contract_submission.json": "b287c9cc4642b80408f28b5d74a22d6ba3a88bea2c9b8954e5f3df3cace34cd5",
+    "search_workspace/candidates/c01_aging/policy.py": "d0a8268c13ecedc4869d9f65bb71e5fb7b6d6abe4bcbed1d2c80144be98f9fe5",
+    "search_workspace/candidates/c01_aging/submission.json": "1906c578a439011ffc8665f074f63f42ae9a60330157fa66f6aa8f0de96ce948",
+    "search_workspace/candidates/c02_margin/contract_submission.json": "e93f1da650899b2a940ec50662071a66246f17ccd916591ecf6e141458b17418",
+    "search_workspace/candidates/c02_margin/policy.py": "05fa3688325dd1358e5036eb957c5d5f6e5fb119ae5efb882b3f080b194b2454",
+    "search_workspace/candidates/c02_margin/submission.json": "7a51415976614addc87a03a6d58b483ad017d31f65dcc91abe95af64a1bb3f0b",
+    "search_workspace/candidates/c03_local/contract_submission.json": "98e69ccd44186f04e5526c3532cebaad3566a67c5d535ae635dbc658abf76db2",
+    "search_workspace/candidates/c03_local/policy.py": "cb427f62afb9cdeb251b2c60452a938b594d5fd8fcf1c3a2f1a23ffe9bac6dd7",
+    "search_workspace/candidates/c03_local/submission.json": "6dda24eb891127462aee10e41b4ddb46b0cd481aa843f5f4907aa894f20c313a",
+    "search_workspace/candidates/c04_internal/contract_submission.json": "1c788fe00e87cac95d1f783858252394371ae32bcb4faf9425e83d960fcdec21",
+    "search_workspace/candidates/c04_internal/policy.py": "505a6680650bca7360504725150734285b2cb113c2bc7bc1ad3f4e334096e143",
+    "search_workspace/candidates/c04_internal/submission.json": "8e5bcb037765ea9841f45bf2adc07317336d7d63af56c5ed2f826f32bf6dceb8",
+    "search_workspace/candidates/c05_flow_family/contract_submission.json": "62e6e535fed9997fedeb1784c62bc1373dbc22c91d36a3b415ac5151eeab296b",
+    "search_workspace/candidates/c05_flow_family/policy.py": "a25471b77fc2fa2442c43c2893fd6664aa9d6a3fcd82048d015cc4153cb3a398",
+    "search_workspace/candidates/c05_flow_family/submission.json": "757c9d35b03b2a433d8c49de8d14e7e1e0910c142d66e6d04331232a87e57f85",
+    "search_workspace/candidates/c06_wip40/contract_submission.json": "3b4b7236437cdbcbca7a9bbb781bdbc4db2c5dcb32dec9b8b65e3e6006a302b8",
+    "search_workspace/candidates/c06_wip40/policy.py": "61ba3ca89e8fcd7a6e83c1ea8314b8c5a2b5c42d6fad5955a826bd2399fffbf5",
+    "search_workspace/candidates/c06_wip40/submission.json": "6d3b434e195223de6ca26ee5325e42fc2aa6b9cc0fdaee0ee3332113934dac4a",
+    "search_workspace/candidates/c07_wip80/contract_submission.json": "97db1951c43b4df3097183986df517206972132f3e2cacd87eaf2ce05ea82dfa",
+    "search_workspace/candidates/c07_wip80/policy.py": "d92ae130c909872c95ae4ea56c22936652975598347828f7868b308ffc6646c3",
+    "search_workspace/candidates/c07_wip80/submission.json": "01aa8e39c474e17312a496fd7385dc50f2f0abe6fcf91c398463f5390a4c2ba0",
+    "search_workspace/candidates/c08_release/contract_submission.json": "3b3752c6e63d769a9dd58bd0b4151c3edebb29d132c8a2fa8d4c6b90c25dcc0b",
+    "search_workspace/candidates/c08_release/policy.py": "f3f61c00b4377adba2fe4d35a8c13adc156a1cdb71e85a80cccae78c638b0de4",
+    "search_workspace/candidates/c08_release/submission.json": "1ba1433fb513650f4e41b26289ca76f16c02e61b4ff3ea4e3a813881e831aaa5",
+    "search_workspace/candidates/c09_value_open/contract_submission.json": "3beca684dfdbc1bb82566c267cb4d0067bee068830d76b4a2697d701aa83c6d9",
+    "search_workspace/candidates/c09_value_open/policy.py": "1cd3355a421013fd4735956acc8e709956b45d04f7961bd0195ebae157c4906f",
+    "search_workspace/candidates/c09_value_open/submission.json": "902a1dbb587e2af4139c485858711c9d2246fbd654496c78cd8ba1a7d06c2936",
+    "search_workspace/candidates/c10_value_margin/contract_submission.json": "e1db6a5350bd7b4ae289144f127529553ff15310bf5053d377ca84b375c28c00",
+    "search_workspace/candidates/c10_value_margin/policy.py": "7d9c69d2e4093da7420b03371c2ad4baeb3833c9651ccae395b07a597407637b",
+    "search_workspace/candidates/c10_value_margin/submission.json": "f93c081c87bd35c431a90c3f643521d59fbf2c3e5d8d2e1cabf01aa784caefe6",
+    "search_workspace/candidates/c11_value_local/contract_submission.json": "ca4dcf4ee62c3c7cb01507c0b00cd13d29fb337655b4d22a0eec515d95f303bb",
+    "search_workspace/candidates/c11_value_local/policy.py": "a69fbe4666a52e54203ca1840bcf9120103e91878971a80a1bff37f5f4546eb6",
+    "search_workspace/candidates/c11_value_local/submission.json": "ac556b1547cc805b07c96f88423895bf044dcf6ae699b013e3641b6c4854bb50",
+    "search_workspace/candidates/c12_age480/contract_submission.json": "393553830eca047d7b8d35f13aed293b770f3210b6784835565bacb52e3da5fc",
+    "search_workspace/candidates/c12_age480/policy.py": "64972965f3a76c14a6012bac09384ef142f1044bab912f19e9ef2e928523c435",
+    "search_workspace/candidates/c12_age480/submission.json": "26a36e81b2efd8aac2be4651a95d165b641233f0a48978ab4d94c7b82cf7ba9c",
+    "search_workspace/candidates/c13_margin_s5/contract_submission.json": "02a4fa032e66818772911a61b825f5b00cf8191db0e529eb439f2739405b66be",
+    "search_workspace/candidates/c13_margin_s5/policy.py": "79dc8783982125c5062cd76d1054bc2cd7fd6dadf5aeca8a1e589a008c65f2b8",
+    "search_workspace/candidates/c13_margin_s5/submission.json": "4cbacf0c60d83be1635d21d5b45c9ad9e5dec72a03c88afc13d32a82f0b73748",
+    "search_workspace/candidates/c14_local_s5/contract_submission.json": "c9afba79409ccc75775d4622651cb1e54a69b6f2264768b71d728fb6d7368dc0",
+    "search_workspace/candidates/c14_local_s5/policy.py": "44e0d89e0b972c377853d08e6d2005c8892c27ceebfaab96ec968397fea6f6e7",
+    "search_workspace/candidates/c14_local_s5/submission.json": "35ae3cb9aea46f8439ae751fe6bbf4b2ad5cec87110628a7023df51b6ee98c96",
+    "search_workspace/candidates/c15_margin_s0/contract_submission.json": "502a4151e3d1ba016e26f0ceeca23149e54c9f329cb892efd3acfdb5c92cb7b6",
+    "search_workspace/candidates/c15_margin_s0/policy.py": "6ddaed3984ee92f90f6f954dc7f38e85181a57a3340fb5768349fe1cb723890e",
+    "search_workspace/candidates/c15_margin_s0/submission.json": "71919f804c08dd32a709a07d101343e5e7ea4fcc92663a96d71e62017529f596",
+    "search_workspace/candidates/c16_local_s10/contract_submission.json": "a0d7096e5d86b08ed4cf54aebceb11f8709607d923eb4d02a2b99c5d865dc3f3",
+    "search_workspace/candidates/c16_local_s10/policy.py": "a317dd0cdf99223450d4520979003917d250ddc4fd5e427bf3d8339a33f42223",
+    "search_workspace/candidates/c16_local_s10/submission.json": "91665c6a88af22a44a97689cf05a6bb87d821de03433f2ba64f8bd65ad5a8dc3",
+    "search_workspace/candidates/c17_value_s0/contract_submission.json": "d40d95a3ce225c26a9b8875a8b41d1868c88799aab1b10cf191845372064a0a6",
+    "search_workspace/candidates/c17_value_s0/policy.py": "60ceb5d1db117325f02fc50fb9461239d97ef0046c0a8d32d0da955896b563c4",
+    "search_workspace/candidates/c17_value_s0/submission.json": "98adbcea24362c11c65fff9d4de6bea5c926e885793f9959a6e5812f12273dc5",
+    "search_workspace/candidates/c18_value_s5/contract_submission.json": "a7f9f61dcc84672bcdb8eeb04c1df12f19b928777d1aadd8802acab19c145d15",
+    "search_workspace/candidates/c18_value_s5/policy.py": "a7a64ac4cb8263cdeb9127ee12f64ffbaa4affb9f89706bd8862292349fecf96",
+    "search_workspace/candidates/c18_value_s5/submission.json": "2073be6736c1cbaa54255f6f6780504fab7f69a36033027bee97791ba0653ab5",
+    "search_workspace/candidates/c19_terminal/contract_submission.json": "426f6dac33a0d9e39bd5e5ea37492b4b8bc0b72168e70bb89ff2f24c7338ce36",
+    "search_workspace/candidates/c19_terminal/policy.py": "b6148a83f4967deee0875c6ec720abfffa237cc9646dd0b69d9ea2aa8de820bb",
+    "search_workspace/candidates/c19_terminal/submission.json": "cd8f2411189585912b1462f36adb327c41e6f94660f2657a6ecb8ec8abaf91de",
+    "search_workspace/candidates/c20_hybrid/contract_submission.json": "308460b8f5fab485b6c44564318e8705a4630ee870d815398583ad194f88b3ab",
+    "search_workspace/candidates/c20_hybrid/policy.py": "b71cc82c961477d0a0fcbc1843fa88d647407b8ac5f6476553af81fab81bd42d",
+    "search_workspace/candidates/c20_hybrid/submission.json": "991d199e150687c54ad46a548ab1a7060153d15f0e454a51a9407196a0eda0b4",
+    "search_workspace/candidates/c21_ablate_admit/contract_submission.json": "7cb812e95f1ce8899b8bb41d859c1fe76bcd4e52b1ffae87c323e12a91250d72",
+    "search_workspace/candidates/c21_ablate_admit/policy.py": "84bb518c1755b50c2ea8a15672d63cb80f14917d59d38081eaf50e060a31dfa8",
+    "search_workspace/candidates/c21_ablate_admit/submission.json": "5044e81c9348bf01e2b5125b61c578162789ac62d129c44728e56492f3cf2078",
+    "search_workspace/candidates/c22_ablate_m2/contract_submission.json": "1d6714860d5df2117573fe9fd738f4d2412ffef195ff18e6eb6a0dd292a349e2",
+    "search_workspace/candidates/c22_ablate_m2/policy.py": "5b012ade6211508eddf9d6e4e4d72ff3c5f4860b3cc99d31bcc77d4ab00781bc",
+    "search_workspace/candidates/c22_ablate_m2/submission.json": "48e7904e55ab12b3e432482b017658a03caa4ecb84fa383075b9b1612281743b",
+    "search_workspace/candidates/c23_ablate_m3/contract_submission.json": "463483375e53d5836d13fb5d2bb69ce4d3da6f4b3798aa4b7b0e90a552279ab2",
+    "search_workspace/candidates/c23_ablate_m3/policy.py": "221d0cdaad0e8a28cf2c10fd747b391342ff6bc762b00bd40f4b8148bff45c3c",
+    "search_workspace/candidates/c23_ablate_m3/submission.json": "e27e70d16addb31a6f17d39fc9ba5794a84e45e1fa7a2d47a4fa15086aedfd0e",
+    "search_workspace/candidates/c24_ablate_m4/contract_submission.json": "05daa2b4b75924b0e4c8cd33a9d346e33fe9988457a320361f58fb28172866ae",
+    "search_workspace/candidates/c24_ablate_m4/policy.py": "9d47e85a2e623775cfdb67ef09d21ad91e88a07bb34ad4e791768f6d67391567",
+    "search_workspace/candidates/c24_ablate_m4/submission.json": "a3b4206e01208cfbd02c5e61f0b660b803f1a5f3e6150e976b22b4a3abe82616",
+    "search_workspace/candidates/fifo/contract_submission.json": "04932ef20a0090974e5f2208941505c833b58c062ec3df530241e8c305c3466a",
+    "search_workspace/candidates/fifo/policy.py": "556242daa5e0b15205074c905eb4c2b6fd79f9db86c2146fd95d2d6fcfc29b56",
+    "search_workspace/candidates/fifo/submission.json": "5b80bcfb59f14e5b07dd8a46dccd37a463eca31afdb9eab3dced3157fd33378d",
+    "search_workspace/candidates/same_family/contract_submission.json": "89f1e88439c57aa8754b57364e5d032b1c1722bd34430c1c34dd4282fd87df07",
+    "search_workspace/candidates/same_family/policy.py": "4930645c2356a5bce5311a8b013471001fd875110618d86aebdd5ba4e00240f7",
+    "search_workspace/candidates/same_family/submission.json": "a0c938c5285f9f51a05b13ab661a3e5356cda5112bf2a89541a54950ff66dadd",
+    "search_workspace/notes/batch-01.json": "5ae8cbbf80a98456e19d2b8b64a14aa97a185fa376a9fc360a22bfc95a9c44ba",
+    "search_workspace/notes/batch-02.json": "a58b7dfe9e2296d5550df7e6d6bed01d7ebf9064ecedba6a752491a301ebc80d",
+    "search_workspace/notes/batch-03.json": "a12690cb65b6d27ab2eeda003480afbdb89c94e828488b63cb69415d32ccc2fe",
+    "search_workspace/notes/decision-01.json": "2f4957007723d3f2a7b01b315b1637390fb8eab7506b383dc895e6adcf6e120f",
+    "search_workspace/notes/decision-02.json": "91cb4abf52eb7c6d134b8381cb9d606467428d4091b3d7a60f0c3e90a2fa2a16",
+    "src/soft_procedure/__init__.py": "2c79e98c4c967178b8349eabb7cd3831076a512aa52ae4b38dc4c999163642fd",
+    "src/soft_procedure/__main__.py": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279",
+    "src/soft_procedure/cli.py": "33b233c04b0cbe6ae68dfcb8c899b7c9d335c5622a818d5687e366a31511c912",
+    "src/soft_procedure/config.py": "29e0d6e1d74ad9f11e504e2fd5f0d8bf4b5da7dea4676766b241e74575d8c1c0",
+    "src/soft_procedure/economics.py": "f75c5bd489c13a687a56bf56d51b60b740c75ddc3667386df4174104c6adf06f",
+    "src/soft_procedure/experiments.py": "014eeac6261bb8bb607a05df24ce4a92893fbef0e9054daa22b6ec167a28460e",
+    "src/soft_procedure/export.py": "52d7c57ccf4e7767a54b7574a799af3462faac82a0a4d225a75ff6e8cb77bc08",
+    "src/soft_procedure/metrics.py": "1bfaa3d34278a072c3cf11912644f399483f5e8219d8bd7fe912af7d24f74a96",
+    "src/soft_procedure/model/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/soft_procedure/model/job.py": "baf83e13d8a43180bb08742d1abcc1b1b96b193db1e5800971abd1e6ed3cb9f1",
+    "src/soft_procedure/model/machine.py": "1614c0b8bdc7caf7120aa7c7931610eae989e5807f8e270447f6f6ec5ede7c69",
+    "src/soft_procedure/model/simulation.py": "13d2e80b148f0ae88bfe2a510ba55ee60971dd7ec087c1003de658d8f9858f3c",
+    "src/soft_procedure/model/source.py": "51c20ef77a56b95467bc242002236ebc9082a4b3cd798a6566a790281b4e428c",
+    "src/soft_procedure/model/station.py": "c28a3e0a55ae977e5e03675665ad9aab6a596e3f633e59e6f66c668cc4b54806",
+    "src/soft_procedure/policies.py": "3e137a1d9affd101c2c3f9ff901ebc3e7e760a513ced0ce9e7d8d35afea69254",
+    "src/soft_procedure/randomness.py": "d40af6fc6b78863cc37a905dfe59450a3dc7fe406337feb7f0a8e72ba4cd38df",
+    "src/soft_procedure/server.py": "1a6b5c21b4fcb41c846a18ff5fe43336a0e28f5d2cef1f8fbf1af832a2d1934a",
+    "src/soft_procedure/web/app.js": "879c8a13e4fe1ae7381dc9c7cdb22f8806c9d571f5d823af76e630bdb5f71626",
+    "src/soft_procedure/web/index.html": "343e400181868e37937c383bf81f81e0dd01370961145b791aa8f8526c4e54ef",
+    "src/soft_procedure/web/styles.css": "47d8d6e0c74038794dca3453b438daad5c9e05d84beff70546b4a8b029790c02",
+    "uv.lock": "0f6b4ac14aa50abaa17afc992d06a0ee90d6b72b5b2962c70e54c474d04e38ed"
+  },
+  "privacy": "raw trajectories and seed bank remain local; only summaries, row metrics and hash manifests are tracked"
+}
