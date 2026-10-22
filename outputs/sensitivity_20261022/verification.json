@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "study_id": "sensitivity-20261022-01",
+  "scope": "full-local",
+  "runs": 10200,
+  "scenario_policy_cells": 51,
+  "primary_paired_intervals": 48,
+  "hash_chain_events": 10304,
+  "frozen_study_files": 4,
+  "prior_archive_files_unchanged": 201,
+  "raw_hashes_verified": 10200,
+  "raw_seed_configuration_samples": 102,
+  "seed_commitment_verified": true,
+  "no_new_candidate_search": true,
+  "original_optimization_archive_unchanged": true
+}

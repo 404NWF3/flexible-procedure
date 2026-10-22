@@ -38,5 +38,23 @@ outputs/contribution_loop_20261022/evaluator/*
 !outputs/contribution_loop_20261022/evaluator/references/
 # Raw trajectories, preflight traces, seed banks and the complete local ZIP
 # stay ignored; the published manifest commits to their hashes.
+# Independent sensitivity study: public statistics only; private/ stays ignored.
+!outputs/sensitivity_20261022/
+outputs/sensitivity_20261022/*
+!outputs/sensitivity_20261022/protocol.json
+!outputs/sensitivity_20261022/preflight.json
+!outputs/sensitivity_20261022/preflight.log
+!outputs/sensitivity_20261022/progress.json
+!outputs/sensitivity_20261022/summary.json
+!outputs/sensitivity_20261022/runs.jsonl
+!outputs/sensitivity_20261022/events.jsonl
+!outputs/sensitivity_20261022/run.log
+!outputs/sensitivity_20261022/replications.csv
+!outputs/sensitivity_20261022/effects.csv
+!outputs/sensitivity_20261022/elasticities.csv
+!outputs/sensitivity_20261022/raw_manifest.json
+!outputs/sensitivity_20261022/verification.json
+!outputs/sensitivity_20261022/public-verification.json
+!outputs/sensitivity_20261022/report.md
 ~$*.docx
 .DS_Store

@@ -1,0 +1,218 @@
+{
+  "study_id": "sensitivity-20261022-01",
+  "status": "completed",
+  "started_at": "2026-10-22T15:26:50.284780+00:00",
+  "updated_at": "2026-10-22T15:57:40.537229+00:00",
+  "completed_runs": 10200,
+  "planned_runs": 10200,
+  "completed_cells": [
+    {
+      "policy": "fifo",
+      "scenario": "standard"
+    },
+    {
+      "policy": "same_family",
+      "scenario": "standard"
+    },
+    {
+      "policy": "c20_hybrid",
+      "scenario": "standard"
+    },
+    {
+      "policy": "fifo",
+      "scenario": "arrival_rate_minus5"
+    },
+    {
+      "policy": "same_family",
+      "scenario": "arrival_rate_minus5"
+    },
+    {
+      "policy": "c20_hybrid",
+      "scenario": "arrival_rate_minus5"
+    },
+    {
+      "policy": "fifo",
+      "scenario": "arrival_rate_minus2"
+    },
+    {
+      "policy": "same_family",
+      "scenario": "arrival_rate_minus2"
+    },
+    {
+      "policy": "c20_hybrid",
+      "scenario": "arrival_rate_minus2"
+    },
+    {
+      "policy": "fifo",
+      "scenario": "arrival_rate_plus2"
+    },
+    {
+      "policy": "same_family",
+      "scenario": "arrival_rate_plus2"
+    },
+    {
+      "policy": "c20_hybrid",
+      "scenario": "arrival_rate_plus2"
+    },
+    {
+      "policy": "fifo",
+      "scenario": "arrival_rate_plus5"
+    },
+    {
+      "policy": "same_family",
+      "scenario": "arrival_rate_plus5"
+    },
+    {
+      "policy": "c20_hybrid",
+      "scenario": "arrival_rate_plus5"
+    },
+    {
+      "policy": "fifo",
+      "scenario": "processing_speed_minus5"
+    },
+    {
+      "policy": "same_family",
+      "scenario": "processing_speed_minus5"
+    },
+    {
+      "policy": "c20_hybrid",
+      "scenario": "processing_speed_minus5"
+    },
+    {
+      "policy": "fifo",
+      "scenario": "processing_speed_minus2"
+    },
+    {
+      "policy": "same_family",
+      "scenario": "processing_speed_minus2"
+    },
+    {
+      "policy": "c20_hybrid",
+      "scenario": "processing_speed_minus2"
+    },
+    {
+      "policy": "fifo",
+      "scenario": "processing_speed_plus2"
+    },
+    {
+      "policy": "same_family",
+      "scenario": "processing_speed_plus2"
+    },
+    {
+      "policy": "c20_hybrid",
+      "scenario": "processing_speed_plus2"
+    },
+    {
+      "policy": "fifo",
+      "scenario": "processing_speed_plus5"
+    },
+    {
+      "policy": "same_family",
+      "scenario": "processing_speed_plus5"
+    },
+    {
+      "policy": "c20_hybrid",
+      "scenario": "processing_speed_plus5"
+    },
+    {
+      "policy": "fifo",
+      "scenario": "mtbf_minus5"
+    },
+    {
+      "policy": "same_family",
+      "scenario": "mtbf_minus5"
+    },
+    {
+      "policy": "c20_hybrid",
+      "scenario": "mtbf_minus5"
+    },
+    {
+      "policy": "fifo",
+      "scenario": "mtbf_minus2"
+    },
+    {
+      "policy": "same_family",
+      "scenario": "mtbf_minus2"
+    },
+    {
+      "policy": "c20_hybrid",
+      "scenario": "mtbf_minus2"
+    },
+    {
+      "policy": "fifo",
+      "scenario": "mtbf_plus2"
+    },
+    {
+      "policy": "same_family",
+      "scenario": "mtbf_plus2"
+    },
+    {
+      "policy": "c20_hybrid",
+      "scenario": "mtbf_plus2"
+    },
+    {
+      "policy": "fifo",
+      "scenario": "mtbf_plus5"
+    },
+    {
+      "policy": "same_family",
+      "scenario": "mtbf_plus5"
+    },
+    {
+      "policy": "c20_hybrid",
+      "scenario": "mtbf_plus5"
+    },
+    {
+      "policy": "fifo",
+      "scenario": "mttr_minus5"
+    },
+    {
+      "policy": "same_family",
+      "scenario": "mttr_minus5"
+    },
+    {
+      "policy": "c20_hybrid",
+      "scenario": "mttr_minus5"
+    },
+    {
+      "policy": "fifo",
+      "scenario": "mttr_minus2"
+    },
+    {
+      "policy": "same_family",
+      "scenario": "mttr_minus2"
+    },
+    {
+      "policy": "c20_hybrid",
+      "scenario": "mttr_minus2"
+    },
+    {
+      "policy": "fifo",
+      "scenario": "mttr_plus2"
+    },
+    {
+      "policy": "same_family",
+      "scenario": "mttr_plus2"
+    },
+    {
+      "policy": "c20_hybrid",
+      "scenario": "mttr_plus2"
+    },
+    {
+      "policy": "fifo",
+      "scenario": "mttr_plus5"
+    },
+    {
+      "policy": "same_family",
+      "scenario": "mttr_plus5"
+    },
+    {
+      "policy": "c20_hybrid",
+      "scenario": "mttr_plus5"
+    }
+  ],
+  "active_cell": null,
+  "last_event_sha256": "3d7358afcb0d668b6ee2a9a025b4cfa80391a3e28237687e0a26b6190066e8d9",
+  "protocol_sha256": "d9a61bbcbfeca34143881a05a0d8511f80e6048e3983504ce664d0895dfa1b74",
+  "finished_at": "2026-10-22T15:57:40.537199+00:00"
+}
