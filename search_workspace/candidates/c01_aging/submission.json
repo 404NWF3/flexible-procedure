@@ -1,0 +1,34 @@
+{
+  "id": "c01_aging",
+  "label": "同类 + 老化60",
+  "parents": [
+    "same_family"
+  ],
+  "parameters": {
+    "dispatch": "family",
+    "aging": 60
+  },
+  "hypothesis": "给长等工件优先权，检验换模节约与等待之间的经济取舍。",
+  "expected_tradeoffs": "可能增加换模费用，但改善长等待产品的交付。",
+  "mechanism": "diverse",
+  "wave": "diverse",
+  "reference": false,
+  "source": "search_workspace/candidates/c01_aging/policy.py",
+  "bundle_sha256": "d0a8268c13ecedc4869d9f65bb71e5fb7b6d6abe4bcbed1d2c80144be98f9fe5",
+  "registered_at": "2026-10-22T14:11:05.675807+00:00",
+  "status": "registered",
+  "stages": {},
+  "interface_version": "seccomp-json-v1",
+  "training_provenance": "deterministic analytical rules; no external training data",
+  "randomization_rule": "deterministic; candidate has no environment seed access",
+  "contract_id": "soft-procedure-contribution-loop-v1",
+  "contract_sha256": "27232fd7826ebca1e73fe0a0b3e87381da39db2fd007795cf9240b9f527f7449",
+  "dependency_lock": "f6baad50c4cbe225874a9d354042d8857ebc53635779b7e07d3152f60345f93f",
+  "resource_limits": {
+    "decision_cpu_ms": 250,
+    "decision_wall_ms": 1000,
+    "path_cpu_s": 120,
+    "path_wall_s": 300,
+    "memory_mib": 2048
+  }
+}

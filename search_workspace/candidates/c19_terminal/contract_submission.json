@@ -1,0 +1,26 @@
+{
+  "candidate_id": "c19_terminal",
+  "contract_id": "soft-procedure-contribution-loop-v1",
+  "parent_ids": [
+    "c10_value_margin"
+  ],
+  "hypothesis": "最后60分钟停止新放行，最后120分钟优先名义剩余时间可在截止前完成的工件。",
+  "mechanism": "combination",
+  "interfaces": [
+    "dispatch",
+    "admission",
+    "release",
+    "defer"
+  ],
+  "parameters": {
+    "dispatch": "margin",
+    "admission": "value",
+    "terminal_window": 120,
+    "cutoff": 60
+  },
+  "bundle_sha256": "b6148a83f4967deee0875c6ec720abfffa237cc9646dd0b69d9ea2aa8de820bb",
+  "interface_version": "seccomp-json-v1",
+  "training_provenance": "deterministic analytical rules; no external training data",
+  "randomization_rule": "deterministic; candidate has no environment seed access",
+  "expected_tradeoffs": "截止时间是合法观测，但策略收益只适用于本40小时窗口。"
+}

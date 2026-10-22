@@ -1,0 +1,124 @@
+[
+  {
+    "id": "c09_value_open",
+    "label": "贡献准入 · 不限WIP",
+    "parents": [
+      "c08_release"
+    ],
+    "parameters": {
+      "dispatch": "family",
+      "admission": "value"
+    },
+    "hypothesis": "低在制限制已显示减益；保留外部经济准入，取消全线令牌上限，恢复合批和设备供料空间。",
+    "expected_tradeoffs": "可能有较多在制积压，保留全量披露。",
+    "mechanism": "refinement",
+    "wave": "refinement"
+  },
+  {
+    "id": "c10_value_margin",
+    "label": "贡献准入 + 剩余排序",
+    "parents": [
+      "c08_release",
+      "c02_margin"
+    ],
+    "parameters": {
+      "dispatch": "margin",
+      "admission": "value"
+    },
+    "hypothesis": "经济准入与剩余贡献率派工可能互补，避免同类优先锁定低贡献产品。",
+    "expected_tradeoffs": "切换产品可能增加换模。",
+    "mechanism": "refinement",
+    "wave": "refinement"
+  },
+  {
+    "id": "c11_value_local",
+    "label": "贡献准入 + 局部排序",
+    "parents": [
+      "c08_release",
+      "c03_local"
+    ],
+    "parameters": {
+      "dispatch": "local_value",
+      "admission": "value"
+    },
+    "hypothesis": "把外部选择和工位选择都与当前机时收益关联。",
+    "expected_tradeoffs": "局部贪心可能影响全线。",
+    "mechanism": "refinement",
+    "wave": "refinement"
+  },
+  {
+    "id": "c12_age480",
+    "label": "同类 + 老化480",
+    "parents": [
+      "c01_aging"
+    ],
+    "parameters": {
+      "dispatch": "family",
+      "aging": 480
+    },
+    "hypothesis": "60分钟老化频繁打断合批；延长至480分钟，检验较弱老化是否保留贡献。",
+    "expected_tradeoffs": "仍可能牺牲换模节约换取产品等待改善。",
+    "mechanism": "refinement",
+    "wave": "refinement"
+  },
+  {
+    "id": "c13_margin_s5",
+    "label": "剩余排序 · 换模权重5",
+    "parents": [
+      "c02_margin"
+    ],
+    "parameters": {
+      "dispatch": "margin",
+      "setup_weight": 5
+    },
+    "hypothesis": "更强惩罚换模占用，检验收入排序能否同时保留合批。",
+    "expected_tradeoffs": "可能接近同类优先且长期偏向同一产品。",
+    "mechanism": "refinement",
+    "wave": "refinement"
+  },
+  {
+    "id": "c14_local_s5",
+    "label": "局部排序 · 换模权重5",
+    "parents": [
+      "c03_local"
+    ],
+    "parameters": {
+      "dispatch": "local_value",
+      "setup_weight": 5
+    },
+    "hypothesis": "局部经济排序提高换模惩罚，减少切换导致的成本。",
+    "expected_tradeoffs": "产品服务偏向可能加剧。",
+    "mechanism": "refinement",
+    "wave": "refinement"
+  },
+  {
+    "id": "c15_margin_s0",
+    "label": "剩余排序 · 不惩罚切换",
+    "parents": [
+      "c02_margin"
+    ],
+    "parameters": {
+      "dispatch": "margin",
+      "setup_weight": 0
+    },
+    "hypothesis": "分母不额外惩罚换模，检查更积极切换是否能增加高价值完工收入。",
+    "expected_tradeoffs": "实际换模费用仍照计，可能得不偿失。",
+    "mechanism": "refinement",
+    "wave": "refinement"
+  },
+  {
+    "id": "c16_local_s10",
+    "label": "局部排序 · 换模权重10",
+    "parents": [
+      "c14_local_s5"
+    ],
+    "parameters": {
+      "dispatch": "local_value",
+      "setup_weight": 10
+    },
+    "hypothesis": "进一步加强同类连续性，检验局部经济规则的稳定区域。",
+    "expected_tradeoffs": "对长期等待的产品无额外保障。",
+    "mechanism": "refinement",
+    "wave": "refinement"
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "candidate_id": "c16_local_s10",
+  "contract_id": "soft-procedure-contribution-loop-v1",
+  "parent_ids": [
+    "c14_local_s5"
+  ],
+  "hypothesis": "进一步加强同类连续性，检验局部经济规则的稳定区域。",
+  "mechanism": "refinement",
+  "interfaces": [
+    "dispatch",
+    "admission",
+    "release",
+    "defer"
+  ],
+  "parameters": {
+    "dispatch": "local_value",
+    "setup_weight": 10
+  },
+  "bundle_sha256": "a317dd0cdf99223450d4520979003917d250ddc4fd5e427bf3d8339a33f42223",
+  "interface_version": "seccomp-json-v1",
+  "training_provenance": "deterministic analytical rules; no external training data",
+  "randomization_rule": "deterministic; candidate has no environment seed access",
+  "expected_tradeoffs": "对长期等待的产品无额外保障。"
+}

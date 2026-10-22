@@ -1,0 +1,123 @@
+[
+  {
+    "id": "c01_aging",
+    "label": "同类 + 老化60",
+    "parents": [
+      "same_family"
+    ],
+    "parameters": {
+      "dispatch": "family",
+      "aging": 60
+    },
+    "hypothesis": "给长等工件优先权，检验换模节约与等待之间的经济取舍。",
+    "expected_tradeoffs": "可能增加换模费用，但改善长等待产品的交付。",
+    "mechanism": "diverse",
+    "wave": "diverse"
+  },
+  {
+    "id": "c02_margin",
+    "label": "剩余贡献率",
+    "parents": [
+      "fifo"
+    ],
+    "parameters": {
+      "dispatch": "margin"
+    },
+    "hypothesis": "按剩余名义加工时间的单位贡献排序，提高有效机时的收入。",
+    "expected_tradeoffs": "可能更偏向高价短路线产品。",
+    "mechanism": "diverse",
+    "wave": "diverse"
+  },
+  {
+    "id": "c03_local",
+    "label": "当前工位贡献率",
+    "parents": [
+      "fifo"
+    ],
+    "parameters": {
+      "dispatch": "local_value"
+    },
+    "hypothesis": "按当前工位的加工与换模占用衡量贡献，优先释放局部能力。",
+    "expected_tradeoffs": "局部高分可能增加后续拥堵。",
+    "mechanism": "diverse",
+    "wave": "diverse"
+  },
+  {
+    "id": "c04_internal",
+    "label": "内部交接优先",
+    "parents": [
+      "fifo"
+    ],
+    "parameters": {
+      "admission": "internal"
+    },
+    "hypothesis": "下游先接内部在制品，减少上游占机阻塞，释放M1产能。",
+    "expected_tradeoffs": "线外毛坯会等待更久。",
+    "mechanism": "diverse",
+    "wave": "diverse"
+  },
+  {
+    "id": "c05_flow_family",
+    "label": "交接优先 + 同类",
+    "parents": [
+      "same_family",
+      "c04_internal"
+    ],
+    "parameters": {
+      "dispatch": "family",
+      "admission": "internal"
+    },
+    "hypothesis": "在疏通内部流动后保留同类换模节约，观察两种机制的互补。",
+    "expected_tradeoffs": "可能改变产品结构，不能把总产量当收益。",
+    "mechanism": "diverse",
+    "wave": "diverse"
+  },
+  {
+    "id": "c06_wip40",
+    "label": "全线在制 ≤ 40",
+    "parents": [
+      "c05_flow_family"
+    ],
+    "parameters": {
+      "dispatch": "family",
+      "admission": "internal",
+      "cap": 40
+    },
+    "hypothesis": "用40个全线令牌减少线内拥堵，同时保证外部到达完整入账。",
+    "expected_tradeoffs": "过低在制可能让设备缺料。",
+    "mechanism": "diverse",
+    "wave": "diverse"
+  },
+  {
+    "id": "c07_wip80",
+    "label": "全线在制 ≤ 80",
+    "parents": [
+      "c05_flow_family"
+    ],
+    "parameters": {
+      "dispatch": "family",
+      "admission": "internal",
+      "cap": 80
+    },
+    "hypothesis": "80个令牌保留合批选择空间，检验比40更高在制的收益。",
+    "expected_tradeoffs": "线内等待可能上升。",
+    "mechanism": "diverse",
+    "wave": "diverse"
+  },
+  {
+    "id": "c08_release",
+    "label": "按贡献率放行",
+    "parents": [
+      "c07_wip80"
+    ],
+    "parameters": {
+      "dispatch": "family",
+      "admission": "value",
+      "cap": 80
+    },
+    "hypothesis": "内部交接优先，外部按单位剩余机时贡献择优放行。",
+    "expected_tradeoffs": "低贡献产品可能更多滞留线外。",
+    "mechanism": "diverse",
+    "wave": "diverse"
+  }
+]

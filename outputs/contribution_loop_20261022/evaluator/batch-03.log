@@ -1,0 +1,16 @@
+{"candidate": "c17_value_s0", "stage": "smoke", "valid": true, "mean": 68489.91572476833}
+{"candidate": "c17_value_s0", "stage": "development", "valid": true, "mean": 76853.34377914302}
+{"candidate": "c18_value_s5", "stage": "smoke", "valid": true, "mean": 120537.62513469018}
+{"candidate": "c18_value_s5", "stage": "development", "valid": true, "mean": 114497.19648743908}
+{"candidate": "c19_terminal", "stage": "smoke", "valid": true, "mean": 141571.03157287664}
+{"candidate": "c19_terminal", "stage": "development", "valid": true, "mean": 143700.62147890154}
+{"candidate": "c20_hybrid", "stage": "smoke", "valid": true, "mean": 141915.71775471495}
+{"candidate": "c20_hybrid", "stage": "development", "valid": true, "mean": 143856.5866284141}
+{"candidate": "c21_ablate_admit", "stage": "smoke", "valid": true, "mean": 92855.31136076506}
+{"candidate": "c21_ablate_admit", "stage": "development", "valid": true, "mean": 91416.05090631114}
+{"candidate": "c22_ablate_m2", "stage": "smoke", "valid": true, "mean": 141915.71775471495}
+{"candidate": "c22_ablate_m2", "stage": "development", "valid": true, "mean": 143856.5866284141}
+{"candidate": "c23_ablate_m3", "stage": "smoke", "valid": true, "mean": 141915.71775471495}
+{"candidate": "c23_ablate_m3", "stage": "development", "valid": true, "mean": 143856.5866284141}
+{"candidate": "c24_ablate_m4", "stage": "smoke", "valid": true, "mean": 141915.71775471495}
+{"candidate": "c24_ablate_m4", "stage": "development", "valid": true, "mean": 143856.5866284141}

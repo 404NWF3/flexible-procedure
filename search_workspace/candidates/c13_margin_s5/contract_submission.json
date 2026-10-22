@@ -1,0 +1,24 @@
+{
+  "candidate_id": "c13_margin_s5",
+  "contract_id": "soft-procedure-contribution-loop-v1",
+  "parent_ids": [
+    "c02_margin"
+  ],
+  "hypothesis": "更强惩罚换模占用，检验收入排序能否同时保留合批。",
+  "mechanism": "refinement",
+  "interfaces": [
+    "dispatch",
+    "admission",
+    "release",
+    "defer"
+  ],
+  "parameters": {
+    "dispatch": "margin",
+    "setup_weight": 5
+  },
+  "bundle_sha256": "79dc8783982125c5062cd76d1054bc2cd7fd6dadf5aeca8a1e589a008c65f2b8",
+  "interface_version": "seccomp-json-v1",
+  "training_provenance": "deterministic analytical rules; no external training data",
+  "randomization_rule": "deterministic; candidate has no environment seed access",
+  "expected_tradeoffs": "可能接近同类优先且长期偏向同一产品。"
+}

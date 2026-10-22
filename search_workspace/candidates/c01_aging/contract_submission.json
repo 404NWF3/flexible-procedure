@@ -1,0 +1,24 @@
+{
+  "candidate_id": "c01_aging",
+  "contract_id": "soft-procedure-contribution-loop-v1",
+  "parent_ids": [
+    "same_family"
+  ],
+  "hypothesis": "给长等工件优先权，检验换模节约与等待之间的经济取舍。",
+  "mechanism": "diverse",
+  "interfaces": [
+    "dispatch",
+    "admission",
+    "release",
+    "defer"
+  ],
+  "parameters": {
+    "dispatch": "family",
+    "aging": 60
+  },
+  "bundle_sha256": "d0a8268c13ecedc4869d9f65bb71e5fb7b6d6abe4bcbed1d2c80144be98f9fe5",
+  "interface_version": "seccomp-json-v1",
+  "training_provenance": "deterministic analytical rules; no external training data",
+  "randomization_rule": "deterministic; candidate has no environment seed access",
+  "expected_tradeoffs": "可能增加换模费用，但改善长等待产品的交付。"
+}
