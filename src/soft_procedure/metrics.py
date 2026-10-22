@@ -3,6 +3,7 @@ from dataclasses import asdict
 from statistics import mean
 
 from .config import PRODUCT_MIX
+from .economics import machine_chargeable_hours
 
 
 def average(values):
@@ -40,6 +41,12 @@ def collect_result(sim):
     assert physical_wip == last["wip"], "在制品占位不守恒"
     assert all(s.max_queue <= s.capacity for s in sim.stations.values()), "缓冲区越界"
     assert all(abs(sum(m["state_times"].values()) - horizon) < 1e-7 for m in machines), "状态时间不守恒"
+    machine_costs = []
+    for machine in machines:
+        hours = machine_chargeable_hours(sim.config, machine["state_times"])
+        machine_costs.append({"machine": machine["name"], "station": machine["station"],
+                              "chargeable_hours": hours,
+                              "operating_cost": hours * sim.config.operating_cost_per_hour if hours is not None else None})
     return {
         "seed": sim.seed, "config": sim.config.to_dict(),
         "summary": {
@@ -53,10 +60,20 @@ def collect_result(sim):
             "repair_share": counts["repair"], "blocked_share": counts["blocked"],
             "setup_count": sum(m.setup_count for m in sim.machines),
             "failure_count": sum(m.failure_count for m in sim.machines),
+            **{key: last[key] for key in ("sales_revenue", "operating_cost", "operating_contribution")},
         },
         "products": {p: {"arrived": sum(j.product == p for j in sim.jobs),
-                         "completed": sum(j.product == p for j in sim.completed), "mix": ratio}
+                         "completed": last["products"][p], "mix": ratio,
+                         "unit_price": sim.config.product_prices[p],
+                         "sales_revenue": last["products"][p] * sim.config.product_prices[p]}
                      for p, ratio in PRODUCT_MIX.items()},
+        "economics": {
+            "currency": "CNY", "period_hours": horizon / 60,
+            "operating_cost_basis": sim.config.operating_cost_basis,
+            "installed_equipment_value": len(machines) * sim.config.machine_purchase_cost,
+            "machine_costs": machine_costs,
+            "line_chargeable_hours": horizon / 60 if sim.config.operating_cost_basis == "line_calendar" else None,
+        },
         "stations": stations, "machines": machines, "samples": sim.samples,
         "jobs": [asdict(j) for j in sim.jobs],
         "queue_logs": {n: s.queue_log for n, s in sim.stations.items()},

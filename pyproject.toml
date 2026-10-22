@@ -12,3 +12,8 @@ soft-procedure = "soft_procedure.cli:main"
 [build-system]
 requires = ["uv_build>=0.12.17,<0.13.0"]
 build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "sufe-cli==0.7.8",
+]

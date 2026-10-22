@@ -4,7 +4,8 @@ from datetime import datetime, timezone
 from math import sqrt
 from statistics import mean, stdev
 
-from .config import ASSUMPTIONS, PRODUCT_MIX, ROUTES, SimulationConfig
+from .config import ASSUMPTIONS, OPERATING_COST_BASES, PRODUCT_MIX, ROUTES, SimulationConfig
+from .economics import investment_comparison
 from .model.simulation import run_simulation
 from .model.source import arrival_schedule
 
@@ -53,10 +54,11 @@ def run_experiments(config=None, replications=10, seed=42, progress=None):
     seeds = [seed + i for i in range(replications)]
     schedules = {s: arrival_schedule(base, s) for s in seeds}
     suite = {
-        "schema_version": 1, "generated_at": datetime.now(timezone.utc).isoformat(),
+        "schema_version": 2, "generated_at": datetime.now(timezone.utc).isoformat(),
         "engine": "SimPy", "base_config": base.to_dict(), "replications": replications,
         "seeds": seeds, "assumptions": ASSUMPTIONS,
         "routes": ROUTES, "product_mix": PRODUCT_MIX,
+        "operating_cost_bases": OPERATING_COST_BASES,
         "source": {"document": "案例二十二.docx", "conversation": "chatgpt-conversation://6ad0c956-78d4-83ec-82fd-91e8595d09a4",
                    "description": "本地原始案例参数 + 参考对话的建模口径；所有图表为 SimPy 实际运行结果"},
         "scenarios": [],
@@ -85,18 +87,25 @@ def run_experiments(config=None, replications=10, seed=42, progress=None):
                 "max_queue": max(rows[j]["max_queue"] for rows in station_rows),
             })
         samples = [{"time": sample["time"], **{key: mean(rows[j][key] for rows in sample_rows)
-                    for key in ("arrived", "completed", "external", "wip")}}
+                    for key in ("arrived", "completed", "external", "wip", "sales_revenue", "operating_cost", "operating_contribution")}}
                    for j, sample in enumerate(representative["samples"])]
         products = {p: estimate([row[p]["completed"] for row in product_rows]) for p in PRODUCT_MIX}
+        revenues = {p: estimate([row[p]["sales_revenue"] for row in product_rows]) for p in PRODUCT_MIX}
         suite["scenarios"].append({"id": name, "name": label, "description": description,
             "config": current.to_dict(), "summary": summary, "stations": stations,
-            "products": products, "samples": samples, "runs": runs, "representative": representative})
+            "products": products, "product_revenues": revenues,
+            "samples": samples, "runs": runs, "representative": representative})
     baseline = suite["scenarios"][0]
     for scenario in suite["scenarios"]:
         paired = estimate([a["completed"] - b["completed"] for a, b in zip(scenario["runs"], baseline["runs"])])
         base_output = baseline["summary"]["completed"]["mean"]
         scenario["paired_output_difference"] = paired
         scenario["output_change_pct"] = 100 * paired["mean"] / base_output if base_output else None
+        scenario["paired_contribution_difference"] = estimate([
+            a["operating_contribution"] - b["operating_contribution"]
+            for a, b in zip(scenario["runs"], baseline["runs"])])
+        scenario["investment"] = investment_comparison(
+            SimulationConfig.from_dict(scenario["config"]), base, scenario["paired_contribution_difference"])
     return suite
 
 

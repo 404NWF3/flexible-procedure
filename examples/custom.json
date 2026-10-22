@@ -5,5 +5,9 @@
   "aging_threshold": 120,
   "machine_counts": {"M1": 2, "M2": 1, "M3": 2, "M4": 1, "M5": 2},
   "buffer_capacity": 50,
-  "failures_enabled": true
+  "failures_enabled": true,
+  "product_prices": {"P1": 200, "P2": 180, "P3": 250, "P4": 300},
+  "machine_purchase_cost": 500000,
+  "operating_cost_per_hour": 100,
+  "operating_cost_basis": "machine_active"
 }

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <meta name="description" content="基于 SimPy 的多品种柔性生产线决策仿真工作台。比较产能、排队、换模与设备故障。">
+  <meta name="description" content="基于 SimPy 的多品种柔性生产线决策仿真工作台。比较产能、销售收入、运行成本与扩容回收期。">
   <title>Flexline · 柔性生产线决策仿真</title>
   <style>__STYLES__</style>
 </head>
@@ -16,6 +16,7 @@
   <p class="nav-label">实验工作台</p>
   <nav aria-label="主导航">
     <a href="#overview" data-view="overview"><span>◫</span>仿真总览</a>
+    <a href="#economics" data-view="economics"><span>¥</span>成本与收益</a>
     <a href="#comparison" data-view="comparison"><span>▤</span>方案对比 <b>05</b></a>
     <a href="#timeline" data-view="timeline"><span>▥</span>机床时间线</a>
     <a href="#model" data-view="model"><span>⌘</span>模型与假设</a>
@@ -33,8 +34,9 @@
 
     <section id="view-overview" class="view">
       <div class="metric-grid" id="metrics"></div>
+      <div class="economics-strip" id="economics-strip" aria-label="当前方案经济指标"></div>
       <div class="chart-grid">
-        <article class="panel trend-panel"><div class="panel-heading"><div><h2>产出趋势</h2><p id="trend-subtitle">各时点累计成品数 · 重复实验均值</p></div><div class="segmented" aria-label="趋势指标"><button class="active" data-trend="completed">累计产出</button><button data-trend="inventory">在制与待投料</button></div></div><div id="trend-chart" class="trend-chart"></div><div class="chart-legend" id="trend-legend"></div></article>
+        <article class="panel trend-panel"><div class="panel-heading"><div><h2>产出与经营趋势</h2><p id="trend-subtitle">各时点累计成品数 · 重复实验均值</p></div><div class="segmented" aria-label="趋势指标"><button class="active" data-trend="completed">累计产出</button><button data-trend="inventory">在制与待投料</button><button data-trend="economics">收入与成本</button></div></div><div id="trend-chart" class="trend-chart"></div><div class="chart-legend" id="trend-legend"></div></article>
         <article class="panel product-panel"><div class="panel-heading"><div><h2>产品产出</h2><p>四种产品 · 成品均值</p></div><span class="small-tag">P1—P4</span></div><div id="product-chart"></div><div class="subtle-note">产出结构受工艺路线与调度影响，<br>不等于毛坯到达比例。</div></article>
       </div>
       <article class="panel replay-panel"><div class="panel-heading"><div><h2>产线运行回放 <span class="small-tag">第 1 次重复</span></h2><p id="replay-subtitle"></p></div><div id="product-filters" class="product-filters" role="group" aria-label="高亮产品路线"></div></div><div class="flow-meta"><span id="route-description"></span><span id="replay-inventory"></span></div><div id="production-line" class="production-line"></div><div class="playback"><button id="play-button" class="icon-button" aria-label="播放回放">▶</button><span id="playback-time" class="mono"></span><input id="time-slider" type="range" min="0" max="2400" step="20" value="0" aria-label="回放时间"><span class="playback-end" id="playback-end"></span><label class="speed-label">速度<select id="playback-speed" aria-label="回放速度"><option value="1">1×</option><option value="2">2×</option><option value="4">4×</option></select></label></div><div class="state-legend" id="state-legend"></div></article>
@@ -45,9 +47,20 @@
       <div id="insight" class="insight"></div>
     </section>
 
+    <section id="view-economics" class="view" hidden>
+      <div class="section-intro"><div><div class="eyebrow">PRODUCTION ECONOMICS</div><h2>从完工产量，到经营贡献</h2><p id="economics-subtitle"></p></div><span class="small-tag">人民币 · 元</span></div>
+      <div class="metric-grid economic-metrics" id="economic-metrics"></div>
+      <div class="economic-grid">
+        <article class="panel"><div class="panel-heading"><div><h2>产品收入构成</h2><p>实际完工结构 × 各产品售价 · 重复实验均值</p></div></div><div id="revenue-table" class="table-scroll"></div><p class="subtle-note">假设成品全部售出；期末在制品与线外毛坯不计销售收入。</p></article>
+        <article class="panel"><div class="panel-heading"><div><h2>运行成本如何计入</h2><p id="cost-basis-label"></p></div></div><div id="cost-ledger"></div><p class="subtle-note">经营贡献 = 销售收入 − 运行成本。材料、人工、折旧、税费及其他未提供的费用未计入，不代表净利润。</p></article>
+      </div>
+      <article class="panel"><div class="panel-heading"><div><h2>五个方案的经济表现</h2><p>经营贡献均值与 95% t 区间 · 购置投资单列</p></div><button class="text-button" id="download-economics">下载经济对比 CSV ↓</button></div><div id="economics-chart" class="horizontal-chart"></div><div id="economics-table" class="table-scroll"></div></article>
+      <article class="panel investment-panel"><div class="panel-heading"><div><h2>M4 扩容能否收回投资</h2><p>始终与当前基准比较 · 简单回收期按配对平均经营贡献增量计算</p></div><span class="small-tag">增量分析</span></div><div id="investment-analysis"></div><p class="subtle-note">回收期假设后续每个观察期重复同等收益，未考虑贴现、寿命与产线爬坡。消除换模、无故障是理想对照，实施费用未知。</p></article>
+    </section>
+
     <section id="view-comparison" class="view" hidden>
-      <article class="panel"><div class="panel-heading"><div><h2>同一条产线，五种决策</h2><p>点估计与 95% t 置信区间 · 每个种子对应一组配对实验</p></div><span class="small-tag">单因素对照</span></div><div id="comparison-chart"></div><div id="comparison-table" class="table-scroll"></div></article>
-      <div class="comparison-notes"><article class="panel"><h3>如何读差值</h3><p>相对基准的产量差值按同种子逐轮相减，再计算均值和 95% t 区间。区间跨越 0 时，当前重复实验不足以确认变化方向。</p></article><article class="panel"><h3>产能之外，还要看什么</h3><p>同类优先可能延长部分产品的等待。消除换模、关闭故障是理想对照；最终选择还需结合成本、交期和维护约束。</p></article></div>
+      <article class="panel"><div class="panel-heading"><div><h2>同一条产线，五种决策</h2><p>点估计与 95% t 置信区间 · 每个种子对应一组配对实验</p></div><div class="segmented" aria-label="方案比较指标"><button class="active" data-comparison="completed">成品产量</button><button data-comparison="operating_contribution">经营贡献</button></div></div><div id="comparison-chart"></div><div id="comparison-table" class="table-scroll"></div></article>
+      <div class="comparison-notes"><article class="panel"><h3>如何读差值</h3><p>相对基准的产量和经营贡献均按同种子逐轮相减，再计算均值和 95% t 区间。区间跨越 0 时，当前重复实验不足以确认变化方向。</p></article><article class="panel"><h3>产能之外，还要看什么</h3><p>产品售价不同，产量排名不一定等于经营贡献排名。同类优先也可能延长等待。<a href="#economics">查看成本、收益与扩容回收期 ↗</a></p></article></div>
       <article class="panel"><div class="panel-heading"><div><h2>逐轮实验记录</h2><p>当前选中方案 · 原始样本用于复核均值与波动</p></div><button class="text-button" id="download-runs">下载逐轮 CSV ↓</button></div><div id="runs-table" class="table-scroll"></div></article>
     </section>
 
@@ -65,8 +78,8 @@
     <footer><span><b>FLEXLINE</b> / 决策由证据开始</span><span>分钟为统一时间单位 · SimPy 实际运行结果</span></footer>
   </main>
 </div>
-<dialog id="config-dialog" class="config-dialog"><form id="config-form"><div class="dialog-heading"><div class="eyebrow">EXPERIMENT SETTINGS</div><h2>配置下一次实验</h2><button type="button" class="close-button" data-close="config-dialog" aria-label="关闭参数配置">×</button><p>一次运行包含基准与四个对照方案。</p></div><div class="form-body"><h3>实验设置</h3><div class="form-grid" id="main-fields"></div><h3>机床与缓冲</h3><div id="machine-fields" class="machine-fields"></div><div class="form-grid" id="resource-fields"></div><h3>到达与故障</h3><div class="form-grid" id="arrival-fields"></div><label class="checkbox-field"><input type="checkbox" name="failures_enabled"> 启用设备故障</label><label class="full-field">基准调度规则<select name="policy_name"><option value="fifo">FIFO · 先入先出</option><option value="same_family">同类优先</option><option value="aging">超时优先 · 兼顾同类</option></select></label><p class="subtle-note">超时阈值、回放采样间隔与其他参数可在 JSON 配置中修改。M4 对照始终在当前基准上增加 1 台。</p><div id="form-error" class="form-error" role="alert" hidden></div></div><div class="dialog-footer"><button type="button" class="text-button" id="reset-config">恢复案例参数</button><button type="submit" class="button primary" id="run-button">▶ 运行 5 组实验</button></div></form></dialog>
-<dialog id="export-dialog" class="export-dialog"><div class="dialog-heading"><h2>导出本次实验</h2><button class="close-button" data-close="export-dialog" aria-label="关闭导出">×</button><p>保留当前数据，方便分享与复核。</p></div><div class="export-options"><button data-export="html"><b>HTML 交互快照 <span>↗</span></b><small>内嵌结果，可离线查看、筛选和回放</small></button><button data-export="json"><b>JSON 完整面板数据 <span>↓</span></b><small>方案、统计、逐轮数据与第一轮回放</small></button><button data-export="csv"><b>CSV 逐轮汇总 <span>↓</span></b><small>每方案每次重复的指标，UTF-8 编码</small></button></div></dialog>
+<dialog id="config-dialog" class="config-dialog"><form id="config-form"><div class="dialog-heading"><div class="eyebrow">EXPERIMENT SETTINGS</div><h2>配置下一次实验</h2><button type="button" class="close-button" data-close="config-dialog" aria-label="关闭参数配置">×</button><p>一次运行包含基准与四个对照方案。</p></div><div class="form-body"><h3>实验设置</h3><div class="form-grid" id="main-fields"></div><h3>售价与成本</h3><div class="form-grid" id="price-fields"></div><div class="form-grid cost-fields" id="cost-fields"></div><label class="full-field">运行成本计费口径<select name="operating_cost_basis" id="cost-basis-select"></select></label><p class="subtle-note">默认仅加工与换模计费，维修、阻塞、空闲不计费。购置投资单独列示，经营贡献仅扣除已知运行成本。</p><h3>机床与缓冲</h3><div id="machine-fields" class="machine-fields"></div><div class="form-grid" id="resource-fields"></div><h3>到达与故障</h3><div class="form-grid" id="arrival-fields"></div><label class="checkbox-field"><input type="checkbox" name="failures_enabled"> 启用设备故障</label><label class="full-field">基准调度规则<select name="policy_name"><option value="fifo">FIFO · 先入先出</option><option value="same_family">同类优先</option><option value="aging">超时优先 · 兼顾同类</option></select></label><p class="subtle-note">超时阈值、回放采样间隔与其他参数可在 JSON 配置中修改。M4 对照始终在当前基准上增加 1 台。</p><div id="form-error" class="form-error" role="alert" hidden></div></div><div class="dialog-footer"><button type="button" class="text-button" id="reset-config">恢复案例参数</button><button type="submit" class="button primary" id="run-button">▶ 运行 5 组实验</button></div></form></dialog>
+<dialog id="export-dialog" class="export-dialog"><div class="dialog-heading"><h2>导出本次实验</h2><button class="close-button" data-close="export-dialog" aria-label="关闭导出">×</button><p>保留当前数据，方便分享与复核。</p></div><div class="export-options"><button data-export="html"><b>HTML 交互快照 <span>↗</span></b><small>内嵌结果，可离线查看、筛选和回放</small></button><button data-export="json"><b>JSON 完整面板数据 <span>↓</span></b><small>方案、统计、逐轮数据与第一轮回放</small></button><button data-export="csv"><b>CSV 逐轮汇总 <span>↓</span></b><small>产量、收入、成本与经营贡献，UTF-8 编码</small></button><button data-export="economics"><b>CSV 经济对比 <span>↓</span></b><small>经营贡献配对区间、新增投资与回收期</small></button></div></dialog>
 <div id="toast" class="toast" role="status" hidden></div>
 <script type="application/json" id="simulation-data">__SIMULATION_DATA__</script>
 <script>__SCRIPT__</script>

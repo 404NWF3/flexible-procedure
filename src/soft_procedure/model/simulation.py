@@ -2,6 +2,7 @@
 import simpy
 
 from ..config import ROUTES, STATIONS, SimulationConfig
+from ..economics import economic_snapshot
 from ..metrics import collect_result
 from ..randomness import processing_duration, stream
 from .machine import Machine
@@ -43,10 +44,13 @@ class Simulation:
 
     def snapshot(self):
         external = sum(job.admitted_at is None for job in self.jobs)
+        completed_by_product = {product: sum(j.product == product for j in self.completed) for product in ROUTES}
         return {
             "time": float(self.env.now), "arrived": len(self.jobs), "completed": len(self.completed),
             "external": external, "wip": len(self.jobs) - len(self.completed) - external,
-            "products": {product: sum(j.product == product for j in self.completed) for product in ROUTES},
+            "products": completed_by_product,
+            **economic_snapshot(self.config, completed_by_product,
+                                [m.state_times() for m in self.machines], self.env.now),
             "queues": {name: len(station.waiting) for name, station in self.stations.items()},
             "machines": {m.name: {"state": m.state, "product": m.current_job.product if m.current_job else None,
                                   "job_id": m.current_job.job_id if m.current_job else None} for m in self.machines},

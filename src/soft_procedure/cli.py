@@ -36,7 +36,9 @@ def main():
         html = write_experiments(suite, args.output)
         for s in suite["scenarios"]:
             stat = s["summary"]["completed"]
-            print(f"{s['name']}: {stat['mean']:.1f} 件；配对差值 {s['paired_output_difference']['mean']:+.1f} 件")
+            print(f"{s['name']}: {stat['mean']:.1f} 件；配对差值 {s['paired_output_difference']['mean']:+.1f} 件；"
+                  f"经营贡献 {s['summary']['operating_contribution']['mean']:,.2f} 元；"
+                  f"贡献增量 {s['paired_contribution_difference']['mean']:+,.2f} 元")
         print(f"HTML 面板：{html.resolve()}", flush=True)
         if args.command == "serve":
             from .server import make_server

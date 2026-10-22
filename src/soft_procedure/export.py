@@ -33,6 +33,9 @@ def write_run(result, directory):
         {"machine": m["name"], **row} for m in result["machines"] for row in m["intervals"]))
     write_csv(directory / "queues.csv", (
         {"station": n, **row} for n, rows in result["queue_logs"].items() for row in rows))
+    write_csv(directory / "product_revenue.csv", (
+        {"product": p, **row} for p, row in result["products"].items()))
+    write_csv(directory / "machine_costs.csv", result["economics"]["machine_costs"])
 
 
 def write_experiments(suite, directory):
@@ -43,6 +46,14 @@ def write_experiments(suite, directory):
     write_csv(directory / "replications.csv", ({"scenario": s["id"], **row} for s in suite["scenarios"] for row in s["runs"]))
     write_csv(directory / "summary.csv", ({"scenario": s["id"], "metric": key, **value}
                for s in suite["scenarios"] for key, value in s["summary"].items()))
+    write_csv(directory / "economics.csv", ({
+        "scenario": s["id"], "operating_cost_basis": s["config"]["operating_cost_basis"],
+        "period_hours": s["config"]["horizon"] / 60,
+        **{key: s["summary"][key]["mean"] for key in ("sales_revenue", "operating_cost", "operating_contribution")},
+        "paired_contribution_mean": s["paired_contribution_difference"]["mean"],
+        "paired_contribution_ci95": s["paired_contribution_difference"]["ci95"],
+        **s["investment"],
+    } for s in suite["scenarios"]))
     for scenario in suite["scenarios"]:
         if "jobs" in scenario["representative"]:
             write_run(scenario["representative"], directory / "representative" / scenario["id"])

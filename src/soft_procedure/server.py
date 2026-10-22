@@ -26,6 +26,8 @@ def validate_request(payload):
         raise ValueError("MTBF 至少 1 分钟，MTTR 至少 0.1 分钟，CV 不超过 1，换模不超过 2400 分钟")
     if config.sample_interval < 1 or config.horizon / config.sample_interval > 1500:
         raise ValueError("采样间隔至少 1 分钟，回放采样点不能超过 1500 个")
+    if max(config.machine_purchase_cost, config.operating_cost_per_hour, *config.product_prices.values()) > 1_000_000_000:
+        raise ValueError("面板售价、购置单价与运行费率均不能超过 10 亿元")
     workload = config.horizon / config.arrival_mean * (config.batch_min + config.batch_max) / 2 * replications * 5
     if workload > 1_500_000:
         raise ValueError("本次实验规模过大，请减少仿真时长、重复次数或批次大小")

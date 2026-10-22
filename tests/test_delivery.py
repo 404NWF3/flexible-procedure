@@ -26,6 +26,7 @@ class DeliveryTests(unittest.TestCase):
             self.assertNotIn('<link rel="stylesheet"', html)
             self.assertIn('id="simulation-data"', html)
             result = json.loads(Path(directory, "results.json").read_text())
+            self.assertEqual(result["base_config"]["operating_cost_basis"], "machine_active")
             self.assertEqual(len(result["scenarios"]), 5)
             self.assertEqual(len(Path(directory, "replications.csv").read_text().splitlines()), 11)
             self.assertTrue(Path(directory, "representative/baseline/operations.csv").is_file())
@@ -44,11 +45,22 @@ class DeliveryTests(unittest.TestCase):
             try:
                 with urlopen(base + "/api/health") as response:
                     self.assertEqual(json.load(response)["engine"], "SimPy")
-                request = Request(base + "/api/run", data=json.dumps({"config": {"horizon": 80}, "replications": 2, "seed": 17}).encode(), headers={"Content-Type": "application/json"})
+                prices = {"P1": 400, "P2": 360, "P3": 500, "P4": 600}
+                request = Request(base + "/api/run", data=json.dumps({"config": {"horizon": 80,
+                    "product_prices": prices, "operating_cost_per_hour": 150, "machine_purchase_cost": 400000,
+                    "operating_cost_basis": "line_calendar"}, "replications": 2, "seed": 17}).encode(), headers={"Content-Type": "application/json"})
                 with urlopen(request) as response:
                     updated = json.load(response)
                 self.assertEqual(updated["seeds"], [17, 18])
                 self.assertEqual(updated["base_config"]["horizon"], 80)
+                self.assertEqual(updated["base_config"]["product_prices"], prices)
+                self.assertEqual(updated["schema_version"], 2)
+                self.assertEqual(updated["scenarios"][0]["summary"]["operating_cost"]["mean"], 200)
+                self.assertEqual(updated["scenarios"][1]["investment"]["additional_capex"], 400000)
+                invalid_price = Request(base + "/api/run", data=b'{"config":{"product_prices":{"P1":200}}}', headers={"Content-Type": "application/json"})
+                with self.assertRaises(HTTPError) as price_error:
+                    urlopen(invalid_price)
+                self.assertEqual(price_error.exception.code, 400)
                 invalid = Request(base + "/api/run", data=b'{"config":{"horizon":-1}}', headers={"Content-Type": "application/json"})
                 with self.assertRaises(HTTPError) as ctx:
                     urlopen(invalid)
@@ -62,7 +74,8 @@ class DeliveryTests(unittest.TestCase):
 
     def test_api_bounds(self):
         for payload in ([], {"replications": 0}, {"seed": True}, {"config": {"horizon": 999999}},
-                        {"config": {"arrival_mean": .1}}, {"unexpected": 1}):
+                        {"config": {"arrival_mean": .1}}, {"unexpected": 1},
+                        {"config": {"operating_cost_per_hour": 1e300}}):
             with self.subTest(payload=payload), self.assertRaises(ValueError):
                 validate_request(payload)
 
