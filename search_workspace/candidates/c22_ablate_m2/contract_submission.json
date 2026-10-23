@@ -1,0 +1,28 @@
+{
+  "candidate_id": "c22_ablate_m2",
+  "contract_id": "soft-procedure-contribution-loop-v1",
+  "parent_ids": [
+    "c20_hybrid"
+  ],
+  "hypothesis": "只移除M2的合批覆盖，识别M2的经济派工是否关键。",
+  "mechanism": "ablation",
+  "interfaces": [
+    "dispatch",
+    "admission",
+    "release",
+    "defer"
+  ],
+  "parameters": {
+    "dispatch": "margin",
+    "admission": "value",
+    "station_modes": {
+      "M3": "family",
+      "M4": "family"
+    }
+  },
+  "bundle_sha256": "5b012ade6211508eddf9d6e4e4d72ff3c5f4860b3cc99d31bcc77d4ab00781bc",
+  "interface_version": "seccomp-json-v1",
+  "training_provenance": "deterministic analytical rules; no external training data",
+  "randomization_rule": "deterministic; candidate has no environment seed access",
+  "expected_tradeoffs": "M2换模次数可能变化。"
+}

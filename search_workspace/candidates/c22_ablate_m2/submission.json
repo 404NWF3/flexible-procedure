@@ -1,0 +1,38 @@
+{
+  "id": "c22_ablate_m2",
+  "label": "消融 · M2恢复经济排序",
+  "parents": [
+    "c20_hybrid"
+  ],
+  "parameters": {
+    "dispatch": "margin",
+    "admission": "value",
+    "station_modes": {
+      "M3": "family",
+      "M4": "family"
+    }
+  },
+  "hypothesis": "只移除M2的合批覆盖，识别M2的经济派工是否关键。",
+  "expected_tradeoffs": "M2换模次数可能变化。",
+  "mechanism": "ablation",
+  "wave": "ablation",
+  "reference": false,
+  "source": "search_workspace/candidates/c22_ablate_m2/policy.py",
+  "bundle_sha256": "5b012ade6211508eddf9d6e4e4d72ff3c5f4860b3cc99d31bcc77d4ab00781bc",
+  "registered_at": "2026-10-22T14:23:51.494832+00:00",
+  "status": "registered",
+  "stages": {},
+  "interface_version": "seccomp-json-v1",
+  "training_provenance": "deterministic analytical rules; no external training data",
+  "randomization_rule": "deterministic; candidate has no environment seed access",
+  "contract_id": "soft-procedure-contribution-loop-v1",
+  "contract_sha256": "27232fd7826ebca1e73fe0a0b3e87381da39db2fd007795cf9240b9f527f7449",
+  "dependency_lock": "f6baad50c4cbe225874a9d354042d8857ebc53635779b7e07d3152f60345f93f",
+  "resource_limits": {
+    "decision_cpu_ms": 250,
+    "decision_wall_ms": 1000,
+    "path_cpu_s": 120,
+    "path_wall_s": 300,
+    "memory_mib": 2048
+  }
+}

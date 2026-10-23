@@ -1,0 +1,284 @@
+{
+  "candidate": "c18_value_s5",
+  "bundle_sha256": "a7a64ac4cb8263cdeb9127ee12f64ffbaa4affb9f89706bd8862292349fecf96",
+  "phase": "smoke",
+  "status": "complete",
+  "expected_runs": 3,
+  "rows": [
+    {
+      "valid": true,
+      "operating_contribution": 145032.7933044402,
+      "revenue": 165550.0,
+      "processing_cost": 19442.206695559813,
+      "setup_cost": 1075.0,
+      "completed": 614,
+      "external": 2557,
+      "wip": 192,
+      "blocked_minutes": 3683.417203292412,
+      "products": {
+        "P1": {
+          "arrived": 1014,
+          "completed": 0,
+          "external": 986,
+          "wip": 28,
+          "unfinished": 1014,
+          "unfinished_mean_age": 1236.4821319575974,
+          "unfinished_max_age": 2395.715413509802
+        },
+        "P2": {
+          "arrived": 849,
+          "completed": 0,
+          "external": 800,
+          "wip": 49,
+          "unfinished": 849,
+          "unfinished_mean_age": 1337.5042553391127,
+          "unfinished_max_age": 2395.715413509802
+        },
+        "P3": {
+          "arrived": 827,
+          "completed": 373,
+          "external": 406,
+          "wip": 48,
+          "unfinished": 454,
+          "unfinished_mean_age": 729.849046279326,
+          "unfinished_max_age": 1506.3014158425167
+        },
+        "P4": {
+          "arrived": 673,
+          "completed": 241,
+          "external": 365,
+          "wip": 67,
+          "unfinished": 432,
+          "unfinished_mean_age": 854.0071659759503,
+          "unfinished_max_age": 1673.36363942418
+        }
+      },
+      "checks_passed": true,
+      "seconds": 1.8303807259999303,
+      "decisions": 4191,
+      "action_trace_sha256": "94e5b4cd6d51f8e9d0374d3b443538f41cc06be8f7d0764e4f8914aa741e60ff",
+      "raw_sha256": "f3d6883a1a9c67925b3d481a355cdd1f862b116c99afd945385806ab74ed6753",
+      "replication": 0
+    },
+    {
+      "valid": true,
+      "operating_contribution": 131815.31189972552,
+      "revenue": 150640.0,
+      "processing_cost": 17874.68810027447,
+      "setup_cost": 950.0,
+      "completed": 569,
+      "external": 2278,
+      "wip": 164,
+      "blocked_minutes": 3836.1379584332635,
+      "products": {
+        "P1": {
+          "arrived": 856,
+          "completed": 0,
+          "external": 821,
+          "wip": 35,
+          "unfinished": 856,
+          "unfinished_mean_age": 1286.5237921240314,
+          "unfinished_max_age": 2397.1843692641023
+        },
+        "P2": {
+          "arrived": 795,
+          "completed": 3,
+          "external": 761,
+          "wip": 31,
+          "unfinished": 792,
+          "unfinished_mean_age": 1277.4600124377687,
+          "unfinished_max_age": 2366.303015619463
+        },
+        "P3": {
+          "arrived": 721,
+          "completed": 394,
+          "external": 308,
+          "wip": 19,
+          "unfinished": 327,
+          "unfinished_mean_age": 605.4469212771036,
+          "unfinished_max_age": 1187.394706750322
+        },
+        "P4": {
+          "arrived": 639,
+          "completed": 172,
+          "external": 388,
+          "wip": 79,
+          "unfinished": 467,
+          "unfinished_mean_age": 958.26168554076,
+          "unfinished_max_age": 1860.6820767287418
+        }
+      },
+      "checks_passed": true,
+      "seconds": 1.5252949050000097,
+      "decisions": 3801,
+      "action_trace_sha256": "099f03555dbac8c9111ea12b61a22c9860103e33abf3f1e5d9a8cad10694d137",
+      "raw_sha256": "8b3f8f8359597ce08c86cd835787927b045eb93319c0f4d8c3ce96f3dcf2d086",
+      "replication": 1
+    },
+    {
+      "valid": true,
+      "operating_contribution": 84764.77019990484,
+      "revenue": 98360.0,
+      "processing_cost": 12695.229800095156,
+      "setup_cost": 899.9999999999998,
+      "completed": 377,
+      "external": 1805,
+      "wip": 207,
+      "blocked_minutes": 8150.113560724174,
+      "products": {
+        "P1": {
+          "arrived": 705,
+          "completed": 49,
+          "external": 656,
+          "wip": 0,
+          "unfinished": 656,
+          "unfinished_mean_age": 1101.5563176809094,
+          "unfinished_max_age": 2201.357312477731
+        },
+        "P2": {
+          "arrived": 584,
+          "completed": 47,
+          "external": 515,
+          "wip": 22,
+          "unfinished": 537,
+          "unfinished_mean_age": 1128.9085622161979,
+          "unfinished_max_age": 2185.302671923895
+        },
+        "P3": {
+          "arrived": 632,
+          "completed": 84,
+          "external": 447,
+          "wip": 101,
+          "unfinished": 548,
+          "unfinished_mean_age": 1059.3627160987335,
+          "unfinished_max_age": 2073.131497274576
+        },
+        "P4": {
+          "arrived": 468,
+          "completed": 197,
+          "external": 187,
+          "wip": 84,
+          "unfinished": 271,
+          "unfinished_mean_age": 694.6477436861655,
+          "unfinished_max_age": 1496.4710205648748
+        }
+      },
+      "checks_passed": true,
+      "seconds": 1.1241342529999656,
+      "decisions": 2984,
+      "action_trace_sha256": "0ff9c20119fb653f6f5c9b22659679a0cb00f4a62896bf6262753436b3142f01",
+      "raw_sha256": "fde8de1d8818499e67c6ab5ebcf32691238f715b6926ba6211bc02b499c70ae2",
+      "replication": 2
+    }
+  ],
+  "started_at": "2026-10-22T14:22:48.360735+00:00",
+  "finished_at": "2026-10-22T14:22:50.353431+00:00",
+  "summary": {
+    "operating_contribution": {
+      "n": 3,
+      "mean": 120537.62513469018,
+      "sd": 31677.252347858255,
+      "ci95": [
+        41846.96797274382,
+        199228.28229663655
+      ]
+    },
+    "revenue": {
+      "n": 3,
+      "mean": 138183.33333333334,
+      "sd": 35284.56366930635,
+      "ci95": [
+        50531.618079753825,
+        225835.04858691286
+      ]
+    },
+    "processing_cost": {
+      "n": 3,
+      "mean": 16670.708198643148,
+      "sd": 3530.948882330726,
+      "ci95": [
+        7899.344921782713,
+        25442.07147550358
+      ]
+    },
+    "setup_cost": {
+      "n": 3,
+      "mean": 974.9999999999999,
+      "sd": 90.13878188659983,
+      "ci95": [
+        751.0828526242597,
+        1198.9171473757401
+      ]
+    },
+    "completed": {
+      "n": 3,
+      "mean": 520,
+      "sd": 125.86897949852458,
+      "ci95": [
+        207.32412128818595,
+        832.675878711814
+      ]
+    },
+    "external": {
+      "n": 3,
+      "mean": 2213.3333333333335,
+      "sd": 380.14777828277954,
+      "ci95": [
+        1268.9939012629775,
+        3157.6727654036895
+      ]
+    },
+    "wip": {
+      "n": 3,
+      "mean": 187.66666666666666,
+      "sd": 21.82506204649447,
+      "ci95": [
+        133.4502069756789,
+        241.88312635765442
+      ]
+    },
+    "blocked_minutes": {
+      "n": 3,
+      "mean": 5223.222907483283,
+      "sd": 2535.91158743446,
+      "ci95": [
+        -1076.3307005273045,
+        11522.776515493872
+      ]
+    },
+    "products": {
+      "P1": {
+        "arrived": 858.3333333333334,
+        "completed": 16.333333333333332,
+        "external": 821,
+        "wip": 21,
+        "unfinished": 842,
+        "unfinished_max_age": 2331.419031750545
+      },
+      "P2": {
+        "arrived": 742.6666666666666,
+        "completed": 16.666666666666668,
+        "external": 692,
+        "wip": 34,
+        "unfinished": 726,
+        "unfinished_max_age": 2315.7737003510533
+      },
+      "P3": {
+        "arrived": 726.6666666666666,
+        "completed": 283.6666666666667,
+        "external": 387,
+        "wip": 56,
+        "unfinished": 443,
+        "unfinished_max_age": 1588.942539955805
+      },
+      "P4": {
+        "arrived": 593.3333333333334,
+        "completed": 203.33333333333334,
+        "external": 313.3333333333333,
+        "wip": 76.66666666666667,
+        "unfinished": 390,
+        "unfinished_max_age": 1676.8389122392655
+      }
+    }
+  }
+}
