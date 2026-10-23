@@ -17,6 +17,14 @@ SCENARIOS = {
     "no_failure": ("无故障", "关闭设备故障的理想对照"),
 }
 
+CORE_SCENARIOS = {
+    "baseline": SCENARIOS["baseline"],
+    "m4_extra": SCENARIOS["m4_extra"],
+    "same_family": SCENARIOS["same_family"],
+    "same_family_m4_extra": ("同类优先 + M4 增机", "同类优先并在 M4 增加 1 台机床"),
+}
+SCENARIO_DEFINITIONS = {**SCENARIOS, "same_family_m4_extra": CORE_SCENARIOS["same_family_m4_extra"]}
+
 # 双侧 95% Student-t 临界值，df=1…29；实验入口限制为至多 30 次。
 T975 = (0, 12.706205, 4.302653, 3.182446, 2.776445, 2.570582, 2.446912,
         2.364624, 2.306004, 2.262157, 2.228139, 2.200985, 2.178813,
@@ -35,17 +43,21 @@ def estimate(values):
 
 
 def scenario_config(base, name):
-    if name not in SCENARIOS:
+    if name not in SCENARIO_DEFINITIONS:
         raise ValueError(f"未知方案：{name}")
     changes = {
         "baseline": {}, "m4_extra": {"machine_counts": {**base.machine_counts, "M4": base.machine_counts["M4"] + 1}},
         "same_family": {"policy_name": "same_family"}, "no_setup": {"setup_time": 0.0},
         "no_failure": {"failures_enabled": False},
+        "same_family_m4_extra": {
+            "policy_name": "same_family",
+            "machine_counts": {**base.machine_counts, "M4": base.machine_counts["M4"] + 1},
+        },
     }
     return replace(base, **changes[name]).validate()
 
 
-def run_experiments(config=None, replications=10, seed=42, progress=None):
+def run_experiments(config=None, replications=10, seed=42, progress=None, scenario_ids=None):
     base = (config or SimulationConfig()).validate()
     if type(replications) is not int or not 1 <= replications <= 30:
         raise ValueError("重复次数必须为 1–30 的整数")
@@ -53,17 +65,24 @@ def run_experiments(config=None, replications=10, seed=42, progress=None):
         raise ValueError("seed 必须为整数")
     seeds = [seed + i for i in range(replications)]
     schedules = {s: arrival_schedule(base, s) for s in seeds}
+    selected = tuple(scenario_ids or SCENARIOS)
+    unknown = set(selected) - set(SCENARIO_DEFINITIONS)
+    if unknown:
+        raise ValueError(f"未知方案：{', '.join(sorted(unknown))}")
     suite = {
         "schema_version": 2, "generated_at": datetime.now(timezone.utc).isoformat(),
         "engine": "SimPy", "base_config": base.to_dict(), "replications": replications,
         "seeds": seeds, "assumptions": ASSUMPTIONS,
         "routes": ROUTES, "product_mix": PRODUCT_MIX,
         "operating_cost_bases": OPERATING_COST_BASES,
-        "source": {"document": "案例二十二.docx", "conversation": "chatgpt-conversation://6ad0c956-78d4-83ec-82fd-91e8595d09a4",
-                   "description": "本地原始案例参数 + 参考对话的建模口径；所有图表为 SimPy 实际运行结果"},
+        "scenario_set": "core" if set(selected) == set(CORE_SCENARIOS) else "custom",
+        "scenario_ids": list(selected),
+        "source": {"document": "案例二十二.docx",
+                   "description": "原始案例参数与项目参数契约；所有图表为 SimPy 实际运行结果"},
         "scenarios": [],
     }
-    for name, (label, description) in SCENARIOS.items():
+    for name in selected:
+        label, description = SCENARIO_DEFINITIONS[name]
         current = scenario_config(base, name)
         runs, representative, sample_rows, station_rows, product_rows = [], None, [], [], []
         for i, current_seed in enumerate(seeds):
@@ -90,23 +109,36 @@ def run_experiments(config=None, replications=10, seed=42, progress=None):
                     for key in ("arrived", "completed", "external", "wip", "sales_revenue", "operating_cost", "operating_contribution")}}
                    for j, sample in enumerate(representative["samples"])]
         products = {p: estimate([row[p]["completed"] for row in product_rows]) for p in PRODUCT_MIX}
-        revenues = {p: estimate([row[p]["sales_revenue"] for row in product_rows]) for p in PRODUCT_MIX}
+        product_revenues = {p: estimate([row[p]["sales_revenue"] for row in product_rows]) for p in PRODUCT_MIX}
         suite["scenarios"].append({"id": name, "name": label, "description": description,
-            "config": current.to_dict(), "summary": summary, "stations": stations,
-            "products": products, "product_revenues": revenues,
+            "config": current.to_dict(), "stations": stations, "summary": summary,
+            "products": products, "product_revenues": product_revenues,
             "samples": samples, "runs": runs, "representative": representative})
-    baseline = suite["scenarios"][0]
+    scenario_by_id = {scenario["id"]: scenario for scenario in suite["scenarios"]}
+    reference_id = "baseline" if "baseline" in scenario_by_id else selected[0]
+    pairing = {name: reference_id for name in selected}
+    pairing[reference_id] = None
+    if "same_family_m4_extra" in pairing and "same_family" in pairing:
+        pairing["same_family_m4_extra"] = "same_family"
     for scenario in suite["scenarios"]:
-        paired = estimate([a["completed"] - b["completed"] for a, b in zip(scenario["runs"], baseline["runs"])])
-        base_output = baseline["summary"]["completed"]["mean"]
+        parent_id = pairing[scenario["id"]]
+        parent = scenario_by_id[parent_id] if parent_id else scenario
+        paired = estimate([a["completed"] - b["completed"] for a, b in zip(scenario["runs"], parent["runs"])])
+        paired_contribution = estimate([a["operating_contribution"] - b["operating_contribution"]
+                                        for a, b in zip(scenario["runs"], parent["runs"])])
+        base_output = parent["summary"]["completed"]["mean"]
         scenario["paired_output_difference"] = paired
+        scenario["paired_contribution_difference"] = paired_contribution
+        scenario["paired_to"] = parent_id or scenario["id"]
         scenario["output_change_pct"] = 100 * paired["mean"] / base_output if base_output else None
-        scenario["paired_contribution_difference"] = estimate([
-            a["operating_contribution"] - b["operating_contribution"]
-            for a, b in zip(scenario["runs"], baseline["runs"])])
         scenario["investment"] = investment_comparison(
             SimulationConfig.from_dict(scenario["config"]), base, scenario["paired_contribution_difference"])
     return suite
+
+
+def run_core_experiments(config=None, replications=10, seed=42, progress=None):
+    """运行新版任务书规定的 FIFO/同类优先 × M4 配置四方案。"""
+    return run_experiments(config, replications, seed, progress, scenario_ids=tuple(CORE_SCENARIOS))
 
 
 def public_suite(suite):
