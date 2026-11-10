@@ -20,12 +20,12 @@ class DeliveryTests(unittest.TestCase):
     def test_standalone_artifact_and_csv(self):
         with tempfile.TemporaryDirectory() as directory:
             path = write_experiments(self.suite, directory)
-            html = path.read_text()
+            html = path.read_text(encoding="utf-8")
             self.assertNotIn("__SIMULATION_DATA__", html)
             self.assertNotIn('<script src=', html)
             self.assertNotIn('<link rel="stylesheet"', html)
             self.assertIn('id="simulation-data"', html)
-            result = json.loads(Path(directory, "results.json").read_text())
+            result = json.loads(Path(directory, "results.json").read_text(encoding="utf-8"))
             self.assertEqual(result["base_config"]["operating_cost_basis"], "machine_active")
             self.assertEqual(len(result["scenarios"]), 5)
             self.assertEqual(len(Path(directory, "replications.csv").read_text().splitlines()), 11)

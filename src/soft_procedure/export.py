@@ -18,8 +18,9 @@ def write_csv(path, rows, fields=None):
 def render_dashboard(suite):
     web = files("soft_procedure").joinpath("web")
     data = json.dumps(public_suite(suite), ensure_ascii=False, separators=(",", ":"), allow_nan=False).replace("<", "\\u003c")
-    return web.joinpath("index.html").read_text().replace("__STYLES__", web.joinpath("styles.css").read_text()).replace(
-        "__SCRIPT__", web.joinpath("app.js").read_text()).replace("__SIMULATION_DATA__", data)
+    return web.joinpath("index.html").read_text(encoding="utf-8").replace(
+        "__STYLES__", web.joinpath("styles.css").read_text(encoding="utf-8")).replace(
+        "__SCRIPT__", web.joinpath("app.js").read_text(encoding="utf-8")).replace("__SIMULATION_DATA__", data)
 
 
 def write_run(result, directory):
@@ -41,8 +42,8 @@ def write_run(result, directory):
 def write_experiments(suite, directory):
     directory = Path(directory)
     directory.mkdir(parents=True, exist_ok=True)
-    (directory / "results.json").write_text(json.dumps(public_suite(suite), ensure_ascii=False, separators=(",", ":"), allow_nan=False))
-    (directory / "dashboard.html").write_text(render_dashboard(suite))
+    (directory / "results.json").write_text(json.dumps(public_suite(suite), ensure_ascii=False, separators=(",", ":"), allow_nan=False), encoding="utf-8")
+    (directory / "dashboard.html").write_text(render_dashboard(suite), encoding="utf-8")
     write_csv(directory / "replications.csv", ({"scenario": s["id"], **row} for s in suite["scenarios"] for row in s["runs"]))
     write_csv(directory / "summary.csv", ({"scenario": s["id"], "metric": key, **value}
                for s in suite["scenarios"] for key, value in s["summary"].items()))

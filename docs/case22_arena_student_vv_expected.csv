@@ -1,0 +1,40 @@
+experiment_id,metric,expected_value,unit,tolerance,notes
+S01,arrived_items,20,items,0,one batch split into individual items
+S01,completed_items,20,items,0,all items bypass processing
+S01,P1_completed,6,items,0,deterministic validation type sequence
+S01,P2_completed,5,items,0,deterministic validation type sequence
+S01,P3_completed,5,items,0,deterministic validation type sequence
+S01,P4_completed,4,items,0,deterministic validation type sequence
+S01,conservation_gap,0,items,0,arrived=completed+WIP+external
+S02,completed_items,4,items,0,one item of each product
+S02,P1_completed,1,items,0,one P1 route
+S02,P2_completed,1,items,0,one P2 route
+S02,P3_completed,1,items,0,one P3 route
+S02,P4_completed,1,items,0,one P4 route
+S02,P1_completion_time,26,min,0.01,arrival time zero
+S02,P2_completion_time,72,min,0.01,arrival time 50
+S02,P3_completion_time,119,min,0.01,arrival time 100
+S02,P4_completion_time,166,min,0.01,arrival time 150
+S02,total_processing_time,83,min,0.01,sum of route processing times
+S02,value,930,CNY,0.01,200+180+250+300
+S02,running_cost,138.333333,CNY,0.01,83/60*100
+S02,simplified_contribution,791.666667,CNY,0.01,value-running_cost
+S02,conservation_gap,0,items,0,arrived=completed+WIP+external
+S03,setup_count,2,count,0,P1-P2 and P2-P1
+S03,setup_time,30,min,0.01,two 15-minute changes
+S03,completion_times,"1;2;18;19;35",min,0.01,ordered by arrival
+S04,setup_count,1,count,0,only E changes M1_2 from P2 to P1
+S04,setup_time,15,min,0.01,one 15-minute change
+S04,E_completion_time,27.2,min,0.01,11.2+15+1
+S05,M1_1_completion_time,9,min,0.01,3-minute run+4-minute repair+2-minute remainder
+S05,M1_2_completion_time,5.01,min,0.01,unaffected parallel machine
+S05,total_processing_time,10,min,0.01,two five-minute jobs
+S05,repair_time,4,min,0.01,one deterministic repair
+S05,failure_count,1,count,0,only M1_1 fails
+S06,blocked_time_M1,18,min,0.01,third job waits from minute 3 to 21
+S06,max_buffer_length,1,items,0,one-slot buffer
+S06,completion_times,"21;41;61",min,0.01,ordered by flow
+S07,conservation_gap,0,items,0,all 30 items accounted for
+S07,max_queue_length,2,items,0,all temporary buffers capacity 2
+S08,max_generated_items,140,items,0,seven batches times maximum batch size
+S08,replications,5,count,0,all five replications must pass invariants

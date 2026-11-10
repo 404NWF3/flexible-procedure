@@ -1,0 +1,5 @@
+﻿scenario,operating_cost_basis,period_hours,sales_revenue,operating_cost,operating_contribution,paired_contribution_mean,paired_contribution_ci95,additional_machines,additional_capex,first_period_incremental_cash,payback_periods,payback_work_hours,status
+baseline,machine_active,40.0,83581.0,15413.309332813928,68167.69066718608,0.0,0.0,0,0.0,0.0,,,no_additional_capex
+m4_extra,machine_active,40.0,83449.0,15409.803653610044,68039.19634638996,-128.4943207961158,378.20555942625566,1,500000.0,-500128.4943207961,,,no_positive_gain
+same_family,machine_active,40.0,110643.0,15338.376539714418,95304.62346028558,27136.932793099513,6096.536292243527,0,0.0,27136.932793099513,,,no_additional_capex
+same_family_m4_extra,machine_active,40.0,110639.0,15442.414983398012,95196.58501660198,-108.03844368359569,91.13891942422748,1,500000.0,-500108.0384436836,,,no_positive_gain
