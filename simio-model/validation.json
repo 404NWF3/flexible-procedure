@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "source_sha256": "70aa57cc5710b64059c4e551cae07dc3e894f863a799004612e8ae032c08cc8e",
+  "target_sha256": "5c18cf8b3b6a8ad126b7b647921065547173e67bf8abe51b5091df07450d589f",
+  "production_snapshot_equal_to_v32": true,
+  "snapshot_checks": {
+    "model_name": true,
+    "model_properties": true,
+    "run_setup": true,
+    "processes": true,
+    "definitions": true,
+    "elements": true,
+    "objects": true,
+    "events": true,
+    "errors": true
+  },
+  "main_process_count": 85,
+  "design_errors": 0,
+  "saved_results": {
+    "response_rows": 17940,
+    "scenarios": 6,
+    "replications_per_scenario": 10
+  },
+  "native_rich_labels_unchanged": 32,
+  "add_m4_delivery_value": "0",
+  "machine_location_unchanged": true,
+  "operator_visual": "M4.2 operator at the existing computer; same geometry style as other stations",
+  "symbol_binding": "Math.If(AddM4 == 1, 6, 0)",
+  "gui_checks": {
+    "add_m4_0": {
+      "gray_machine": true,
+      "operator_absent": true,
+      "completed_minutes": 2400
+    },
+    "add_m4_1": {
+      "colored_machine": true,
+      "operator_at_computer": true,
+      "completed_minutes": 2400
+    }
+  },
+  "screenshots_are_native_captures": true,
+  "stage": "非最终Pre版"
+}

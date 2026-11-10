@@ -12,11 +12,12 @@ from .model.simulation import run_simulation
 def main():
     parser = argparse.ArgumentParser(description="柔性生产线 SimPy 决策仿真")
     commands = parser.add_subparsers(dest="command", required=True)
-    for name, help_text in (("serve", "启动交互面板"), ("experiments", "运行五组实验并生成离线 HTML"), ("run", "运行单次模型")):
+    for name, help_text in (("serve", "启动交互面板"), ("experiments", "运行五组实验并生成离线 HTML"),
+                            ("screening", "运行41组阻塞筛选并保存逐次原始结果"), ("run", "运行单次模型")):
         p = commands.add_parser(name, help=help_text)
         p.add_argument("--config", type=Path, help="JSON 配置文件，仅填写需要修改的字段")
         p.add_argument("--seed", type=int, default=42)
-        p.add_argument("--output", type=Path, default=Path("outputs"))
+        p.add_argument("--output", type=Path, default=Path("outputs/blocking-screen") if name == "screening" else Path("outputs"))
         if name != "run":
             p.add_argument("--replications", type=int, default=10)
         if name == "serve":
@@ -26,6 +27,17 @@ def main():
     args = parser.parse_args()
     try:
         config = SimulationConfig.from_dict(json.loads(args.config.read_text())) if args.config else SimulationConfig()
+        if args.command == "screening":
+            from .screening import run_screening
+
+            def report(meta, result, index, count):
+                summary = result["summary"]
+                print(f"[{index}/{count}] {meta['id']}: {summary['completed']['mean']:.1f} 件，"
+                      f"阻塞 {summary['blocked_machine_minutes']['mean']:.1f} 机器分钟", flush=True)
+
+            run_screening(config, args.replications, args.seed, output=args.output, progress=report)
+            print(f"筛选结果：{args.output.resolve()}", flush=True)
+            return
         if args.command == "run":
             result = run_simulation(scenario_config(config, args.scenario), args.seed)
             write_run(result, args.output)

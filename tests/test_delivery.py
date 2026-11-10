@@ -47,12 +47,15 @@ class DeliveryTests(unittest.TestCase):
                     self.assertEqual(json.load(response)["engine"], "SimPy")
                 prices = {"P1": 400, "P2": 360, "P3": 500, "P4": 600}
                 request = Request(base + "/api/run", data=json.dumps({"config": {"horizon": 80,
+                    "buffer_capacities": {"M2": 3}, "processing_time_multipliers": {"M2": 0.75},
                     "product_prices": prices, "operating_cost_per_hour": 150, "machine_purchase_cost": 400000,
                     "operating_cost_basis": "line_calendar"}, "replications": 2, "seed": 17}).encode(), headers={"Content-Type": "application/json"})
                 with urlopen(request) as response:
                     updated = json.load(response)
                 self.assertEqual(updated["seeds"], [17, 18])
                 self.assertEqual(updated["base_config"]["horizon"], 80)
+                self.assertEqual(updated["base_config"]["buffer_capacities"], {"M2": 3})
+                self.assertEqual(updated["base_config"]["processing_time_multipliers"], {"M2": 0.75})
                 self.assertEqual(updated["base_config"]["product_prices"], prices)
                 self.assertEqual(updated["schema_version"], 2)
                 self.assertEqual(updated["scenarios"][0]["summary"]["operating_cost"]["mean"], 200)
@@ -75,7 +78,8 @@ class DeliveryTests(unittest.TestCase):
     def test_api_bounds(self):
         for payload in ([], {"replications": 0}, {"seed": True}, {"config": {"horizon": 999999}},
                         {"config": {"arrival_mean": .1}}, {"unexpected": 1},
-                        {"config": {"operating_cost_per_hour": 1e300}}):
+                        {"config": {"operating_cost_per_hour": 1e300}},
+                        {"config": {"buffer_capacities": {"M2": 501}}}):
             with self.subTest(payload=payload), self.assertRaises(ValueError):
                 validate_request(payload)
 

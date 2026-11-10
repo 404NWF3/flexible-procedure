@@ -1,0 +1,717 @@
+<mxfile host="Electron" pages="2">
+  <diagram id="p1" name="01 五工位与三类关键机制">
+    <mxGraphModel dx="2531" dy="4568" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2100" pageHeight="2260" background="#FFFFFF" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" value="五工位与产品路线" />
+        <mxCell id="2" parent="1" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#F9FBFD;strokeColor=#C5D1DB;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=30;align=center;verticalAlign=middle;spacing=7;" value="" vertex="1">
+          <mxGeometry height="850" width="300" x="290" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="3" parent="1" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=36;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=center;spacing=0;fontStyle=1;" value="M1 工位" vertex="1">
+          <mxGeometry height="44" width="280" x="300" y="233" as="geometry" />
+        </mxCell>
+        <mxCell id="4" parent="1" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#EDF3F8;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Queue Q1&lt;/b&gt;&lt;br&gt;共享等待位 50 件&lt;/div&gt;" vertex="1">
+          <mxGeometry height="75" width="280" x="300" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="5" parent="1" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=29;align=center;verticalAlign=middle;spacing=7;fontColor=#54718B;align=center;spacing=0;" value="Resource 机床" vertex="1">
+          <mxGeometry height="44" width="280" x="300" y="373" as="geometry" />
+        </mxCell>
+        <mxCell id="6" parent="1" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#EDF3F8;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;M1-1&lt;/b&gt;&lt;br&gt;容量 1&lt;/div&gt;" vertex="1">
+          <mxGeometry height="95" width="132" x="300" y="425" as="geometry" />
+        </mxCell>
+        <mxCell id="7" parent="1" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#EDF3F8;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;M1-2&lt;/b&gt;&lt;br&gt;容量 1&lt;/div&gt;" vertex="1">
+          <mxGeometry height="95" width="132" x="448" y="425" as="geometry" />
+        </mxCell>
+        <mxCell id="8" parent="1" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#F9FBFD;strokeColor=#C5D1DB;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=30;align=center;verticalAlign=middle;spacing=7;" value="" vertex="1">
+          <mxGeometry height="850" width="300" x="600" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="9" parent="1" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=36;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=center;spacing=0;fontStyle=1;" value="M2 工位" vertex="1">
+          <mxGeometry height="44" width="280" x="610" y="233" as="geometry" />
+        </mxCell>
+        <mxCell id="10" parent="1" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#EDF3F8;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Queue Q2&lt;/b&gt;&lt;br&gt;共享等待位 50 件&lt;/div&gt;" vertex="1">
+          <mxGeometry height="75" width="280" x="610" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="11" parent="1" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=29;align=center;verticalAlign=middle;spacing=7;fontColor=#54718B;align=center;spacing=0;" value="Resource 机床" vertex="1">
+          <mxGeometry height="44" width="280" x="610" y="373" as="geometry" />
+        </mxCell>
+        <mxCell id="12" parent="1" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#EDF3F8;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;M2-1&lt;/b&gt;&lt;br&gt;容量 1&lt;/div&gt;" vertex="1">
+          <mxGeometry height="95" width="230" x="635" y="425" as="geometry" />
+        </mxCell>
+        <mxCell id="13" parent="1" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#F9FBFD;strokeColor=#C5D1DB;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=30;align=center;verticalAlign=middle;spacing=7;" value="" vertex="1">
+          <mxGeometry height="850" width="300" x="910" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="14" parent="1" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=36;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=center;spacing=0;fontStyle=1;" value="M3 工位" vertex="1">
+          <mxGeometry height="44" width="280" x="920" y="233" as="geometry" />
+        </mxCell>
+        <mxCell id="15" parent="1" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#EDF3F8;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Queue Q3&lt;/b&gt;&lt;br&gt;共享等待位 50 件&lt;/div&gt;" vertex="1">
+          <mxGeometry height="75" width="280" x="920" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="16" parent="1" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=29;align=center;verticalAlign=middle;spacing=7;fontColor=#54718B;align=center;spacing=0;" value="Resource 机床" vertex="1">
+          <mxGeometry height="44" width="280" x="920" y="373" as="geometry" />
+        </mxCell>
+        <mxCell id="17" parent="1" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#EDF3F8;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;M3-1&lt;/b&gt;&lt;br&gt;容量 1&lt;/div&gt;" vertex="1">
+          <mxGeometry height="95" width="132" x="920" y="425" as="geometry" />
+        </mxCell>
+        <mxCell id="18" parent="1" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#EDF3F8;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;M3-2&lt;/b&gt;&lt;br&gt;容量 1&lt;/div&gt;" vertex="1">
+          <mxGeometry height="95" width="132" x="1068" y="425" as="geometry" />
+        </mxCell>
+        <mxCell id="19" parent="1" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#F9FBFD;strokeColor=#C5D1DB;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=30;align=center;verticalAlign=middle;spacing=7;" value="" vertex="1">
+          <mxGeometry height="850" width="300" x="1220" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="20" parent="1" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=36;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=center;spacing=0;fontStyle=1;" value="M4 工位" vertex="1">
+          <mxGeometry height="44" width="280" x="1230" y="233" as="geometry" />
+        </mxCell>
+        <mxCell id="21" parent="1" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#EDF3F8;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Queue Q4&lt;/b&gt;&lt;br&gt;共享等待位 50 件&lt;/div&gt;" vertex="1">
+          <mxGeometry height="75" width="280" x="1230" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="22" parent="1" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=29;align=center;verticalAlign=middle;spacing=7;fontColor=#54718B;align=center;spacing=0;" value="Resource 机床" vertex="1">
+          <mxGeometry height="44" width="280" x="1230" y="373" as="geometry" />
+        </mxCell>
+        <mxCell id="23" parent="1" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#EDF3F8;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;M4-1&lt;/b&gt;&lt;br&gt;容量 1&lt;/div&gt;" vertex="1">
+          <mxGeometry height="95" width="230" x="1255" y="425" as="geometry" />
+        </mxCell>
+        <mxCell id="24" parent="1" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#F9FBFD;strokeColor=#C5D1DB;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=30;align=center;verticalAlign=middle;spacing=7;" value="" vertex="1">
+          <mxGeometry height="850" width="300" x="1530" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="25" parent="1" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=36;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=center;spacing=0;fontStyle=1;" value="M5 工位" vertex="1">
+          <mxGeometry height="44" width="280" x="1540" y="233" as="geometry" />
+        </mxCell>
+        <mxCell id="26" parent="1" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#EDF3F8;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Queue Q5&lt;/b&gt;&lt;br&gt;共享等待位 50 件&lt;/div&gt;" vertex="1">
+          <mxGeometry height="75" width="280" x="1540" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="27" parent="1" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=29;align=center;verticalAlign=middle;spacing=7;fontColor=#54718B;align=center;spacing=0;" value="Resource 机床" vertex="1">
+          <mxGeometry height="44" width="280" x="1540" y="373" as="geometry" />
+        </mxCell>
+        <mxCell id="28" parent="1" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#EDF3F8;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;M5-1&lt;/b&gt;&lt;br&gt;容量 1&lt;/div&gt;" vertex="1">
+          <mxGeometry height="95" width="132" x="1540" y="425" as="geometry" />
+        </mxCell>
+        <mxCell id="29" parent="1" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#EDF3F8;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;M5-2&lt;/b&gt;&lt;br&gt;容量 1&lt;/div&gt;" vertex="1">
+          <mxGeometry height="95" width="132" x="1688" y="425" as="geometry" />
+        </mxCell>
+        <mxCell id="30" parent="1" style="shape=stencil(rVNLDsIgFDwNW0MhLlz7uccTn5ZIoQGsentfA1as30R3zDAzwABMzkMNLTLBLTTI5IIJoTxCJEoQe0xUxXnC9QhDaFHFRHbgNaxNdobo3R6PehOzR9savY79rFwyOVfOWvJqZ8NAkAm0JQ0/JVNe5pzRZJpwS0kNRvSlavU6pvpPzGA83+3u15jqcwwNHvpag9rvvDvYTcIt9FX3o8Z1+LLDMtZoWwhn4lvlcP9ZOv0+9Wp9quXvpMq4gGUjtwMTGLexdR7vsDYmvckyYqwiKn0IubwA);html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Create 实体到达&lt;/b&gt;&lt;br&gt;批间隔 EXPO(10)&lt;br&gt;批量 5—20 个单件&lt;/div&gt;" vertex="1">
+          <mxGeometry height="115" width="275" x="20" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="31" parent="1" style="shape=stencil(rVPRbsIwDPyavKK22dB4Zuw/TPGoRepUSYDx97hyKaXA1ml7813uLo6tGLuMFTRoioyhRmPfTVFAjLRlKYQ9KpVnmeJqhCE2WCYlDxAI1g71JKbgd3ikTeo8xBUGSu2pXRm7LD2zeMlz7AkxAbFosi81ddecOjR7VdxIUo0Jw1D18Twm/5+Y3ni66e6vMfnPMVLczWsN5W4b/J43ihtoR91WtT/g9bpHPXexjnggXExW9vu/vGA+Xfv2MrmDi/Wh9hfS6Q1896zS+YjDjVwHLmC8jU8f8AaTc/onhhFjlVD6Ie3qDA==);html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=30;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Assign 类别与属性&lt;/b&gt;&lt;br&gt;逐件独立抽型，记录到达时刻&lt;br&gt;绑定工艺路线，工序号＝1&lt;/div&gt;" vertex="1">
+          <mxGeometry height="115" width="620" x="350" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="32" parent="1" style="shape=rhombus;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=29;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Decide 路线分流&lt;/b&gt;&lt;br&gt;按产品类别选路线&lt;/div&gt;" vertex="1">
+          <mxGeometry height="170" width="450" x="1050" as="geometry" />
+        </mxCell>
+        <mxCell id="33" edge="1" parent="1" source="30" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=1.0;exitY=0.4956521739130435;exitPerimeter=0;entryX=0.0;entryY=0.4956521739130435;entryPerimeter=0;" target="31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="34" edge="1" parent="1" source="31" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=1.0;exitY=0.4956521739130435;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;" target="32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="35" parent="1" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=32;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=center;spacing=0;fontStyle=1;" value="各工位资源分别设置" vertex="1">
+          <mxGeometry height="44" width="500" x="1530" y="33" as="geometry" />
+        </mxCell>
+        <mxCell id="36" parent="1" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=27;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=center;spacing=0;" value="基准共 8 台；每台最多持有 1 件" vertex="1">
+          <mxGeometry height="44" width="550" x="1505" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="37" parent="1" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=32;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=center;spacing=0;fontStyle=1;" value="P1  30%" vertex="1">
+          <mxGeometry height="44" width="230" x="5" y="573" as="geometry" />
+        </mxCell>
+        <mxCell id="38" parent="1" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=25;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=center;spacing=0;" value="单件沿本行流转" vertex="1">
+          <mxGeometry height="44" width="230" x="5" y="613" as="geometry" />
+        </mxCell>
+        <mxCell id="39" edge="1" parent="1" source="32" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=0.5;exitY=1.0;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;" target="40">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1275" y="190" />
+              <mxPoint x="260" y="190" />
+              <mxPoint x="260" y="625" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="40" parent="1" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.12;font-size:26px&quot;&gt;&lt;b&gt;Process M1&lt;/b&gt;&lt;br&gt;工序均值 μ＝5 分钟&lt;br&gt;&lt;span style=&quot;font-size:22px;color:#735329&quot;&gt;①换模 · ②故障 · ③阻塞&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="280" x="300" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="41" parent="1" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.12;font-size:26px&quot;&gt;&lt;b&gt;Process M2&lt;/b&gt;&lt;br&gt;工序均值 μ＝8 分钟&lt;br&gt;&lt;span style=&quot;font-size:22px;color:#735329&quot;&gt;①换模 · ②故障 · ③阻塞&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="280" x="610" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="42" edge="1" parent="1" source="40" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;" target="41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="43" parent="1" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.12;font-size:26px&quot;&gt;&lt;b&gt;Process M3&lt;/b&gt;&lt;br&gt;工序均值 μ＝6 分钟&lt;br&gt;&lt;span style=&quot;font-size:22px;color:#735329&quot;&gt;①换模 · ②故障 · ③阻塞&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="280" x="920" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="44" edge="1" parent="1" source="41" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;" target="43">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="45" parent="1" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.12;font-size:26px&quot;&gt;&lt;b&gt;Process M4&lt;/b&gt;&lt;br&gt;工序均值 μ＝4 分钟&lt;br&gt;&lt;span style=&quot;font-size:22px;color:#735329&quot;&gt;①换模 · ②故障 · ③阻塞&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="280" x="1230" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="46" edge="1" parent="1" source="43" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;" target="45">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="47" parent="1" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.12;font-size:26px&quot;&gt;&lt;b&gt;Process M5&lt;/b&gt;&lt;br&gt;工序均值 μ＝3 分钟&lt;br&gt;&lt;span style=&quot;font-size:22px;color:#735329&quot;&gt;①换模 · ②故障&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="280" x="1540" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="48" edge="1" parent="1" source="45" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;" target="47">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="49" edge="1" parent="1" source="47" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=none;endFill=1;endSize=10;exitX=1.0;exitY=0.5;exitPerimeter=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1930" y="625" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="50" parent="1" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=32;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=center;spacing=0;fontStyle=1;" value="P2  25%" vertex="1">
+          <mxGeometry height="44" width="230" x="5" y="703" as="geometry" />
+        </mxCell>
+        <mxCell id="51" parent="1" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=25;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=center;spacing=0;" value="单件沿本行流转" vertex="1">
+          <mxGeometry height="44" width="230" x="5" y="743" as="geometry" />
+        </mxCell>
+        <mxCell id="52" edge="1" parent="1" source="32" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=0.5;exitY=1.0;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;" target="53">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1275" y="190" />
+              <mxPoint x="260" y="190" />
+              <mxPoint x="260" y="755" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="53" parent="1" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.12;font-size:26px&quot;&gt;&lt;b&gt;Process M1&lt;/b&gt;&lt;br&gt;工序均值 μ＝4 分钟&lt;br&gt;&lt;span style=&quot;font-size:22px;color:#735329&quot;&gt;①换模 · ②故障 · ③阻塞&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="280" x="300" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="54" parent="1" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.12;font-size:26px&quot;&gt;&lt;b&gt;Process M3&lt;/b&gt;&lt;br&gt;工序均值 μ＝7 分钟&lt;br&gt;&lt;span style=&quot;font-size:22px;color:#735329&quot;&gt;①换模 · ②故障 · ③阻塞&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="280" x="920" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="55" edge="1" parent="1" source="53" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;" target="54">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="56" parent="1" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.12;font-size:26px&quot;&gt;&lt;b&gt;Process M4&lt;/b&gt;&lt;br&gt;工序均值 μ＝5 分钟&lt;br&gt;&lt;span style=&quot;font-size:22px;color:#735329&quot;&gt;①换模 · ②故障 · ③阻塞&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="280" x="1230" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="57" edge="1" parent="1" source="54" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;" target="56">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="58" parent="1" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.12;font-size:26px&quot;&gt;&lt;b&gt;Process M5&lt;/b&gt;&lt;br&gt;工序均值 μ＝6 分钟&lt;br&gt;&lt;span style=&quot;font-size:22px;color:#735329&quot;&gt;①换模 · ②故障&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="280" x="1540" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="59" edge="1" parent="1" source="56" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;" target="58">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="60" edge="1" parent="1" source="58" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=none;endFill=1;endSize=10;exitX=1.0;exitY=0.5;exitPerimeter=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1930" y="755" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="61" parent="1" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=32;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=center;spacing=0;fontStyle=1;" value="P3  25%" vertex="1">
+          <mxGeometry height="44" width="230" x="5" y="833" as="geometry" />
+        </mxCell>
+        <mxCell id="62" parent="1" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=25;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=center;spacing=0;" value="单件沿本行流转" vertex="1">
+          <mxGeometry height="44" width="230" x="5" y="873" as="geometry" />
+        </mxCell>
+        <mxCell id="63" edge="1" parent="1" source="32" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=0.5;exitY=1.0;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;" target="64">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1275" y="190" />
+              <mxPoint x="260" y="190" />
+              <mxPoint x="260" y="885" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="64" parent="1" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.12;font-size:26px&quot;&gt;&lt;b&gt;Process M2&lt;/b&gt;&lt;br&gt;工序均值 μ＝6 分钟&lt;br&gt;&lt;span style=&quot;font-size:22px;color:#735329&quot;&gt;①换模 · ②故障 · ③阻塞&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="280" x="610" y="830" as="geometry" />
+        </mxCell>
+        <mxCell id="65" parent="1" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.12;font-size:26px&quot;&gt;&lt;b&gt;Process M3&lt;/b&gt;&lt;br&gt;工序均值 μ＝5 分钟&lt;br&gt;&lt;span style=&quot;font-size:22px;color:#735329&quot;&gt;①换模 · ②故障 · ③阻塞&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="280" x="920" y="830" as="geometry" />
+        </mxCell>
+        <mxCell id="66" edge="1" parent="1" source="64" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;" target="65">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="67" parent="1" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.12;font-size:26px&quot;&gt;&lt;b&gt;Process M5&lt;/b&gt;&lt;br&gt;工序均值 μ＝8 分钟&lt;br&gt;&lt;span style=&quot;font-size:22px;color:#735329&quot;&gt;①换模 · ②故障&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="280" x="1540" y="830" as="geometry" />
+        </mxCell>
+        <mxCell id="68" edge="1" parent="1" source="65" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;" target="67">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="69" edge="1" parent="1" source="67" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=none;endFill=1;endSize=10;exitX=1.0;exitY=0.5;exitPerimeter=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1930" y="885" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="70" parent="1" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=32;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=center;spacing=0;fontStyle=1;" value="P4  20%" vertex="1">
+          <mxGeometry height="44" width="230" x="5" y="963" as="geometry" />
+        </mxCell>
+        <mxCell id="71" parent="1" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=25;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=center;spacing=0;" value="单件沿本行流转" vertex="1">
+          <mxGeometry height="44" width="230" x="5" y="1003" as="geometry" />
+        </mxCell>
+        <mxCell id="72" edge="1" parent="1" source="32" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=0.5;exitY=1.0;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;" target="73">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1275" y="190" />
+              <mxPoint x="260" y="190" />
+              <mxPoint x="260" y="1015" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="73" parent="1" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.12;font-size:26px&quot;&gt;&lt;b&gt;Process M1&lt;/b&gt;&lt;br&gt;工序均值 μ＝3 分钟&lt;br&gt;&lt;span style=&quot;font-size:22px;color:#735329&quot;&gt;①换模 · ②故障 · ③阻塞&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="280" x="300" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="74" parent="1" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.12;font-size:26px&quot;&gt;&lt;b&gt;Process M4&lt;/b&gt;&lt;br&gt;工序均值 μ＝9 分钟&lt;br&gt;&lt;span style=&quot;font-size:22px;color:#735329&quot;&gt;①换模 · ②故障 · ③阻塞&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="280" x="1230" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="75" edge="1" parent="1" source="73" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;" target="74">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="76" parent="1" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.12;font-size:26px&quot;&gt;&lt;b&gt;Process M5&lt;/b&gt;&lt;br&gt;工序均值 μ＝4 分钟&lt;br&gt;&lt;span style=&quot;font-size:22px;color:#735329&quot;&gt;①换模 · ②故障&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="280" x="1540" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="77" edge="1" parent="1" source="74" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;" target="76">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="78" edge="1" parent="1" source="76" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=none;endFill=1;endSize=10;exitX=1.0;exitY=0.5;exitPerimeter=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1930" y="1015" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="79" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;entryX=0.5;entryY=0.0;entryPerimeter=0;" target="80">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1930" y="1100" />
+              <mxPoint x="1530" y="1100" />
+            </Array>
+            <mxPoint x="1930" y="625" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="80" parent="1" style="shape=stencil(rVNbDoMgEDwNv41Kmh7A2nugbisRwQDVevuuWeurNk0ffzvDzACDMh67QtTAokCLChg/siiykBmb44BsS1QYBISLFRauhswT2QgrRaqAVpy3poRW5n7wSF2Alb5f5QnjcWa0Rq802o0EmoTUqAluZBq26Qa02xOuMakCD3auOr2OCf8TMxq7xel+jQnfx+Dw1FcqsvJizVXnhGvRV91PlWlg2u6wceYhVkk9E46v+rn0gTfFX0tXVSrjYN7IdGEE6zbOxsICS6Xom5xHrFVI0Q/Bkzs=);html=1;whiteSpace=wrap;rounded=0;fillColor=#EEEEEE;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Record 完工统计&lt;/b&gt;&lt;br&gt;产量与生产周期&lt;/div&gt;" vertex="1">
+          <mxGeometry height="95" width="300" x="1380" y="1140" as="geometry" />
+        </mxCell>
+        <mxCell id="81" parent="1" style="shape=stencil(rVNLDsIgFDwNW9OWmLjXeg9sn/alFAhg1dv7KtifGjW6Y4aZAQZgfO0qYYBliRINML5hWVaiM9oRlxF9ClyaJAFXMyycgcIHshUWxU5Gp/NW13DC0kcPqgos+m6W54yvC60UeVEr1xNkEqhIk5yDKS5ziWixDNhQUgMe7Fi1fR2T/iemN14mu/s1Jn0fQ4OHvnaiqA9WH1UZsBFd1d2o0S0My62e7DnGSlQjYX+r30vv+Kl49bl0mrqcVilvz3JoZDgwgXkbe21hglHK8CbHEXMVUeFH8PwK);html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=29;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Dispose 实体离开&lt;/b&gt;&lt;br&gt;单件成品退出&lt;/div&gt;" vertex="1">
+          <mxGeometry height="95" width="320" x="1750" y="1140" as="geometry" />
+        </mxCell>
+        <mxCell id="82" edge="1" parent="1" source="80" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=1.0;exitY=0.49473684210526314;exitPerimeter=0;entryX=0.0;entryY=0.49473684210526314;entryPerimeter=0;" target="81">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="83" parent="1" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=left;spacing=0;" value="同列的 Process 共用上方 Qᵢ 与机床，不按产品复制资源。" vertex="1">
+          <mxGeometry height="44" width="1320" x="20" y="1098" as="geometry" />
+        </mxCell>
+        <mxCell id="84" parent="1" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=left;spacing=0;" value="每次访问工位均执行①换模判断和②故障控制；下方已展开。" vertex="1">
+          <mxGeometry height="44" width="1320" x="20" y="1143" as="geometry" />
+        </mxCell>
+        <mxCell id="85" parent="1" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=left;spacing=0;" value="转序执行③下游准入／占机阻塞；M5完工后直接释放并退出。" vertex="1">
+          <mxGeometry height="44" width="1320" x="20" y="1188" as="geometry" />
+        </mxCell>
+        <mxCell id="mechanisms" parent="0" value="换模、故障、阻塞展开" />
+        <mxCell id="86" parent="mechanisms" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#FBFCFD;strokeColor=#C5D1DB;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=30;align=center;verticalAlign=middle;spacing=7;" value="" vertex="1">
+          <mxGeometry height="950" width="660" x="20" y="1280" as="geometry" />
+        </mxCell>
+        <mxCell id="87" parent="mechanisms" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=32;align=center;verticalAlign=middle;spacing=7;fontColor=#54718B;align=center;spacing=0;fontStyle=1;" value="① 换模判断与执行" vertex="1">
+          <mxGeometry height="44" width="640" x="30" y="1303" as="geometry" />
+        </mxCell>
+        <mxCell id="88" parent="mechanisms" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#FBFCFD;strokeColor=#C5D1DB;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=30;align=center;verticalAlign=middle;spacing=7;" value="" vertex="1">
+          <mxGeometry height="950" width="660" x="720" y="1280" as="geometry" />
+        </mxCell>
+        <mxCell id="89" parent="mechanisms" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=32;align=center;verticalAlign=middle;spacing=7;fontColor=#54718B;align=center;spacing=0;fontStyle=1;" value="② 设备故障与修复" vertex="1">
+          <mxGeometry height="44" width="640" x="730" y="1303" as="geometry" />
+        </mxCell>
+        <mxCell id="90" parent="mechanisms" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#FBFCFD;strokeColor=#C5D1DB;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=30;align=center;verticalAlign=middle;spacing=7;" value="" vertex="1">
+          <mxGeometry height="950" width="660" x="1420" y="1280" as="geometry" />
+        </mxCell>
+        <mxCell id="91" parent="mechanisms" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=32;align=center;verticalAlign=middle;spacing=7;fontColor=#54718B;align=center;spacing=0;fontStyle=1;" value="③ 缓冲区阻塞（转序时）" vertex="1">
+          <mxGeometry height="44" width="640" x="1430" y="1303" as="geometry" />
+        </mxCell>
+        <mxCell id="92" parent="mechanisms" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Process 本机取得工件&lt;/b&gt;&lt;br&gt;读取本机上次产品类别&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="540" x="80" y="1390" as="geometry" />
+        </mxCell>
+        <mxCell id="93" parent="mechanisms" style="shape=rhombus;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Decide 换模判断&lt;/b&gt;&lt;br&gt;已有模具且本件异类？&lt;/div&gt;" vertex="1">
+          <mxGeometry height="150" width="570" x="65" y="1520" as="geometry" />
+        </mxCell>
+        <mxCell id="94" parent="mechanisms" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Process 换模&lt;/b&gt;&lt;br&gt;耗时15分钟，仍占用本机&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="420" x="140" y="1730" as="geometry" />
+        </mxCell>
+        <mxCell id="95" parent="mechanisms" style="shape=stencil(rVPRbsIwDPyavKK22dB4Zuw/TPGoRepUSYDx97hyKaXA1ml7813uLo6tGLuMFTRoioyhRmPfTVFAjLRlKYQ9KpVnmeJqhCE2WCYlDxAI1g71JKbgd3ikTeo8xBUGSu2pXRm7LD2zeMlz7AkxAbFosi81ddecOjR7VdxIUo0Jw1D18Twm/5+Y3ni66e6vMfnPMVLczWsN5W4b/J43ihtoR91WtT/g9bpHPXexjnggXExW9vu/vGA+Xfv2MrmDi/Wh9hfS6Q1896zS+YjDjVwHLmC8jU8f8AaTc/onhhFjlVD6Ie3qDA==);html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Assign 更新本机模具&lt;/b&gt;&lt;br&gt;记录本件产品类别&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="420" x="140" y="1860" as="geometry" />
+        </mxCell>
+        <mxCell id="96" parent="mechanisms" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=27;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Process 加工&lt;/b&gt;&lt;br&gt;按产品及工序抽取工时&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="420" x="140" y="2010" as="geometry" />
+        </mxCell>
+        <mxCell id="97" edge="1" parent="mechanisms" source="92" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=0.5;exitY=1.0;exitPerimeter=0;entryX=0.5;entryY=0.0;entryPerimeter=0;" target="93">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="98" edge="1" parent="mechanisms" source="93" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=0.5;exitY=1.0;exitPerimeter=0;entryX=0.5;entryY=0.0;entryPerimeter=0;" target="94">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="99" parent="mechanisms" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=26;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=center;spacing=0;" value="是" vertex="1">
+          <mxGeometry height="44" width="90" x="270" y="1678" as="geometry" />
+        </mxCell>
+        <mxCell id="100" edge="1" parent="mechanisms" source="93" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=1.0;entryY=0.5;entryPerimeter=0;" target="95">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="650" y="1595" />
+              <mxPoint x="650" y="1910" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="101" parent="mechanisms" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=26;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=center;spacing=0;" value="否" vertex="1">
+          <mxGeometry height="44" width="90" x="567" y="1678" as="geometry" />
+        </mxCell>
+        <mxCell id="102" edge="1" parent="mechanisms" source="94" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=0.5;exitY=1.0;exitPerimeter=0;entryX=0.5;entryY=0.0;entryPerimeter=0;" target="95">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="103" edge="1" parent="mechanisms" source="95" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=0.5;exitY=1.0;exitPerimeter=0;entryX=0.5;entryY=0.0;entryPerimeter=0;" target="96">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="104" parent="mechanisms" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=24;align=center;verticalAlign=middle;spacing=7;align=left;spacing=0;" value="&lt;div style=&quot;line-height:1.3&quot;&gt;首件或同类工件跳过换模。&lt;br&gt;换模与加工均可能被故障中断，见②。&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="590" x="55" y="2140" as="geometry" />
+        </mxCell>
+        <mxCell id="105" parent="mechanisms" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=25;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Process 执行换模／加工片段&lt;/b&gt;&lt;br&gt;推进至故障或阶段结束&lt;br&gt;仅加工、换模扣减工作寿命&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="550" x="775" y="1390" as="geometry" />
+        </mxCell>
+        <mxCell id="106" parent="mechanisms" style="shape=rhombus;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=27;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Decide 故障中断&lt;/b&gt;&lt;br&gt;工作未完成且寿命耗尽？&lt;/div&gt;" vertex="1">
+          <mxGeometry height="150" width="570" x="765" y="1520" as="geometry" />
+        </mxCell>
+        <mxCell id="107" parent="mechanisms" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=27;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Process 故障维修&lt;/b&gt;&lt;br&gt;保留工件与机床&lt;br&gt;维修时长 EXPO(240)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="130" width="430" x="835" y="1730" as="geometry" />
+        </mxCell>
+        <mxCell id="108" parent="mechanisms" style="shape=stencil(rVPRbsIwDPyavKK22dB4Zuw/TPGoRepUSYDx97hyKaXA1ml7813uLo6tGLuMFTRoioyhRmPfTVFAjLRlKYQ9KpVnmeJqhCE2WCYlDxAI1g71JKbgd3ikTeo8xBUGSu2pXRm7LD2zeMlz7AkxAbFosi81ddecOjR7VdxIUo0Jw1D18Twm/5+Y3ni66e6vMfnPMVLczWsN5W4b/J43ihtoR91WtT/g9bpHPXexjnggXExW9vu/vGA+Xfv2MrmDi/Wh9hfS6Q1896zS+YjDjVwHLmC8jU8f8AaTc/onhhFjlVD6Ie3qDA==);html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=27;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Assign 重置工作寿命&lt;/b&gt;&lt;br&gt;重新抽取 EXPO(6000)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="430" x="835" y="1910" as="geometry" />
+        </mxCell>
+        <mxCell id="109" parent="mechanisms" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=27;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Process 续作原阶段余量&lt;/b&gt;&lt;br&gt;不重抽该工序工时&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="430" x="835" y="2040" as="geometry" />
+        </mxCell>
+        <mxCell id="110" parent="mechanisms" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=27;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;阶段完成，返回主流程&lt;/b&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="75" width="430" x="835" y="2150" as="geometry" />
+        </mxCell>
+        <mxCell id="111" edge="1" parent="mechanisms" source="105" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=0.5;exitY=1.0;exitPerimeter=0;entryX=0.5;entryY=0.0;entryPerimeter=0;" target="106">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="112" edge="1" parent="mechanisms" source="106" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=0.5;exitY=1.0;exitPerimeter=0;entryX=0.5;entryY=0.0;entryPerimeter=0;" target="107">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="113" parent="mechanisms" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=26;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=center;spacing=0;" value="是" vertex="1">
+          <mxGeometry height="44" width="90" x="970" y="1678" as="geometry" />
+        </mxCell>
+        <mxCell id="114" edge="1" parent="mechanisms" source="106" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=1.0;entryY=0.5;entryPerimeter=0;" target="110">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1360" y="1595" />
+              <mxPoint x="1360" y="2187.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="115" parent="mechanisms" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=23;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=center;spacing=0;" value="否：本阶段完成" vertex="1">
+          <mxGeometry height="44" width="250" x="1135" y="1678" as="geometry" />
+        </mxCell>
+        <mxCell id="116" edge="1" parent="mechanisms" source="107" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=0.5;exitY=1.0;exitPerimeter=0;entryX=0.5;entryY=0.0;entryPerimeter=0;" target="108">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="117" edge="1" parent="mechanisms" source="108" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=0.5;exitY=1.0;exitPerimeter=0;entryX=0.5;entryY=0.0;entryPerimeter=0;" target="109">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="118" edge="1" parent="mechanisms" source="109" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=0.0;exitY=0.5;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;" target="105">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="745" y="2085" />
+              <mxPoint x="745" y="1445" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="119" parent="mechanisms" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=27;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Process 当前工序完成&lt;/b&gt;&lt;br&gt;有后续工序：申请下游缓冲&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="540" x="1480" y="1390" as="geometry" />
+        </mxCell>
+        <mxCell id="120" parent="mechanisms" style="shape=rhombus;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Decide 下游准入&lt;/b&gt;&lt;br&gt;队首且下游缓冲未满？&lt;/div&gt;" vertex="1">
+          <mxGeometry height="150" width="580" x="1460" y="1520" as="geometry" />
+        </mxCell>
+        <mxCell id="121" parent="mechanisms" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF8D8;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Hold 缓冲区阻塞&lt;/b&gt;&lt;br&gt;保留工件与上游机床&lt;br&gt;不能取新件，等待空位&lt;/div&gt;" vertex="1">
+          <mxGeometry height="140" width="480" x="1510" y="1730" as="geometry" />
+        </mxCell>
+        <mxCell id="122" parent="mechanisms" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=27;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Process 下游准入成功&lt;/b&gt;&lt;br&gt;进入缓冲后才释放上游机床&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="480" x="1510" y="2010" as="geometry" />
+        </mxCell>
+        <mxCell id="123" parent="mechanisms" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#EDF3F8;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=27;align=center;verticalAlign=middle;spacing=7;" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Queue 下游共享缓冲&lt;/b&gt;&lt;br&gt;由下游工位派工&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="480" x="1510" y="2140" as="geometry" />
+        </mxCell>
+        <mxCell id="124" edge="1" parent="mechanisms" source="119" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=0.5;exitY=1.0;exitPerimeter=0;entryX=0.5;entryY=0.0;entryPerimeter=0;" target="120">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="125" edge="1" parent="mechanisms" source="120" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=0.5;exitY=1.0;exitPerimeter=0;entryX=0.5;entryY=0.0;entryPerimeter=0;" target="121">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="126" parent="mechanisms" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=26;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=center;spacing=0;" value="否" vertex="1">
+          <mxGeometry height="44" width="90" x="1743" y="1678" as="geometry" />
+        </mxCell>
+        <mxCell id="127" edge="1" parent="mechanisms" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=0.5;exitY=1.0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="120">
+          <mxGeometry relative="1" x="-0.0129" as="geometry">
+            <Array as="points">
+              <mxPoint x="1760" y="1910" />
+              <mxPoint x="2070" y="1910" />
+              <mxPoint x="2070" y="1595" />
+            </Array>
+            <mxPoint x="1760" y="1870" as="sourcePoint" />
+            <mxPoint x="2050" y="1595" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="128" parent="mechanisms" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=24;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=center;spacing=0;" value="腾位后按 FIFO 重判" vertex="1">
+          <mxGeometry height="44" width="410" x="1665" y="1923" as="geometry" />
+        </mxCell>
+        <mxCell id="129" edge="1" parent="mechanisms" source="120" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=0.0;exitY=0.5;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;" target="122">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1440" y="1595" />
+              <mxPoint x="1440" y="2060" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="130" parent="mechanisms" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=26;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=center;spacing=0;" value="是" vertex="1">
+          <mxGeometry height="44" width="90" x="1425" y="1678" as="geometry" />
+        </mxCell>
+        <mxCell id="131" edge="1" parent="mechanisms" source="122" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=0.5;exitY=1.0;exitPerimeter=0;entryX=0.5;entryY=0.0;entryPerimeter=0;" target="123">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="p2" name="02 逐件准入与完整循环">
+    <mxGraphModel dx="1800" dy="1995" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1995" background="#FFFFFF" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Create  实体到达&lt;/b&gt;&lt;br&gt;批次间隔 EXPO(10)&lt;br&gt;每批生成 5–20 个单件&lt;/div&gt;" style="shape=stencil(rVNLDsIgFDwNW0MhLlz7uccTn5ZIoQGsentfA1as30R3zDAzwABMzkMNLTLBLTTI5IIJoTxCJEoQe0xUxXnC9QhDaFHFRHbgNaxNdobo3R6PehOzR9savY79rFwyOVfOWvJqZ8NAkAm0JQ0/JVNe5pzRZJpwS0kNRvSlavU6pvpPzGA83+3u15jqcwwNHvpag9rvvDvYTcIt9FX3o8Z1+LLDMtZoWwhn4lvlcP9ZOv0+9Wp9quXvpMq4gGUjtwMTGLexdR7vsDYmvckyYqwiKn0IubwA);html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=34;align=center;verticalAlign=middle;spacing=7;" vertex="1" parent="1">
+          <mxGeometry x="50" y="25" width="440" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Assign  类别与属性&lt;/b&gt;&lt;br&gt;P1 30% / P2 25% / P3 25% / P4 20%&lt;br&gt;逐件独立抽型，记录编号与到达时刻&lt;br&gt;绑定工艺路线，工序号＝1&lt;/div&gt;" style="shape=stencil(rVPRbsIwDPyavKK22dB4Zuw/TPGoRepUSYDx97hyKaXA1ml7813uLo6tGLuMFTRoioyhRmPfTVFAjLRlKYQ9KpVnmeJqhCE2WCYlDxAI1g71JKbgd3ikTeo8xBUGSu2pXRm7LD2zeMlz7AkxAbFosi81ddecOjR7VdxIUo0Jw1D18Twm/5+Y3ni66e6vMfnPMVLczWsN5W4b/J43ihtoR91WtT/g9bpHPXexjnggXExW9vu/vGA+Xfv2MrmDi/Wh9hfS6Q1896zS+YjDjVwHLmC8jU8f8AaTc/onhhFjlVD6Ie3qDA==);html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=32;align=center;verticalAlign=middle;spacing=7;" vertex="1" parent="1">
+          <mxGeometry x="620" y="25" width="620" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="4" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=0.0;entryY=0.4444444444444444;entryPerimeter=0;" edge="1" parent="1" source="2" target="3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Entity  单件工件&lt;/b&gt;&lt;br&gt;四类产品共享工位资源&lt;br&gt;类型与工艺路线保持不变&lt;/div&gt;" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#EDF3F8;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=32;align=center;verticalAlign=middle;spacing=7;" vertex="1" parent="1">
+          <mxGeometry x="1330" y="25" width="430" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="6" style="edgeStyle=none;rounded=0;html=1;strokeColor=#54718B;strokeWidth=2.7;endArrow=none;endFill=1;endSize=10;dashed=1;dashPattern=4 6;exitX=0.0;exitY=0.5;exitPerimeter=0;entryX=1.0;entryY=0.5;entryPerimeter=0;" edge="1" parent="1" source="5" target="3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Assign  确定目标工位 i&lt;/b&gt;&lt;br&gt;按产品类型和工序号取路由&lt;/div&gt;" style="shape=stencil(rVPRbsIwDPyavKK22dB4Zuw/TPGoRepUSYDx97hyKaXA1ml7813uLo6tGLuMFTRoioyhRmPfTVFAjLRlKYQ9KpVnmeJqhCE2WCYlDxAI1g71JKbgd3ikTeo8xBUGSu2pXRm7LD2zeMlz7AkxAbFosi81ddecOjR7VdxIUo0Jw1D18Twm/5+Y3ni66e6vMfnPMVLczWsN5W4b/J43ihtoR91WtT/g9bpHPXexjnggXExW9vu/vGA+Xfv2MrmDi/Wh9hfS6Q1896zS+YjDjVwHLmC8jU8f8AaTc/onhhFjlVD6Ie3qDA==);html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=36;align=center;verticalAlign=middle;spacing=7;" vertex="1" parent="1">
+          <mxGeometry x="650" y="255" width="560" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="8" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=0.5;exitY=1.0;exitPerimeter=0;entryX=0.5;entryY=0.0;entryPerimeter=0;" edge="1" parent="1" source="3" target="7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Queue  工位 i 准入请求&lt;/b&gt;&lt;br&gt;线外件与转序件共用 FIFO&lt;br&gt;只记请求，不占目标缓冲位&lt;/div&gt;" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#EDF3F8;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=32;align=center;verticalAlign=middle;spacing=7;" vertex="1" parent="1">
+          <mxGeometry x="60" y="300" width="450" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="10" style="edgeStyle=none;rounded=0;html=1;strokeColor=#54718B;strokeWidth=2.7;endArrow=none;endFill=1;endSize=10;dashed=1;dashPattern=4 6;exitX=1.0;exitY=0.6666666666666666;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;" edge="1" parent="1" source="9" target="11">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="565" y="420" />
+              <mxPoint x="565" y="500" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="11" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Decide  准入判断&lt;/b&gt;&lt;br&gt;队首且缓冲未满？&lt;/div&gt;" style="shape=rhombus;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=33;align=center;verticalAlign=middle;spacing=7;" vertex="1" parent="1">
+          <mxGeometry x="630" y="415" width="600" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="12" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=0.5;exitY=1.0;exitPerimeter=0;entryX=0.5;entryY=0.0;entryPerimeter=0;" edge="1" parent="1" source="7" target="11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Hold  等待准入&lt;/b&gt;&lt;br&gt;毛坯在线外等待&lt;br&gt;转序件占用上游机床&lt;br&gt;保留原 FIFO 次序&lt;/div&gt;" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF8D8;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=33;align=center;verticalAlign=middle;spacing=7;" vertex="1" parent="1">
+          <mxGeometry x="1330" y="420" width="430" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="14" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=0.0;entryY=0.4;entryPerimeter=0;" edge="1" parent="1" source="11" target="13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="15" value="否" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=32;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=center;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="1233.0" y="453" width="90" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="16" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=0.5;exitY=0.0;exitPerimeter=0;" edge="1" parent="1" source="13">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1080" y="457.5" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1545" y="398" />
+              <mxPoint x="1080" y="398" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="17" value="轮到本件且有空位" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=29;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=center;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="1251.5" y="353" width="257" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="18" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Process  准入交接&lt;/b&gt;&lt;br&gt;进入缓冲并记录入队时刻&lt;br&gt;转序成功后释放上游机床&lt;/div&gt;" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=34;align=center;verticalAlign=middle;spacing=7;" vertex="1" parent="1">
+          <mxGeometry x="650" y="640" width="560" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="19" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=0.5;exitY=1.0;exitPerimeter=0;entryX=0.5;entryY=0.0;entryPerimeter=0;" edge="1" parent="1" source="11" target="18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="20" value="是" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=32;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=center;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="919.0" y="588" width="90" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="21" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Queue  工位 i 的共享缓冲&lt;/b&gt;&lt;br&gt;每站 50 件，仅计等待件&lt;br&gt;FIFO / 同类优先 / 超时优先&lt;br&gt;只从已入缓冲的工件中选取&lt;/div&gt;" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#EDF3F8;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=31;align=center;verticalAlign=middle;spacing=7;" vertex="1" parent="1">
+          <mxGeometry x="60" y="650" width="450" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="22" value="缓冲内等待派工" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=31;align=center;verticalAlign=middle;spacing=7;fontColor=#54718B;align=center;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="169.0" y="905" width="242" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="23" style="edgeStyle=none;rounded=0;html=1;strokeColor=#54718B;strokeWidth=2.7;endArrow=none;endFill=1;endSize=10;dashed=1;dashPattern=4 6;exitX=1.0;exitY=0.29523809523809524;exitPerimeter=0;entryX=0.0;entryY=0.496551724137931;entryPerimeter=0;" edge="1" parent="1" source="21" target="18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="24" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Process  选件与占机&lt;/b&gt;&lt;br&gt;先按请求顺序选空闲机&lt;br&gt;再从缓冲选件并占机&lt;/div&gt;" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=34;align=center;verticalAlign=middle;spacing=7;" vertex="1" parent="1">
+          <mxGeometry x="650" y="850" width="560" height="135" as="geometry" />
+        </mxCell>
+        <mxCell id="25" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=0.5;exitY=1.0;exitPerimeter=0;entryX=0.5;entryY=0.0;entryPerimeter=0;" edge="1" parent="1" source="18" target="24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="26" style="edgeStyle=none;rounded=0;html=1;strokeColor=#54718B;strokeWidth=2.7;endArrow=none;endFill=1;endSize=10;dashed=1;dashPattern=4 6;entryX=0.0;entryY=0.3333333333333333;entryPerimeter=0;" edge="1" parent="1" target="24">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="495" y="895" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="27" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Resource  工位 i 的机床&lt;/b&gt;&lt;br&gt;按工位配置 1 或 2 台&lt;br&gt;各台模具、寿命与状态独立&lt;br&gt;每台容量 1，派工后独占&lt;/div&gt;" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#EDF3F8;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=31;align=center;verticalAlign=middle;spacing=7;" vertex="1" parent="1">
+          <mxGeometry x="1330" y="755" width="430" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="28" style="edgeStyle=none;rounded=0;html=1;strokeColor=#54718B;strokeWidth=2.7;endArrow=none;endFill=1;endSize=10;dashed=1;dashPattern=4 6;exitX=0.0;exitY=0.5238095238095238;exitPerimeter=0;entryX=1.0;entryY=0.4962962962962963;entryPerimeter=0;" edge="1" parent="1" source="27" target="24">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1275" y="865" />
+              <mxPoint x="1275" y="917" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="29" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Decide  换模判断&lt;/b&gt;&lt;br&gt;已有模具且异类？&lt;/div&gt;" style="shape=rhombus;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=33;align=center;verticalAlign=middle;spacing=7;" vertex="1" parent="1">
+          <mxGeometry x="630" y="1020" width="600" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="30" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=0.5;exitY=1.0;exitPerimeter=0;entryX=0.5;entryY=0.0;entryPerimeter=0;" edge="1" parent="1" source="24" target="29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="31" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Process  换模&lt;/b&gt;&lt;br&gt;异类换模 15 分钟&lt;/div&gt;" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=36;align=center;verticalAlign=middle;spacing=7;" vertex="1" parent="1">
+          <mxGeometry x="1330" y="1040" width="430" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="32" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;" edge="1" parent="1" source="29" target="31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="33" value="是" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=32;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=center;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="1233.0" y="1056" width="90" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="34" value="&lt;div style=&quot;line-height:1.18&quot;&gt;&lt;b style=&quot;font-size:34px&quot;&gt;Process  加工&lt;/b&gt;&lt;br&gt;N(μ, (0.1μ)²)&lt;br&gt;抽到0或负数时，重新抽取直到大于0&lt;br&gt;有效时长确定后，故障时沿用剩余量&lt;/div&gt;" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=28;align=center;verticalAlign=middle;spacing=7;" vertex="1" parent="1">
+          <mxGeometry x="650" y="1235" width="560" height="165" as="geometry" />
+        </mxCell>
+        <mxCell id="35" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=0.5;exitY=1.0;exitPerimeter=0;entryX=0.5;entryY=0.0;entryPerimeter=0;" edge="1" parent="1" source="29" target="34">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="36" value="否：首次或同类" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=30;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=center;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="957.5" y="1197" width="235" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="37" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=0.5;exitY=1.0;exitPerimeter=0;entryX=1.0;entryY=0.2413793103448276;entryPerimeter=0;" edge="1" parent="1" source="31" target="34">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1545" y="1210" />
+              <mxPoint x="1230" y="1210" />
+              <mxPoint x="1230" y="1280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="38" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Process  故障维修&lt;/b&gt;&lt;br&gt;工作寿命 EXPO(6000)&lt;br&gt;仅加工与换模累计寿命&lt;br&gt;修复时间 EXPO(240)&lt;br&gt;占机，恢复后续作余量&lt;/div&gt;" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=32;align=center;verticalAlign=middle;spacing=7;" vertex="1" parent="1">
+          <mxGeometry x="1330" y="1290" width="430" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="39" style="edgeStyle=none;rounded=0;html=1;strokeColor=#A14F37;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;dashed=1;dashPattern=8 6;startArrow=block;startFill=1;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=1.0;entryY=0.5;entryPerimeter=0;" edge="1" parent="1" source="31" target="38">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1780" y="1105" />
+              <mxPoint x="1780" y="1410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="40" style="edgeStyle=none;rounded=0;html=1;strokeColor=#A14F37;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;dashed=1;dashPattern=8 6;startArrow=block;startFill=1;exitX=1.0;exitY=0.6896551724137931;exitPerimeter=0;entryX=0.0;entryY=0.5416666666666666;entryPerimeter=0;" edge="1" parent="1" source="34" target="38">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1280" y="1345" />
+              <mxPoint x="1280" y="1420" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="41" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Decide  完工判断&lt;/b&gt;&lt;br&gt;全部工序已完成？&lt;/div&gt;" style="shape=rhombus;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=33;align=center;verticalAlign=middle;spacing=7;" vertex="1" parent="1">
+          <mxGeometry x="630" y="1420" width="600" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="42" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=0.5;exitY=1.0;exitPerimeter=0;entryX=0.5;entryY=0.0;entryPerimeter=0;" edge="1" parent="1" source="34" target="41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="43" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Assign  转向下一工序&lt;/b&gt;&lt;br&gt;工序号加 1，更新目标工位&lt;br&gt;保留本机，直到下游准入&lt;/div&gt;" style="shape=stencil(rVPRbsIwDPyavKK22dB4Zuw/TPGoRepUSYDx97hyKaXA1ml7813uLo6tGLuMFTRoioyhRmPfTVFAjLRlKYQ9KpVnmeJqhCE2WCYlDxAI1g71JKbgd3ikTeo8xBUGSu2pXRm7LD2zeMlz7AkxAbFosi81ddecOjR7VdxIUo0Jw1D18Twm/5+Y3ni66e6vMfnPMVLczWsN5W4b/J43ihtoR91WtT/g9bpHPXexjnggXExW9vu/vGA+Xfv2MrmDi/Wh9hfS6Q1896zS+YjDjVwHLmC8jU8f8AaTc/onhhFjlVD6Ie3qDA==);html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=32;align=center;verticalAlign=middle;spacing=7;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1430" width="455" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="44" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=0.0;exitY=0.5;exitPerimeter=0;entryX=1.0;entryY=0.4411764705882353;entryPerimeter=0;" edge="1" parent="1" source="41" target="43">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="45" value="否" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=32;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=center;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="529.0" y="1456" width="90" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="46" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=0.0;exitY=0.5;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;" edge="1" parent="1" source="43" target="7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="20" y="1515" />
+              <mxPoint x="20" y="230" />
+              <mxPoint x="590" y="230" />
+              <mxPoint x="590" y="320" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="47" value="转序循环" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=30;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=center;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="272.5" y="183" width="145" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="48" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Process  资源释放&lt;/b&gt;&lt;br&gt;释放末工序机床&lt;/div&gt;" style="shape=rectangle;html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=35;align=center;verticalAlign=middle;spacing=7;" vertex="1" parent="1">
+          <mxGeometry x="650" y="1650" width="560" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="49" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=0.5;exitY=1.0;exitPerimeter=0;entryX=0.5;entryY=0.0;entryPerimeter=0;" edge="1" parent="1" source="41" target="48">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="50" value="是" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=32;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=center;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="919.0" y="1598" width="90" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="51" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Record  结果统计&lt;/b&gt;&lt;br&gt;分产品完工量、生产周期&lt;/div&gt;" style="shape=stencil(rVNbDoMgEDwNv41Kmh7A2nugbisRwQDVevuuWeurNk0ffzvDzACDMh67QtTAokCLChg/siiykBmb44BsS1QYBISLFRauhswT2QgrRaqAVpy3poRW5n7wSF2Alb5f5QnjcWa0Rq802o0EmoTUqAluZBq26Qa02xOuMakCD3auOr2OCf8TMxq7xel+jQnfx+Dw1FcqsvJizVXnhGvRV91PlWlg2u6wceYhVkk9E46v+rn0gTfFX0tXVSrjYN7IdGEE6zbOxsICS6Xom5xHrFVI0Q/Bkzs=);html=1;whiteSpace=wrap;rounded=0;fillColor=#EEEEEE;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=34;align=center;verticalAlign=middle;spacing=7;" vertex="1" parent="1">
+          <mxGeometry x="650" y="1820" width="560" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="52" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=0.5;exitY=1.0;exitPerimeter=0;entryX=0.5;entryY=0.0;entryPerimeter=0;" edge="1" parent="1" source="48" target="51">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="53" value="&lt;div style=&quot;line-height:1.28&quot;&gt;&lt;b&gt;Dispose  实体离开&lt;/b&gt;&lt;br&gt;单件成品退出系统&lt;/div&gt;" style="shape=stencil(rVNLDsIgFDwNW9OWmLjXeg9sn/alFAhg1dv7KtifGjW6Y4aZAQZgfO0qYYBliRINML5hWVaiM9oRlxF9ClyaJAFXMyycgcIHshUWxU5Gp/NW13DC0kcPqgos+m6W54yvC60UeVEr1xNkEqhIk5yDKS5ziWixDNhQUgMe7Fi1fR2T/iemN14mu/s1Jn0fQ4OHvnaiqA9WH1UZsBFd1d2o0S0My62e7DnGSlQjYX+r30vv+Kl49bl0mrqcVilvz3JoZDgwgXkbe21hglHK8CbHEXMVUeFH8PwK);html=1;whiteSpace=wrap;rounded=0;fillColor=#FFF2B3;strokeColor=#474747;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=34;align=center;verticalAlign=middle;spacing=7;" vertex="1" parent="1">
+          <mxGeometry x="1330" y="1828" width="430" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="54" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;exitX=1.0;exitY=0.504;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;" edge="1" parent="1" source="51" target="53">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="55" value="连线与颜色" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=34;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=left;spacing=0;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1688" width="195" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="56" style="edgeStyle=none;rounded=0;html=1;strokeColor=#202428;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="62" y="1760" as="sourcePoint" />
+            <mxPoint x="155" y="1760" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="57" value="工件流转与条件分支" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=31;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=left;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="180" y="1738" width="304" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="58" style="edgeStyle=none;rounded=0;html=1;strokeColor=#A14F37;strokeWidth=2.7;endArrow=block;endFill=1;endSize=10;dashed=1;dashPattern=8 6;startArrow=block;startFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="62" y="1820" as="sourcePoint" />
+            <mxPoint x="155" y="1820" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="59" value="故障中断与续作" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=31;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=left;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="180" y="1798" width="242" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="60" style="edgeStyle=none;rounded=0;html=1;strokeColor=#54718B;strokeWidth=2.7;endArrow=none;endFill=1;endSize=10;dashed=1;dashPattern=4 6;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="62" y="1880" as="sourcePoint" />
+            <mxPoint x="155" y="1880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="61" value="数据设置关联" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=31;align=center;verticalAlign=middle;spacing=7;fontColor=#202428;align=left;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="180" y="1858" width="211" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="62" value="蓝色框为数据设置，实体不流经。" style="shape=text;html=1;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;strokeWidth=2.5;fontColor=#202428;fontFamily=Arial, PingFang SC;fontSize=30;align=center;verticalAlign=middle;spacing=7;fontColor=#54718B;align=left;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1908" width="475" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="63" style="edgeStyle=none;rounded=0;html=1;strokeColor=#54718B;strokeWidth=2.7;endArrow=none;endFill=1;endSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="85" y="895" as="sourcePoint" />
+            <mxPoint x="495" y="873" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="495" y="895" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

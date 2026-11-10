@@ -11,11 +11,12 @@ def stream(seed: int, *keys: object) -> random.Random:
 
 
 def processing_duration(config: SimulationConfig, seed: int, job) -> float:
-    mean = ROUTES[job.product][job.operation_index][1]
+    station, mean = ROUTES[job.product][job.operation_index]
+    multiplier = config.processing_multiplier_for(station)
     if config.processing_cv == 0:
-        return float(mean)
+        return float(mean) * multiplier
     rng = stream(seed, "processing", job.job_id, job.operation_index)
     duration = rng.gauss(mean, mean * config.processing_cv)
     while duration <= 0:
         duration = rng.gauss(mean, mean * config.processing_cv)
-    return duration
+    return duration * multiplier

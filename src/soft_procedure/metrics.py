@@ -25,6 +25,11 @@ def collect_result(sim):
                   for s in sim.machines[0].STATES}
         stations.append({
             "name": name, "machine_count": len(station.machines), "states": states,
+            "buffer_capacity": station.capacity,
+            "blocked_machine_minutes": sum(m.state_times()["blocked"] for m in station.machines),
+            "full_buffer_share": sum(
+                (station.queue_log[i + 1]["time"] if i + 1 < len(station.queue_log) else horizon) - row["time"]
+                for i, row in enumerate(station.queue_log) if row["length"] == station.capacity) / horizon,
             "mean_queue": station.mean_queue(horizon), "max_queue": station.max_queue,
             "mean_wait": average(station.wait_times), "dispatched": len(station.wait_times),
             "waiting_at_end": len(station.waiting),
@@ -35,6 +40,8 @@ def collect_result(sim):
     last = sim.samples[-1]
     total_time = len(machines) * horizon
     counts = {s: sum(m["state_times"][s] for m in machines) / total_time for s in sim.machines[0].STATES}
+    blocked_minutes = sum(m["state_times"]["blocked"] for m in machines)
+    unfinished_ages = [horizon - j.arrival_time for j in sim.jobs if j.completion_time is None]
     conservation_error = len(sim.jobs) - len(sim.completed) - last["wip"] - last["external"]
     # 独立占位检查，避免只验证由减法定义的 WIP。
     physical_wip = sum(len(s.waiting) for s in sim.stations.values()) + sum(m.current_job is not None for m in sim.machines)
@@ -58,6 +65,14 @@ def collect_result(sim):
             "mean_release_wait": average(j.admitted_at - j.arrival_time for j in sim.jobs if j.admitted_at is not None),
             "processing_utilization": counts["processing"], "setup_share": counts["setup"],
             "repair_share": counts["repair"], "blocked_share": counts["blocked"],
+            "blocked_machine_minutes": blocked_minutes,
+            "blocked_minutes_per_completed": blocked_minutes / len(sim.completed) if sim.completed else None,
+            "mean_wip": sum((j.completion_time if j.completion_time is not None else horizon) - j.admitted_at
+                            for j in sim.jobs if j.admitted_at is not None) / horizon,
+            "mean_external": sum((j.admitted_at if j.admitted_at is not None else horizon) - j.arrival_time
+                                 for j in sim.jobs) / horizon,
+            "unfinished_age_mean": average(unfinished_ages),
+            "unfinished_age_max": max(unfinished_ages, default=None),
             "setup_count": sum(m.setup_count for m in sim.machines),
             "failure_count": sum(m.failure_count for m in sim.machines),
             **{key: last[key] for key in ("sales_revenue", "operating_cost", "operating_contribution")},

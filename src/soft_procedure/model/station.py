@@ -7,7 +7,7 @@ from ..policies import choose
 class Station:
     def __init__(self, env, name, config):
         self.env, self.name, self.config = env, name, config
-        self.capacity = config.buffer_capacity
+        self.capacity = config.buffer_capacity_for(name)
         self.waiting = []
         self.pending = deque()
         self.idle_machines = deque()

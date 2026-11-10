@@ -31,6 +31,9 @@ class SimulationConfig:
         }
     )
     buffer_capacity: int = 50
+    # 未指定的工位沿用统一容量；倍率作用于整道工序样本，不改变 CV。
+    buffer_capacities: dict[str, int] = field(default_factory=dict)
+    processing_time_multipliers: dict[str, float] = field(default_factory=dict)
     processing_cv: float = 0.10  # 标准差 / 均值
     setup_time: float = 15.0
 
@@ -66,6 +69,15 @@ class SimulationConfig:
             raise ValueError("machine_counts 必须包含 M1–M5")
         if any(type(v) is not int or v < 1 for v in self.machine_counts.values()):
             raise ValueError("每个工位的机床数必须为正整数")
+        for key in ("buffer_capacities", "processing_time_multipliers"):
+            values = getattr(self, key)
+            if not isinstance(values, dict) or not set(values) <= set(STATIONS):
+                raise ValueError(f"{key} 必须为仅含 M1–M5 的工位配置字典")
+        if any(type(v) is not int or v < 1 for v in self.buffer_capacities.values()):
+            raise ValueError("分工位缓冲容量必须为正整数")
+        if any(isinstance(v, bool) or not isinstance(v, (int, float)) or not math.isfinite(v) or v <= 0
+               for v in self.processing_time_multipliers.values()):
+            raise ValueError("工位加工时间倍率必须为有限正数")
         if self.policy_name not in ("fifo", "same_family", "aging"):
             raise ValueError("policy_name 必须为 fifo、same_family 或 aging")
         if type(self.failures_enabled) is not bool:
@@ -78,6 +90,12 @@ class SimulationConfig:
         if not isinstance(self.operating_cost_basis, str) or self.operating_cost_basis not in OPERATING_COST_BASES:
             raise ValueError("operating_cost_basis 必须为 machine_calendar、machine_active 或 line_calendar")
         return self
+
+    def buffer_capacity_for(self, station: str) -> int:
+        return self.buffer_capacities.get(station, self.buffer_capacity)
+
+    def processing_multiplier_for(self, station: str) -> float:
+        return self.processing_time_multipliers.get(station, 1.0)
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -102,6 +120,7 @@ ASSUMPTIONS = [
     "缓冲满时采用加工后阻塞，工件继续占用上游机床；外部到达过程持续运行。",
     "缓冲准入请求按请求时刻 FIFO 排队，线外毛坯与上游转入不设优先级；调度规则只对已入缓冲的工件生效。",
     "正态加工时间若抽到非正值则重新抽样；方案共享按工件与工序绑定的加工样本。",
+    "分工位缓冲容量覆盖统一容量；加工时间倍率缩放对应工位的同一加工样本，保持变异系数和其他工位不变。",
     "观察窗口为 [0, horizon)，截止时刻的普通事件不执行；未完成工件不计成品。",
     "同类优先可能使其他产品等待更久；另提供超时优先策略供自定义基准使用。",
     "窗口内完成全部工艺的产品按配置售价全部售出；在制品和线外毛坯不确认收入，未建模需求、退货或库存残值。",

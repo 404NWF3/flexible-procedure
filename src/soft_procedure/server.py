@@ -20,7 +20,7 @@ def validate_request(payload):
         raise ValueError("随机种子必须是 0–2147483617 的整数")
     if not 1 <= config.horizon <= 14400 or config.arrival_mean < 1:
         raise ValueError("面板支持 1–14400 分钟，平均到达间隔至少 1 分钟")
-    if max(config.machine_counts.values()) > 8 or config.buffer_capacity > 500 or config.batch_max > 100:
+    if max(config.machine_counts.values()) > 8 or max((config.buffer_capacity, *config.buffer_capacities.values())) > 500 or config.batch_max > 100:
         raise ValueError("面板每工位最多 8 台机床、缓冲最多 500 件、每批最多 100 件")
     if config.mtbf < 1 or config.mttr < 0.1 or config.processing_cv > 1 or config.setup_time > 2400:
         raise ValueError("MTBF 至少 1 分钟，MTTR 至少 0.1 分钟，CV 不超过 1，换模不超过 2400 分钟")
