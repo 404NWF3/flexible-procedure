@@ -35,6 +35,53 @@ uv run python -m unittest discover -s tests -v
 
 没有 uv 时，也可在 Python 虚拟环境中 `python -m pip install -e .`，再运行 `soft-procedure serve`。
 
+## 云端环境同步
+
+在已安装 uv 的云端环境中运行：
+
+```bash
+bash .codex/setup.sh
+# 同步环境，并运行全部测试及四个核心方案 × 10 次重复的验收：
+bash .codex/setup.sh --verify
+```
+
+脚本从自身位置定位项目，以 `.python-version` 选择 Python，以 `uv.lock` 同步精确依赖版本并重新安装当前模型的可编辑包，保留默认开发依赖（含 SUFE CLI）。验收结果写入新建的 `outputs/cloud-validation.*` 目录，并检查种子、四方案矩阵、数量守恒与经济核算。每次验收使用独立目录，原有面板和正式实验记录不受覆盖。
+
+如果需要让后续新建的云端任务自动使用该环境，可在云端环境设置中将初始化命令设为 `bash .codex/setup.sh`（工作目录为本仓库根目录），再保存并发布环境配置。仓库中的脚本本身不会修改或发布平台环境模板。模型和 HTML 面板运行不需要额外安装 Node、数据库或系统软件；Notebook 内核及 SUFE 浏览器按对应使用需求另行安装。
+
+## 1、5、10 年长周期实验
+
+```bash
+uv run --locked python tools/run_long_horizon_experiments.py \
+  --output outputs/long_horizon
+```
+
+默认仅运行当前基准 FIFO，分别从空系统连续模拟 1、5、10 年，每个跨度做 10 次重复（种子 42–51）。暂定每年 250 个工作日、每天 8 小时，因此三个跨度为 120,000、600,000、1,200,000 个累计工作分钟。可用 `--working-days`、`--hours-per-day`、`--years`、`--replications`、`--seed` 调整；年工作日数属于实验假设。
+
+调用原有 `run_simulation`，不改变到达、加工、故障、投料、调度或成本规则；回放只取起止快照，避免长期逐帧扫描。跨年不清空积压、不重置机床，模型不模拟夜间、节假日及停班期间维修。默认两个进程运行，`--workers 1` 可降低内存需求。该实验通过 Python 入口执行，面板的短期实验规模限制保持原样。
+
+输出包括逐轮 JSON、参数和源码校验值、`replications.csv`、带 95% t 区间的 `summary.csv`、分产品 `products.csv` 和工位状态 `stations.csv`；输出目录必须尚不存在。长期模型仍不含设备老化、更新、物价变化、贴现或需求上限，经济指标是现有口径的经营贡献。存在持续超负荷到达时，应同时检查线外积压及产品结构，不能仅按总产量或经营贡献判断长期运行健康度。
+
+## 十年收益与购机权限研究
+
+本轮研究网站：[柔性产线十年研究台](https://flexline-ten-year-research.arctan37.chatgpt.site)。完整账本与 CSV 位于 `work_outputs/ten_year_research_20261110/campaign/`。
+
+研究比较禁止购机、仅期初购机、可动态购机三种权限，在固定来料、路线、加工、故障、缓冲及价格费率下搜索策略。十年最终收益扣除全部新增购机款；逐期展示按购入日至项目终点直线分摊，避免期末未付清资本或重复扣成本。资金暂按无息、无额度限制处理，已有8台机床为沉没资本。产品结构使用 `TV=0.5*sum(abs(成品占比-实际到达占比))`，比较 `J-lambda*TV` 的不同权重。最终到达分布只用于事后评分。
+
+研究引擎 `src/soft_procedure/research.py` 使用不可变的当前观测向规则提供候选工件信息，不传入随机种子、未来到达、实际未来加工样本、剩余故障寿命或事件队列。新机床使用相同物理属性。该引擎以累计量替代海量日志，已与原引擎对齐并测试。
+
+```bash
+# 运行一轮新研究；输出目录必须尚不存在
+uv run --locked python tools/run_research_campaign.py --output work_outputs/my_research
+# 中断后保留全部已完成记录，按相同候选与种子恢复
+uv run --locked python tools/run_research_campaign.py --output work_outputs/my_research --resume
+# 完成后核验账本、购机权限、全额成本回收，并导出各项 CSV
+uv run --locked python tools/export_research_results.py work_outputs/my_research
+uv run --locked python -m unittest discover -s tests -v
+```
+
+本轮登记38个候选，共66次运行：38次季度筛选、16次一年代理验证、4个冻结方案各3次完整十年确认。短期代理只用于候选筛选。完整十年收益的均值及95% t区间、四种产品结构、设备状态、积压、逐年资本账和配对差值可在网站及CSV核对。该有界搜索提供已测试方案中的最佳结果，不构成全局最优证明；未自行增加材料、税费、利息、设备老化或购机交付期参数。网站按实验批次发布更新，本轮已经完成。
+
 ## SUFE CLI 校园工具
 
 [sufe-cli](https://github.com/ChengJiale150/sufe-cli) `0.7.8` 已作为项目开发依赖安装，版本记录在 `pyproject.toml` 和 `uv.lock`。在本项目目录执行：

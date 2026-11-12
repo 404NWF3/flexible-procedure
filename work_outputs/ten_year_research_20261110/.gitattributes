@@ -1,0 +1,4 @@
+# Keep exported CSV bytes unchanged, including Excel-compatible CRLF endings.
+campaign/*.csv whitespace=cr-at-eol linguist-generated=true
+campaign/*.json linguist-generated=true
+campaign/*.jsonl linguist-generated=true

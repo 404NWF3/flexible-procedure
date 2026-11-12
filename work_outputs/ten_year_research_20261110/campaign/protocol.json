@@ -1,0 +1,89 @@
+{
+  "horizon_minutes": 1200000,
+  "working_days_per_year": 250,
+  "hours_per_day": 8,
+  "lambdas": [
+    0,
+    10000000,
+    30000000,
+    100000000
+  ],
+  "screen_seeds": [
+    1000
+  ],
+  "validation_seeds": [
+    2000,
+    2001
+  ],
+  "confirmation_seeds": [
+    70001,
+    70002,
+    70003
+  ],
+  "base_config": {
+    "horizon": 2400.0,
+    "arrival_mean": 10.0,
+    "batch_min": 5,
+    "batch_max": 20,
+    "machine_counts": {
+      "M1": 2,
+      "M2": 1,
+      "M3": 2,
+      "M4": 1,
+      "M5": 2
+    },
+    "buffer_capacity": 50,
+    "processing_cv": 0.1,
+    "setup_time": 15.0,
+    "mtbf": 6000.0,
+    "mttr": 240.0,
+    "failures_enabled": true,
+    "policy_name": "fifo",
+    "aging_threshold": 120.0,
+    "sample_interval": 20.0,
+    "product_prices": {
+      "P1": 200.0,
+      "P2": 180.0,
+      "P3": 250.0,
+      "P4": 300.0
+    },
+    "machine_purchase_cost": 500000.0,
+    "operating_cost_per_hour": 100.0,
+    "operating_cost_basis": "machine_active"
+  },
+  "python": "3.12.14",
+  "git_commit": "a6b62ec5a55ae69d1ddc7c63a890e842d75fb05b",
+  "sources": {
+    "src/soft_procedure/__init__.py": "2c79e98c4c967178b8349eabb7cd3831076a512aa52ae4b38dc4c999163642fd",
+    "src/soft_procedure/__main__.py": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279",
+    "src/soft_procedure/cli.py": "8e35b21c0b3f6ebb3d90d2a77ca0105754bb85e1212173e6b0209dae317152fa",
+    "src/soft_procedure/config.py": "29e0d6e1d74ad9f11e504e2fd5f0d8bf4b5da7dea4676766b241e74575d8c1c0",
+    "src/soft_procedure/economics.py": "f75c5bd489c13a687a56bf56d51b60b740c75ddc3667386df4174104c6adf06f",
+    "src/soft_procedure/experiments.py": "89a635d1212bbeeea6c3f754312bc0767c6be50052c6a40b15d4f60d4c06eb3f",
+    "src/soft_procedure/export.py": "73756c6df743d6af829416c558616389096c5b4bab9c194fd7b04a987df21220",
+    "src/soft_procedure/metrics.py": "1bfaa3d34278a072c3cf11912644f399483f5e8219d8bd7fe912af7d24f74a96",
+    "src/soft_procedure/model/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/soft_procedure/model/job.py": "baf83e13d8a43180bb08742d1abcc1b1b96b193db1e5800971abd1e6ed3cb9f1",
+    "src/soft_procedure/model/machine.py": "1614c0b8bdc7caf7120aa7c7931610eae989e5807f8e270447f6f6ec5ede7c69",
+    "src/soft_procedure/model/simulation.py": "13d2e80b148f0ae88bfe2a510ba55ee60971dd7ec087c1003de658d8f9858f3c",
+    "src/soft_procedure/model/source.py": "51c20ef77a56b95467bc242002236ebc9082a4b3cd798a6566a790281b4e428c",
+    "src/soft_procedure/model/station.py": "c28a3e0a55ae977e5e03675665ad9aab6a596e3f633e59e6f66c668cc4b54806",
+    "src/soft_procedure/policies.py": "3e137a1d9affd101c2c3f9ff901ebc3e7e760a513ced0ce9e7d8d35afea69254",
+    "src/soft_procedure/randomness.py": "d40af6fc6b78863cc37a905dfe59450a3dc7fe406337feb7f0a8e72ba4cd38df",
+    "src/soft_procedure/research.py": "b98e24f4f7a339b53b4a77fced5a2c3d05aa1b8a5ed2eed0674ed3bd5425e033",
+    "src/soft_procedure/server.py": "1a6b5c21b4fcb41c846a18ff5fe43336a0e28f5d2cef1f8fbf1af832a2d1934a",
+    "tools/run_research_campaign.py": "2966de3261ebaef968853929801efd91036951369d1ee11e89e6f7f0c10decb2"
+  },
+  "accounting": "J = revenue - actual processing/setup operating cost - all new machine purchase cost. Existing 8 machines are sunk. Zero interest, unconstrained funding; all principal recovered by H required.",
+  "allocation": "Project-specific straight-line allocation over [purchase_time,H]; zero residual. Allocation is a presentation ledger, never deducted twice from J.",
+  "regularizer": "TV = 0.5*sum(abs(completed_share-final_realized_arrival_share)); J_lambda=J-lambda*TV. Zero completions gives TV=1. Final arrivals are evaluation-only.",
+  "causality": "Policy receives frozen JobView and DecisionView only. No seed, future arrivals, true required work, remaining failure life or event queue. Dynamic investment uses past active time and current backlog only.",
+  "search_budget": "Initial rules/capacities, <=10 single-station capacity neighbors; 30000-minute development proxies; 120000-minute validation proxies; up to 6 finalists, 3 full 1200000-minute confirmation repetitions each. No globally optimal claim.",
+  "limitations": [
+    "Working-time calendar; no overnight repairs or seasonality.",
+    "No debt interest/credit limit, acquisition lead time, demand caps, machine aging or physical replacement.",
+    "Prices and operating charges stay at case defaults; no unprovided material/labor/tax costs.",
+    "Policies are reviewed fixed rules with typed observations, not adversarial OS-isolated submitted programs.",
+    "Short-run proxy selection can miss policies whose merit appears only after long transients."
+  ]
+}

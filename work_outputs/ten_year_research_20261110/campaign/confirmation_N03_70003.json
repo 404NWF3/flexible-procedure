@@ -1,0 +1,547 @@
+{
+  "design": "N03",
+  "seed": 70003,
+  "horizon": 1200000,
+  "summary": {
+    "time": 1200000.0,
+    "arrived": 1501014,
+    "completed": 318992,
+    "products": {
+      "P1": 0,
+      "P2": 2,
+      "P3": 192678,
+      "P4": 126312
+    },
+    "arrived_products": {
+      "P1": 450577,
+      "P2": 375254,
+      "P3": 374633,
+      "P4": 300550
+    },
+    "external": 1181868,
+    "wip": 154,
+    "revenue": 86063460.0,
+    "operating_cost": 9811582.069876032,
+    "capex": 0,
+    "capital_allocated": 0,
+    "capital_unallocated": 0,
+    "net": 76251877.93012397,
+    "period_profit_allocated": 76251877.93012397,
+    "unrecovered_principal": 0,
+    "machine_counts": {
+      "M1": 2,
+      "M2": 1,
+      "M3": 2,
+      "M4": 1,
+      "M5": 2
+    },
+    "tv": 0.5501758071662932,
+    "mean_cycle_time": 313495.64716755174
+  },
+  "products": {
+    "P1": {
+      "arrived": 450577,
+      "completed": 0,
+      "output_share": 0.0,
+      "completion_rate": 0.0,
+      "unfinished": 450577,
+      "unfinished_mean_age": 598404.4761665319,
+      "unfinished_max_age": 1199991.2299059702
+    },
+    "P2": {
+      "arrived": 375254,
+      "completed": 2,
+      "output_share": 6.2697497115915135e-06,
+      "completion_rate": 5.3297233340617285e-06,
+      "unfinished": 375252,
+      "unfinished_mean_age": 599609.2850185253,
+      "unfinished_max_age": 1199974.3828984527
+    },
+    "P3": {
+      "arrived": 374633,
+      "completed": 192678,
+      "output_share": 0.6040214174650148,
+      "completion_rate": 0.5143113393641243,
+      "unfinished": 181955,
+      "unfinished_mean_age": 290555.68004380324,
+      "unfinished_max_age": 582147.6210348243
+    },
+    "P4": {
+      "arrived": 300550,
+      "completed": 126312,
+      "output_share": 0.3959723127852736,
+      "completion_rate": 0.4202695059058393,
+      "unfinished": 174238,
+      "unfinished_mean_age": 347665.4319292078,
+      "unfinished_max_age": 694554.7324808679
+    }
+  },
+  "stations": [
+    {
+      "name": "M1",
+      "machines": 2,
+      "states": {
+        "processing": 0.15799638763739593,
+        "setup": 0.00012500000000000003,
+        "repair": 0.0040206608392033966,
+        "blocked": 0.837846043879553,
+        "idle": 1.1907643847706898e-05
+      },
+      "mean_queue": 49.997622452615865,
+      "max_queue": 50,
+      "mean_wait": 9.511129532950235,
+      "setups": 20,
+      "failures": 49
+    },
+    {
+      "name": "M2",
+      "machines": 1,
+      "states": {
+        "processing": 0.9631320619970558,
+        "setup": 0.0,
+        "repair": 0.03533139604981135,
+        "blocked": 0.0015292335414412081,
+        "idle": 7.308411691620599e-06
+      },
+      "mean_queue": 49.991509392102884,
+      "max_queue": 50,
+      "mean_wait": 248.93604830663406,
+      "setups": 0,
+      "failures": 199
+    },
+    {
+      "name": "M3",
+      "machines": 2,
+      "states": {
+        "processing": 0.40120712256563157,
+        "setup": 2.5000000000000005e-05,
+        "repair": 0.012847369288576204,
+        "blocked": 0.04318988143915132,
+        "idle": 0.5427306267066409
+      },
+      "mean_queue": 1.2324914227786414,
+      "max_queue": 50,
+      "mean_wait": 7.675885962914489,
+      "setups": 4,
+      "failures": 144
+    },
+    {
+      "name": "M4",
+      "machines": 1,
+      "states": {
+        "processing": 0.9474511908532132,
+        "setup": 2.5000000000000005e-05,
+        "repair": 0.03341067585775687,
+        "blocked": 0.01908216739385321,
+        "idle": 3.096589517655496e-05
+      },
+      "mean_queue": 49.98959191109426,
+      "max_queue": 50,
+      "mean_wait": 474.81496604120366,
+      "setups": 2,
+      "failures": 177
+    },
+    {
+      "name": "M5",
+      "machines": 2,
+      "states": {
+        "processing": 0.8531441308408463,
+        "setup": 0.08509374999999998,
+        "repair": 0.03803192882742316,
+        "blocked": 0.0,
+        "idle": 0.023730190331730617
+      },
+      "mean_queue": 13.842338812622854,
+      "max_queue": 50,
+      "mean_wait": 52.072799866915744,
+      "setups": 13615,
+      "failures": 376
+    }
+  ],
+  "timeline": [
+    {
+      "time": 0.0,
+      "arrived": 0,
+      "completed": 0,
+      "products": {
+        "P1": 0,
+        "P2": 0,
+        "P3": 0,
+        "P4": 0
+      },
+      "arrived_products": {
+        "P1": 0,
+        "P2": 0,
+        "P3": 0,
+        "P4": 0
+      },
+      "external": 0,
+      "wip": 0,
+      "revenue": 0.0,
+      "operating_cost": 0.0,
+      "capex": 0,
+      "capital_allocated": 0,
+      "capital_unallocated": 0,
+      "net": 0.0,
+      "period_profit_allocated": 0.0,
+      "unrecovered_principal": 0,
+      "machine_counts": {
+        "M1": 2,
+        "M2": 1,
+        "M3": 2,
+        "M4": 1,
+        "M5": 2
+      }
+    },
+    {
+      "time": 120000.0,
+      "arrived": 148467,
+      "completed": 31864,
+      "products": {
+        "P1": 0,
+        "P2": 2,
+        "P3": 19386,
+        "P4": 12476
+      },
+      "arrived_products": {
+        "P1": 44350,
+        "P2": 37288,
+        "P3": 36922,
+        "P4": 29907
+      },
+      "external": 116448,
+      "wip": 155,
+      "revenue": 8589660.0,
+      "operating_cost": 980619.6673354529,
+      "capex": 0,
+      "capital_allocated": 0,
+      "capital_unallocated": 0,
+      "net": 7609040.3326645475,
+      "period_profit_allocated": 7609040.3326645475,
+      "unrecovered_principal": 0,
+      "machine_counts": {
+        "M1": 2,
+        "M2": 1,
+        "M3": 2,
+        "M4": 1,
+        "M5": 2
+      }
+    },
+    {
+      "time": 240000.0,
+      "arrived": 298417,
+      "completed": 63483,
+      "products": {
+        "P1": 0,
+        "P2": 2,
+        "P3": 38166,
+        "P4": 25315
+      },
+      "arrived_products": {
+        "P1": 89204,
+        "P2": 74842,
+        "P3": 74506,
+        "P4": 59865
+      },
+      "external": 234774,
+      "wip": 160,
+      "revenue": 17136360.0,
+      "operating_cost": 1953533.1322795465,
+      "capex": 0,
+      "capital_allocated": 0,
+      "capital_unallocated": 0,
+      "net": 15182826.867720453,
+      "period_profit_allocated": 15182826.867720453,
+      "unrecovered_principal": 0,
+      "machine_counts": {
+        "M1": 2,
+        "M2": 1,
+        "M3": 2,
+        "M4": 1,
+        "M5": 2
+      }
+    },
+    {
+      "time": 360000.0,
+      "arrived": 448512,
+      "completed": 95538,
+      "products": {
+        "P1": 0,
+        "P2": 2,
+        "P3": 57637,
+        "P4": 37899
+      },
+      "arrived_products": {
+        "P1": 133887,
+        "P2": 112402,
+        "P3": 112054,
+        "P4": 90169
+      },
+      "external": 352814,
+      "wip": 160,
+      "revenue": 25779310.0,
+      "operating_cost": 2941091.1105756513,
+      "capex": 0,
+      "capital_allocated": 0,
+      "capital_unallocated": 0,
+      "net": 22838218.88942435,
+      "period_profit_allocated": 22838218.88942435,
+      "unrecovered_principal": 0,
+      "machine_counts": {
+        "M1": 2,
+        "M2": 1,
+        "M3": 2,
+        "M4": 1,
+        "M5": 2
+      }
+    },
+    {
+      "time": 480000.0,
+      "arrived": 598168,
+      "completed": 127356,
+      "products": {
+        "P1": 0,
+        "P2": 2,
+        "P3": 76971,
+        "P4": 50383
+      },
+      "arrived_products": {
+        "P1": 179185,
+        "P2": 149868,
+        "P3": 149281,
+        "P4": 119834
+      },
+      "external": 470595,
+      "wip": 217,
+      "revenue": 34358010.0,
+      "operating_cost": 3919141.7912276047,
+      "capex": 0,
+      "capital_allocated": 0,
+      "capital_unallocated": 0,
+      "net": 30438868.208772395,
+      "period_profit_allocated": 30438868.208772395,
+      "unrecovered_principal": 0,
+      "machine_counts": {
+        "M1": 2,
+        "M2": 1,
+        "M3": 2,
+        "M4": 1,
+        "M5": 2
+      }
+    },
+    {
+      "time": 600000.0,
+      "arrived": 750788,
+      "completed": 159330,
+      "products": {
+        "P1": 0,
+        "P2": 2,
+        "P3": 96457,
+        "P4": 62871
+      },
+      "arrived_products": {
+        "P1": 224912,
+        "P2": 187975,
+        "P3": 187469,
+        "P4": 150432
+      },
+      "external": 591296,
+      "wip": 162,
+      "revenue": 42975910.0,
+      "operating_cost": 4903116.1293029105,
+      "capex": 0,
+      "capital_allocated": 0,
+      "capital_unallocated": 0,
+      "net": 38072793.87069709,
+      "period_profit_allocated": 38072793.87069709,
+      "unrecovered_principal": 0,
+      "machine_counts": {
+        "M1": 2,
+        "M2": 1,
+        "M3": 2,
+        "M4": 1,
+        "M5": 2
+      }
+    },
+    {
+      "time": 720000.0,
+      "arrived": 899850,
+      "completed": 191063,
+      "products": {
+        "P1": 0,
+        "P2": 2,
+        "P3": 115635,
+        "P4": 75426
+      },
+      "arrived_products": {
+        "P1": 270060,
+        "P2": 225146,
+        "P3": 224516,
+        "P4": 180128
+      },
+      "external": 708623,
+      "wip": 164,
+      "revenue": 51536910.0,
+      "operating_cost": 5879085.781101525,
+      "capex": 0,
+      "capital_allocated": 0,
+      "capital_unallocated": 0,
+      "net": 45657824.218898475,
+      "period_profit_allocated": 45657824.218898475,
+      "unrecovered_principal": 0,
+      "machine_counts": {
+        "M1": 2,
+        "M2": 1,
+        "M3": 2,
+        "M4": 1,
+        "M5": 2
+      }
+    },
+    {
+      "time": 840000.0,
+      "arrived": 1048820,
+      "completed": 223064,
+      "products": {
+        "P1": 0,
+        "P2": 2,
+        "P3": 135011,
+        "P4": 88051
+      },
+      "arrived_products": {
+        "P1": 314683,
+        "P2": 262454,
+        "P3": 261689,
+        "P4": 209994
+      },
+      "external": 825594,
+      "wip": 162,
+      "revenue": 60168410.0,
+      "operating_cost": 6862115.17768381,
+      "capex": 0,
+      "capital_allocated": 0,
+      "capital_unallocated": 0,
+      "net": 53306294.82231619,
+      "period_profit_allocated": 53306294.82231619,
+      "unrecovered_principal": 0,
+      "machine_counts": {
+        "M1": 2,
+        "M2": 1,
+        "M3": 2,
+        "M4": 1,
+        "M5": 2
+      }
+    },
+    {
+      "time": 960000.0,
+      "arrived": 1200861,
+      "completed": 254833,
+      "products": {
+        "P1": 0,
+        "P2": 2,
+        "P3": 153911,
+        "P4": 100920
+      },
+      "arrived_products": {
+        "P1": 360227,
+        "P2": 300204,
+        "P3": 299773,
+        "P4": 240657
+      },
+      "external": 945841,
+      "wip": 187,
+      "revenue": 68754110.0,
+      "operating_cost": 7839797.494945225,
+      "capex": 0,
+      "capital_allocated": 0,
+      "capital_unallocated": 0,
+      "net": 60914312.50505477,
+      "period_profit_allocated": 60914312.50505477,
+      "unrecovered_principal": 0,
+      "machine_counts": {
+        "M1": 2,
+        "M2": 1,
+        "M3": 2,
+        "M4": 1,
+        "M5": 2
+      }
+    },
+    {
+      "time": 1080000.0,
+      "arrived": 1350905,
+      "completed": 287066,
+      "products": {
+        "P1": 0,
+        "P2": 2,
+        "P3": 173438,
+        "P4": 113626
+      },
+      "arrived_products": {
+        "P1": 405674,
+        "P2": 337680,
+        "P3": 336979,
+        "P4": 270572
+      },
+      "external": 1063632,
+      "wip": 207,
+      "revenue": 77447660.0,
+      "operating_cost": 8830953.100613708,
+      "capex": 0,
+      "capital_allocated": 0,
+      "capital_unallocated": 0,
+      "net": 68616706.89938629,
+      "period_profit_allocated": 68616706.89938629,
+      "unrecovered_principal": 0,
+      "machine_counts": {
+        "M1": 2,
+        "M2": 1,
+        "M3": 2,
+        "M4": 1,
+        "M5": 2
+      }
+    },
+    {
+      "time": 1200000.0,
+      "arrived": 1501014,
+      "completed": 318992,
+      "products": {
+        "P1": 0,
+        "P2": 2,
+        "P3": 192678,
+        "P4": 126312
+      },
+      "arrived_products": {
+        "P1": 450577,
+        "P2": 375254,
+        "P3": 374633,
+        "P4": 300550
+      },
+      "external": 1181868,
+      "wip": 154,
+      "revenue": 86063460.0,
+      "operating_cost": 9811582.069876032,
+      "capex": 0,
+      "capital_allocated": 0,
+      "capital_unallocated": 0,
+      "net": 76251877.93012397,
+      "period_profit_allocated": 76251877.93012397,
+      "unrecovered_principal": 0,
+      "machine_counts": {
+        "M1": 2,
+        "M2": 1,
+        "M3": 2,
+        "M4": 1,
+        "M5": 2
+      }
+    }
+  ],
+  "purchases": [],
+  "checks": {
+    "conservation": true,
+    "buffer_capacity": true,
+    "state_time": true,
+    "full_purchase_cost_deducted": true,
+    "terminal_capital_unallocated": 0
+  },
+  "seconds": 109.45658874399987,
+  "stage": "confirmation"
+}
