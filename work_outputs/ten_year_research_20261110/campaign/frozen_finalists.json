@@ -1,0 +1,74 @@
+{
+  "D00": {
+    "id": "D00",
+    "parent": "N02",
+    "regime": "dynamic",
+    "rule": "family",
+    "admission": "internal",
+    "fairness": 0,
+    "counts": [
+      7,
+      8,
+      9,
+      9,
+      10
+    ],
+    "review_minutes": 2400,
+    "buy_threshold": 0.7,
+    "change": "按已观察利用率≥0.7、当前积压>10，每2400分钟复核，每工位每次最多添1台；欠产权重=0"
+  },
+  "N02": {
+    "id": "N02",
+    "parent": "N00",
+    "regime": "none",
+    "rule": "family",
+    "admission": "internal",
+    "fairness": 0,
+    "counts": [
+      2,
+      1,
+      2,
+      1,
+      2
+    ],
+    "review_minutes": 2400.0,
+    "buy_threshold": 0.85,
+    "change": "派工=family；准入=internal；在线产品欠产权重=0"
+  },
+  "N03": {
+    "id": "N03",
+    "parent": "N00",
+    "regime": "none",
+    "rule": "hybrid",
+    "admission": "value",
+    "fairness": 0,
+    "counts": [
+      2,
+      1,
+      2,
+      1,
+      2
+    ],
+    "review_minutes": 2400.0,
+    "buy_threshold": 0.85,
+    "change": "派工=hybrid；准入=value；在线产品欠产权重=0"
+  },
+  "V1m": {
+    "id": "V1m",
+    "parent": "U04F0",
+    "regime": "upfront",
+    "rule": "family",
+    "admission": "internal",
+    "fairness": 0,
+    "counts": [
+      7,
+      7,
+      9,
+      9,
+      10
+    ],
+    "review_minutes": 2400.0,
+    "buy_threshold": 0.85,
+    "change": "仅修改 M2 机床数 -1"
+  }
+}

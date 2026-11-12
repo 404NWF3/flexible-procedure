@@ -1,0 +1,446 @@
+{
+  "design": "V0m",
+  "seed": 1000,
+  "horizon": 30000,
+  "summary": {
+    "time": 30000.0,
+    "arrived": 36353,
+    "completed": 36000,
+    "products": {
+      "P1": 10765,
+      "P2": 8943,
+      "P3": 9072,
+      "P4": 7220
+    },
+    "arrived_products": {
+      "P1": 10892,
+      "P2": 9060,
+      "P3": 9113,
+      "P4": 7288
+    },
+    "external": 107,
+    "wip": 246,
+    "revenue": 8196740.0,
+    "operating_cost": 1775530.5381247904,
+    "capex": 17000000.0,
+    "capital_allocated": 425000.0,
+    "capital_unallocated": 16575000.0,
+    "net": -10578790.53812479,
+    "period_profit_allocated": 5996209.46187521,
+    "unrecovered_principal": 10578790.53812479,
+    "machine_counts": {
+      "M1": 6,
+      "M2": 8,
+      "M3": 9,
+      "M4": 9,
+      "M5": 10
+    },
+    "tv": 0.0013960914122936458,
+    "mean_cycle_time": 232.25478383479347
+  },
+  "products": {
+    "P1": {
+      "arrived": 10892,
+      "completed": 10765,
+      "output_share": 0.2990277777777778,
+      "completion_rate": 0.9883400661035623,
+      "unfinished": 127,
+      "unfinished_mean_age": 136.1708121026667,
+      "unfinished_max_age": 657.2612487484403
+    },
+    "P2": {
+      "arrived": 9060,
+      "completed": 8943,
+      "output_share": 0.24841666666666667,
+      "completion_rate": 0.9870860927152317,
+      "unfinished": 117,
+      "unfinished_mean_age": 182.8768908397737,
+      "unfinished_max_age": 347.35602235164697
+    },
+    "P3": {
+      "arrived": 9113,
+      "completed": 9072,
+      "output_share": 0.252,
+      "completion_rate": 0.9955009327334577,
+      "unfinished": 41,
+      "unfinished_mean_age": 63.237169247281045,
+      "unfinished_max_age": 94.35421067292918
+    },
+    "P4": {
+      "arrived": 7288,
+      "completed": 7220,
+      "output_share": 0.20055555555555554,
+      "completion_rate": 0.9906695938529089,
+      "unfinished": 68,
+      "unfinished_mean_age": 132.3258278094608,
+      "unfinished_max_age": 275.9809323121153
+    }
+  },
+  "stations": [
+    {
+      "name": "M1",
+      "machines": 6,
+      "states": {
+        "processing": 0.6215349595822348,
+        "setup": 0.20558333333333334,
+        "repair": 0.023608126549242162,
+        "blocked": 0.13983381933944858,
+        "idle": 0.00943976119574111
+      },
+      "mean_queue": 40.8364075547261,
+      "max_queue": 50,
+      "mean_wait": 45.18154771301475,
+      "setups": 2467,
+      "failures": 22
+    },
+    {
+      "name": "M2",
+      "machines": 8,
+      "states": {
+        "processing": 0.5874094171644265,
+        "setup": 0.1735625,
+        "repair": 0.021836201327797893,
+        "blocked": 0.14580682374057755,
+        "idle": 0.07138505776719803
+      },
+      "mean_queue": 18.81561681383392,
+      "max_queue": 50,
+      "mean_wait": 28.33407595130692,
+      "setups": 2777,
+      "failures": 30
+    },
+    {
+      "name": "M3",
+      "machines": 9,
+      "states": {
+        "processing": 0.6408479128930806,
+        "setup": 0.22555555555555556,
+        "repair": 0.019534776892283445,
+        "blocked": 0.10782347412612502,
+        "idle": 0.006238280532955401
+      },
+      "mean_queue": 37.61850969156158,
+      "max_queue": 50,
+      "mean_wait": 39.02780402070144,
+      "setups": 4060,
+      "failures": 24
+    },
+    {
+      "name": "M4",
+      "machines": 9,
+      "states": {
+        "processing": 0.566491292046562,
+        "setup": 0.2350410987786728,
+        "repair": 0.034748536367058595,
+        "blocked": 0.10135908507074294,
+        "idle": 0.06235998773696365
+      },
+      "mean_queue": 24.9177756414198,
+      "max_queue": 50,
+      "mean_wait": 27.63302266753678,
+      "setups": 4235,
+      "failures": 37
+    },
+    {
+      "name": "M5",
+      "machines": 10,
+      "states": {
+        "processing": 0.6245115896497516,
+        "setup": 0.32035870377246367,
+        "repair": 0.034061374776904955,
+        "blocked": 0.0,
+        "idle": 0.021068331800879737
+      },
+      "mean_queue": 34.69960485849989,
+      "max_queue": 50,
+      "mean_wait": 28.862708811542706,
+      "setups": 6408,
+      "failures": 38
+    }
+  ],
+  "timeline": [
+    {
+      "time": 0.0,
+      "arrived": 0,
+      "completed": 0,
+      "products": {
+        "P1": 0,
+        "P2": 0,
+        "P3": 0,
+        "P4": 0
+      },
+      "arrived_products": {
+        "P1": 0,
+        "P2": 0,
+        "P3": 0,
+        "P4": 0
+      },
+      "external": 0,
+      "wip": 0,
+      "revenue": 0.0,
+      "operating_cost": 0.0,
+      "capex": 17000000.0,
+      "capital_allocated": 0.0,
+      "capital_unallocated": 17000000.0,
+      "net": -17000000.0,
+      "period_profit_allocated": 0.0,
+      "unrecovered_principal": 17000000.0,
+      "machine_counts": {
+        "M1": 6,
+        "M2": 8,
+        "M3": 9,
+        "M4": 9,
+        "M5": 10
+      }
+    },
+    {
+      "time": 30000.0,
+      "arrived": 36353,
+      "completed": 36000,
+      "products": {
+        "P1": 10765,
+        "P2": 8943,
+        "P3": 9072,
+        "P4": 7220
+      },
+      "arrived_products": {
+        "P1": 10892,
+        "P2": 9060,
+        "P3": 9113,
+        "P4": 7288
+      },
+      "external": 107,
+      "wip": 246,
+      "revenue": 8196740.0,
+      "operating_cost": 1775530.5381247904,
+      "capex": 17000000.0,
+      "capital_allocated": 425000.0,
+      "capital_unallocated": 16575000.0,
+      "net": -10578790.53812479,
+      "period_profit_allocated": 5996209.46187521,
+      "unrecovered_principal": 10578790.53812479,
+      "machine_counts": {
+        "M1": 6,
+        "M2": 8,
+        "M3": 9,
+        "M4": 9,
+        "M5": 10
+      }
+    }
+  ],
+  "purchases": [
+    {
+      "time": 0.0,
+      "station": "M1",
+      "machine": "M1-3",
+      "cost": 500000.0
+    },
+    {
+      "time": 0.0,
+      "station": "M1",
+      "machine": "M1-4",
+      "cost": 500000.0
+    },
+    {
+      "time": 0.0,
+      "station": "M1",
+      "machine": "M1-5",
+      "cost": 500000.0
+    },
+    {
+      "time": 0.0,
+      "station": "M1",
+      "machine": "M1-6",
+      "cost": 500000.0
+    },
+    {
+      "time": 0.0,
+      "station": "M2",
+      "machine": "M2-2",
+      "cost": 500000.0
+    },
+    {
+      "time": 0.0,
+      "station": "M2",
+      "machine": "M2-3",
+      "cost": 500000.0
+    },
+    {
+      "time": 0.0,
+      "station": "M2",
+      "machine": "M2-4",
+      "cost": 500000.0
+    },
+    {
+      "time": 0.0,
+      "station": "M2",
+      "machine": "M2-5",
+      "cost": 500000.0
+    },
+    {
+      "time": 0.0,
+      "station": "M2",
+      "machine": "M2-6",
+      "cost": 500000.0
+    },
+    {
+      "time": 0.0,
+      "station": "M2",
+      "machine": "M2-7",
+      "cost": 500000.0
+    },
+    {
+      "time": 0.0,
+      "station": "M2",
+      "machine": "M2-8",
+      "cost": 500000.0
+    },
+    {
+      "time": 0.0,
+      "station": "M3",
+      "machine": "M3-3",
+      "cost": 500000.0
+    },
+    {
+      "time": 0.0,
+      "station": "M3",
+      "machine": "M3-4",
+      "cost": 500000.0
+    },
+    {
+      "time": 0.0,
+      "station": "M3",
+      "machine": "M3-5",
+      "cost": 500000.0
+    },
+    {
+      "time": 0.0,
+      "station": "M3",
+      "machine": "M3-6",
+      "cost": 500000.0
+    },
+    {
+      "time": 0.0,
+      "station": "M3",
+      "machine": "M3-7",
+      "cost": 500000.0
+    },
+    {
+      "time": 0.0,
+      "station": "M3",
+      "machine": "M3-8",
+      "cost": 500000.0
+    },
+    {
+      "time": 0.0,
+      "station": "M3",
+      "machine": "M3-9",
+      "cost": 500000.0
+    },
+    {
+      "time": 0.0,
+      "station": "M4",
+      "machine": "M4-2",
+      "cost": 500000.0
+    },
+    {
+      "time": 0.0,
+      "station": "M4",
+      "machine": "M4-3",
+      "cost": 500000.0
+    },
+    {
+      "time": 0.0,
+      "station": "M4",
+      "machine": "M4-4",
+      "cost": 500000.0
+    },
+    {
+      "time": 0.0,
+      "station": "M4",
+      "machine": "M4-5",
+      "cost": 500000.0
+    },
+    {
+      "time": 0.0,
+      "station": "M4",
+      "machine": "M4-6",
+      "cost": 500000.0
+    },
+    {
+      "time": 0.0,
+      "station": "M4",
+      "machine": "M4-7",
+      "cost": 500000.0
+    },
+    {
+      "time": 0.0,
+      "station": "M4",
+      "machine": "M4-8",
+      "cost": 500000.0
+    },
+    {
+      "time": 0.0,
+      "station": "M4",
+      "machine": "M4-9",
+      "cost": 500000.0
+    },
+    {
+      "time": 0.0,
+      "station": "M5",
+      "machine": "M5-3",
+      "cost": 500000.0
+    },
+    {
+      "time": 0.0,
+      "station": "M5",
+      "machine": "M5-4",
+      "cost": 500000.0
+    },
+    {
+      "time": 0.0,
+      "station": "M5",
+      "machine": "M5-5",
+      "cost": 500000.0
+    },
+    {
+      "time": 0.0,
+      "station": "M5",
+      "machine": "M5-6",
+      "cost": 500000.0
+    },
+    {
+      "time": 0.0,
+      "station": "M5",
+      "machine": "M5-7",
+      "cost": 500000.0
+    },
+    {
+      "time": 0.0,
+      "station": "M5",
+      "machine": "M5-8",
+      "cost": 500000.0
+    },
+    {
+      "time": 0.0,
+      "station": "M5",
+      "machine": "M5-9",
+      "cost": 500000.0
+    },
+    {
+      "time": 0.0,
+      "station": "M5",
+      "machine": "M5-10",
+      "cost": 500000.0
+    }
+  ],
+  "checks": {
+    "conservation": true,
+    "buffer_capacity": true,
+    "state_time": true,
+    "full_purchase_cost_deducted": true,
+    "terminal_capital_unallocated": 16575000.0
+  },
+  "seconds": 4.258000590999927,
+  "stage": "screen"
+}
