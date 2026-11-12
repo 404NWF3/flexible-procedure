@@ -8,8 +8,35 @@ wheels/
 
 # Virtual environments
 .venv
+.venv-research/
 
 # Reproducible experiment output and local editor locks
-outputs/
+outputs/*
+# Frozen, reviewable snapshots from this completed campaign only.
+!outputs/results.json
+!outputs/replications.csv
+!outputs/summary.csv
+!outputs/economics.csv
+!outputs/contribution_loop_20261022/
+outputs/contribution_loop_20261022/*
+!outputs/contribution_loop_20261022/agent_prompt.txt
+!outputs/contribution_loop_20261022/loop_contract.json
+!outputs/contribution_loop_20261022/candidate_submission.schema.json
+!outputs/contribution_loop_20261022/execution_addendum.json
+!outputs/contribution_loop_20261022/state.json
+!outputs/contribution_loop_20261022/replications.csv
+!outputs/contribution_loop_20261022/raw_manifest.json
+!outputs/contribution_loop_20261022/verification.json
+!outputs/contribution_loop_20261022/verify_campaign.py
+!outputs/contribution_loop_20261022/final-audit.log
+!outputs/contribution_loop_20261022/evaluator/
+outputs/contribution_loop_20261022/evaluator/*
+!outputs/contribution_loop_20261022/evaluator/*.json
+!outputs/contribution_loop_20261022/evaluator/*.log
+!outputs/contribution_loop_20261022/evaluator/ledger/
+!outputs/contribution_loop_20261022/evaluator/receipts/
+!outputs/contribution_loop_20261022/evaluator/references/
+# Raw trajectories, preflight traces, seed banks and the complete local ZIP
+# stay ignored; the published manifest commits to their hashes.
 ~$*.docx
 .DS_Store

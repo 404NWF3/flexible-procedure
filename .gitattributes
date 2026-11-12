@@ -1,0 +1,13 @@
+# Generated self-contained pages/data: review templates and immutable evidence.
+*.py text eol=lf
+*.json text eol=lf
+*.jsonl text eol=lf
+*.html text eol=lf
+*.js text eol=lf
+*.css text eol=lf
+# Preserve exported UTF-8 BOM / CRLF CSV bytes, including embedded downloads.
+*.csv -text whitespace=cr-at-eol
+docs/flexline/*.html linguist-generated=true
+outputs/**/*.json linguist-generated=true
+outputs/**/*.csv linguist-generated=true
+outputs/**/*.jsonl linguist-generated=true

@@ -1,0 +1,25 @@
+{
+  "candidate_id": "c10_value_margin",
+  "contract_id": "soft-procedure-contribution-loop-v1",
+  "parent_ids": [
+    "c08_release",
+    "c02_margin"
+  ],
+  "hypothesis": "经济准入与剩余贡献率派工可能互补，避免同类优先锁定低贡献产品。",
+  "mechanism": "refinement",
+  "interfaces": [
+    "dispatch",
+    "admission",
+    "release",
+    "defer"
+  ],
+  "parameters": {
+    "dispatch": "margin",
+    "admission": "value"
+  },
+  "bundle_sha256": "7d9c69d2e4093da7420b03371c2ad4baeb3833c9651ccae395b07a597407637b",
+  "interface_version": "seccomp-json-v1",
+  "training_provenance": "deterministic analytical rules; no external training data",
+  "randomization_rule": "deterministic; candidate has no environment seed access",
+  "expected_tradeoffs": "切换产品可能增加换模。"
+}

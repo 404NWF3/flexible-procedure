@@ -1,0 +1,24 @@
+{
+  "candidate_id": "c12_age480",
+  "contract_id": "soft-procedure-contribution-loop-v1",
+  "parent_ids": [
+    "c01_aging"
+  ],
+  "hypothesis": "60分钟老化频繁打断合批；延长至480分钟，检验较弱老化是否保留贡献。",
+  "mechanism": "refinement",
+  "interfaces": [
+    "dispatch",
+    "admission",
+    "release",
+    "defer"
+  ],
+  "parameters": {
+    "dispatch": "family",
+    "aging": 480
+  },
+  "bundle_sha256": "64972965f3a76c14a6012bac09384ef142f1044bab912f19e9ef2e928523c435",
+  "interface_version": "seccomp-json-v1",
+  "training_provenance": "deterministic analytical rules; no external training data",
+  "randomization_rule": "deterministic; candidate has no environment seed access",
+  "expected_tradeoffs": "仍可能牺牲换模节约换取产品等待改善。"
+}

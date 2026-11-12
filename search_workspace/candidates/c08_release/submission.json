@@ -1,0 +1,35 @@
+{
+  "id": "c08_release",
+  "label": "按贡献率放行",
+  "parents": [
+    "c07_wip80"
+  ],
+  "parameters": {
+    "dispatch": "family",
+    "admission": "value",
+    "cap": 80
+  },
+  "hypothesis": "内部交接优先，外部按单位剩余机时贡献择优放行。",
+  "expected_tradeoffs": "低贡献产品可能更多滞留线外。",
+  "mechanism": "diverse",
+  "wave": "diverse",
+  "reference": false,
+  "source": "search_workspace/candidates/c08_release/policy.py",
+  "bundle_sha256": "f3f61c00b4377adba2fe4d35a8c13adc156a1cdb71e85a80cccae78c638b0de4",
+  "registered_at": "2026-10-22T14:16:39.035371+00:00",
+  "status": "registered",
+  "stages": {},
+  "interface_version": "seccomp-json-v1",
+  "training_provenance": "deterministic analytical rules; no external training data",
+  "randomization_rule": "deterministic; candidate has no environment seed access",
+  "contract_id": "soft-procedure-contribution-loop-v1",
+  "contract_sha256": "27232fd7826ebca1e73fe0a0b3e87381da39db2fd007795cf9240b9f527f7449",
+  "dependency_lock": "f6baad50c4cbe225874a9d354042d8857ebc53635779b7e07d3152f60345f93f",
+  "resource_limits": {
+    "decision_cpu_ms": 250,
+    "decision_wall_ms": 1000,
+    "path_cpu_s": 120,
+    "path_wall_s": 300,
+    "memory_mib": 2048
+  }
+}

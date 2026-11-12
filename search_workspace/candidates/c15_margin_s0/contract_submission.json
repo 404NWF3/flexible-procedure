@@ -1,0 +1,24 @@
+{
+  "candidate_id": "c15_margin_s0",
+  "contract_id": "soft-procedure-contribution-loop-v1",
+  "parent_ids": [
+    "c02_margin"
+  ],
+  "hypothesis": "分母不额外惩罚换模，检查更积极切换是否能增加高价值完工收入。",
+  "mechanism": "refinement",
+  "interfaces": [
+    "dispatch",
+    "admission",
+    "release",
+    "defer"
+  ],
+  "parameters": {
+    "dispatch": "margin",
+    "setup_weight": 0
+  },
+  "bundle_sha256": "6ddaed3984ee92f90f6f954dc7f38e85181a57a3340fb5768349fe1cb723890e",
+  "interface_version": "seccomp-json-v1",
+  "training_provenance": "deterministic analytical rules; no external training data",
+  "randomization_rule": "deterministic; candidate has no environment seed access",
+  "expected_tradeoffs": "实际换模费用仍照计，可能得不偿失。"
+}

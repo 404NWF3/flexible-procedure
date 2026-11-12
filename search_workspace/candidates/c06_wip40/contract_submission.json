@@ -1,0 +1,25 @@
+{
+  "candidate_id": "c06_wip40",
+  "contract_id": "soft-procedure-contribution-loop-v1",
+  "parent_ids": [
+    "c05_flow_family"
+  ],
+  "hypothesis": "用40个全线令牌减少线内拥堵，同时保证外部到达完整入账。",
+  "mechanism": "diverse",
+  "interfaces": [
+    "dispatch",
+    "admission",
+    "release",
+    "defer"
+  ],
+  "parameters": {
+    "dispatch": "family",
+    "admission": "internal",
+    "cap": 40
+  },
+  "bundle_sha256": "61ba3ca89e8fcd7a6e83c1ea8314b8c5a2b5c42d6fad5955a826bd2399fffbf5",
+  "interface_version": "seccomp-json-v1",
+  "training_provenance": "deterministic analytical rules; no external training data",
+  "randomization_rule": "deterministic; candidate has no environment seed access",
+  "expected_tradeoffs": "过低在制可能让设备缺料。"
+}

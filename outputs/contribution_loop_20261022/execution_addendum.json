@@ -1,0 +1,19 @@
+{
+  "contract_id": "soft-procedure-contribution-loop-v1",
+  "original_contract_status": "preserved design document",
+  "runtime_status": "implemented and frozen; see ready_receipt.json",
+  "evaluator_digest": "f6baad50c4cbe225874a9d354042d8857ebc53635779b7e07d3152f60345f93f",
+  "runtime": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "simpy": "4.1.2",
+    "scipy": "1.17.0",
+    "policy_python": "/usr/bin/python3 (3.13)"
+  },
+  "uv_lock_sha256": "0f6b4ac14aa50abaa17afc992d06a0ee90d6b72b5b2962c70e54c474d04e38ed",
+  "scope": "One authorized 24-candidate campaign; no production rollout and no automatic new campaign.",
+  "interface_coverage": "本轮开放固定机器顺序下的派工、准入排序、全线CONWIP与截止放行；未实现联合多机匹配和在线学习",
+  "isolation": "Unprivileged Linux seccomp syscall allowlist in a fresh child; no filesystem access, network, exec/fork or process-memory access after code loading; no candidate source executes before lockdown.",
+  "resource_defaults": "Calibrated on six exact reference replays; original defaults frozen before registration.",
+  "site_updates": "Owner-private static snapshots at milestones; raw traces and private seed banks are not uploaded."
+}

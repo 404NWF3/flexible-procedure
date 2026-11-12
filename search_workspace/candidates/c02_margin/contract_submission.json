@@ -1,0 +1,23 @@
+{
+  "candidate_id": "c02_margin",
+  "contract_id": "soft-procedure-contribution-loop-v1",
+  "parent_ids": [
+    "fifo"
+  ],
+  "hypothesis": "按剩余名义加工时间的单位贡献排序，提高有效机时的收入。",
+  "mechanism": "diverse",
+  "interfaces": [
+    "dispatch",
+    "admission",
+    "release",
+    "defer"
+  ],
+  "parameters": {
+    "dispatch": "margin"
+  },
+  "bundle_sha256": "05fa3688325dd1358e5036eb957c5d5f6e5fb119ae5efb882b3f080b194b2454",
+  "interface_version": "seccomp-json-v1",
+  "training_provenance": "deterministic analytical rules; no external training data",
+  "randomization_rule": "deterministic; candidate has no environment seed access",
+  "expected_tradeoffs": "可能更偏向高价短路线产品。"
+}

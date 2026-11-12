@@ -1,0 +1,14 @@
+{
+  "winner": "c20_hybrid",
+  "source_sha256": "b71cc82c961477d0a0fcbc1843fa88d647407b8ac5f6476553af81fab81bd42d",
+  "comparisons": [
+    "fifo",
+    "same_family"
+  ],
+  "alpha_campaign": 0.025,
+  "alpha_per_comparison": 0.0125,
+  "quantile": 2.276003474751275,
+  "n": 100,
+  "seed_commitment": "22846a87af2a8ef57211b87793dac003d7809414b706d5fa0a1836b56c2ec1cf",
+  "at": "2026-10-22T14:27:45.616311+00:00"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "c20_hybrid",
+  "label": "分工位合批组合",
+  "parents": [
+    "c10_value_margin",
+    "c09_value_open"
+  ],
+  "parameters": {
+    "dispatch": "margin",
+    "admission": "value",
+    "station_modes": {
+      "M2": "family",
+      "M3": "family",
+      "M4": "family"
+    }
+  },
+  "hypothesis": "保留M1和M5的经济排序，M2/M3/M4偏好同类合批，检验工位差异化。",
+  "expected_tradeoffs": "局部合批可能锁住低贡献工件。",
+  "mechanism": "combination",
+  "wave": "combination",
+  "reference": false,
+  "source": "search_workspace/candidates/c20_hybrid/policy.py",
+  "bundle_sha256": "b71cc82c961477d0a0fcbc1843fa88d647407b8ac5f6476553af81fab81bd42d",
+  "registered_at": "2026-10-22T14:23:28.037111+00:00",
+  "status": "registered",
+  "stages": {},
+  "interface_version": "seccomp-json-v1",
+  "training_provenance": "deterministic analytical rules; no external training data",
+  "randomization_rule": "deterministic; candidate has no environment seed access",
+  "contract_id": "soft-procedure-contribution-loop-v1",
+  "contract_sha256": "27232fd7826ebca1e73fe0a0b3e87381da39db2fd007795cf9240b9f527f7449",
+  "dependency_lock": "f6baad50c4cbe225874a9d354042d8857ebc53635779b7e07d3152f60345f93f",
+  "resource_limits": {
+    "decision_cpu_ms": 250,
+    "decision_wall_ms": 1000,
+    "path_cpu_s": 120,
+    "path_wall_s": 300,
+    "memory_mib": 2048
+  }
+}

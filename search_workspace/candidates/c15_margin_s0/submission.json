@@ -1,0 +1,34 @@
+{
+  "id": "c15_margin_s0",
+  "label": "剩余排序 · 不惩罚切换",
+  "parents": [
+    "c02_margin"
+  ],
+  "parameters": {
+    "dispatch": "margin",
+    "setup_weight": 0
+  },
+  "hypothesis": "分母不额外惩罚换模，检查更积极切换是否能增加高价值完工收入。",
+  "expected_tradeoffs": "实际换模费用仍照计，可能得不偿失。",
+  "mechanism": "refinement",
+  "wave": "refinement",
+  "reference": false,
+  "source": "search_workspace/candidates/c15_margin_s0/policy.py",
+  "bundle_sha256": "6ddaed3984ee92f90f6f954dc7f38e85181a57a3340fb5768349fe1cb723890e",
+  "registered_at": "2026-10-22T14:20:20.803920+00:00",
+  "status": "registered",
+  "stages": {},
+  "interface_version": "seccomp-json-v1",
+  "training_provenance": "deterministic analytical rules; no external training data",
+  "randomization_rule": "deterministic; candidate has no environment seed access",
+  "contract_id": "soft-procedure-contribution-loop-v1",
+  "contract_sha256": "27232fd7826ebca1e73fe0a0b3e87381da39db2fd007795cf9240b9f527f7449",
+  "dependency_lock": "f6baad50c4cbe225874a9d354042d8857ebc53635779b7e07d3152f60345f93f",
+  "resource_limits": {
+    "decision_cpu_ms": 250,
+    "decision_wall_ms": 1000,
+    "path_cpu_s": 120,
+    "path_wall_s": 300,
+    "memory_mib": 2048
+  }
+}

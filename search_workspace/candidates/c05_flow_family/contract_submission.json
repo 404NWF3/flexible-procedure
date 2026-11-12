@@ -1,0 +1,25 @@
+{
+  "candidate_id": "c05_flow_family",
+  "contract_id": "soft-procedure-contribution-loop-v1",
+  "parent_ids": [
+    "same_family",
+    "c04_internal"
+  ],
+  "hypothesis": "在疏通内部流动后保留同类换模节约，观察两种机制的互补。",
+  "mechanism": "diverse",
+  "interfaces": [
+    "dispatch",
+    "admission",
+    "release",
+    "defer"
+  ],
+  "parameters": {
+    "dispatch": "family",
+    "admission": "internal"
+  },
+  "bundle_sha256": "a25471b77fc2fa2442c43c2893fd6664aa9d6a3fcd82048d015cc4153cb3a398",
+  "interface_version": "seccomp-json-v1",
+  "training_provenance": "deterministic analytical rules; no external training data",
+  "randomization_rule": "deterministic; candidate has no environment seed access",
+  "expected_tradeoffs": "可能改变产品结构，不能把总产量当收益。"
+}

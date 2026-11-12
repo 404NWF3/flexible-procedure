@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "registered_candidates": 24,
+  "reference_policies": 2,
+  "audited_runs": 1402,
+  "run_count": {
+    "development": 780,
+    "smoke": 72,
+    "validation": 250,
+    "confirmation": 300
+  },
+  "raw_hashes_verified": 1402,
+  "hash_chain_events": 1547,
+  "sealed_seed_commitments_verified": true,
+  "all_products_conserved": true,
+  "frozen_sources_unchanged": true,
+  "final_bounds_recomputed": true,
+  "no_post_confirmation_runs": true,
+  "outcome": "confirmed_finite_horizon_gain",
+  "winner": "c20_hybrid"
+}

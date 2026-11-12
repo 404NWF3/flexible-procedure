@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "at": "2026-10-22T15:03:09.473553+00:00",
+  "browser": "Chromium via Playwright",
+  "viewports": [
+    [
+      1440,
+      1000
+    ],
+    [
+      390,
+      844
+    ]
+  ],
+  "checks": [
+    "26 nodes and actual KPIs",
+    "development/validation/confirmation",
+    "negative result",
+    "zoom and keyboard selection",
+    "8 embedded evidence downloads match source bytes/data",
+    "390px search layout and interactions",
+    "five baseline scenarios, economics, timeline, playback, read-only config, JSON export, return navigation",
+    "390px baseline layout",
+    "both embedded HTML documents render offline with zero requests; offline evidence download"
+  ],
+  "downloads_checked": [
+    "experiment-progress.json",
+    "loop_contract.json",
+    "ready_receipt.json",
+    "agent_prompt.txt",
+    "replications.csv",
+    "raw_manifest.json",
+    "verification.json",
+    "progress.json"
+  ],
+  "page_errors": [],
+  "api_or_external_requests": 0,
+  "offline_requests": 0,
+  "offline_method": "Embedded HTML loaded with set_content in offline browser context; file:// is blocked by environment browser policy",
+  "pages": {
+    "index.html": "a5b7ba413088211ab3d0afc80fe419241c8b4d841276c8bec89bf39f7388b857",
+    "baseline.html": "5dfb09e4e93f07b8997cc66ffd69fedc7c1d1fc43b8be17931e34d83c24525d0"
+  }
+}

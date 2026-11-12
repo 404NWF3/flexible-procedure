@@ -1,0 +1,30 @@
+{
+  "candidate_id": "c20_hybrid",
+  "contract_id": "soft-procedure-contribution-loop-v1",
+  "parent_ids": [
+    "c10_value_margin",
+    "c09_value_open"
+  ],
+  "hypothesis": "保留M1和M5的经济排序，M2/M3/M4偏好同类合批，检验工位差异化。",
+  "mechanism": "combination",
+  "interfaces": [
+    "dispatch",
+    "admission",
+    "release",
+    "defer"
+  ],
+  "parameters": {
+    "dispatch": "margin",
+    "admission": "value",
+    "station_modes": {
+      "M2": "family",
+      "M3": "family",
+      "M4": "family"
+    }
+  },
+  "bundle_sha256": "b71cc82c961477d0a0fcbc1843fa88d647407b8ac5f6476553af81fab81bd42d",
+  "interface_version": "seccomp-json-v1",
+  "training_provenance": "deterministic analytical rules; no external training data",
+  "randomization_rule": "deterministic; candidate has no environment seed access",
+  "expected_tradeoffs": "局部合批可能锁住低贡献工件。"
+}

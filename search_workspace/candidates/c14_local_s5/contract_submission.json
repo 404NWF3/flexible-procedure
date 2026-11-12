@@ -1,0 +1,24 @@
+{
+  "candidate_id": "c14_local_s5",
+  "contract_id": "soft-procedure-contribution-loop-v1",
+  "parent_ids": [
+    "c03_local"
+  ],
+  "hypothesis": "局部经济排序提高换模惩罚，减少切换导致的成本。",
+  "mechanism": "refinement",
+  "interfaces": [
+    "dispatch",
+    "admission",
+    "release",
+    "defer"
+  ],
+  "parameters": {
+    "dispatch": "local_value",
+    "setup_weight": 5
+  },
+  "bundle_sha256": "44e0d89e0b972c377853d08e6d2005c8892c27ceebfaab96ec968397fea6f6e7",
+  "interface_version": "seccomp-json-v1",
+  "training_provenance": "deterministic analytical rules; no external training data",
+  "randomization_rule": "deterministic; candidate has no environment seed access",
+  "expected_tradeoffs": "产品服务偏向可能加剧。"
+}

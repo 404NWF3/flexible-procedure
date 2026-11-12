@@ -1,0 +1,28 @@
+{
+  "candidate_id": "c23_ablate_m3",
+  "contract_id": "soft-procedure-contribution-loop-v1",
+  "parent_ids": [
+    "c20_hybrid"
+  ],
+  "hypothesis": "只移除M3合批覆盖，识别并行工位M3的派工贡献。",
+  "mechanism": "ablation",
+  "interfaces": [
+    "dispatch",
+    "admission",
+    "release",
+    "defer"
+  ],
+  "parameters": {
+    "dispatch": "margin",
+    "admission": "value",
+    "station_modes": {
+      "M2": "family",
+      "M4": "family"
+    }
+  },
+  "bundle_sha256": "221d0cdaad0e8a28cf2c10fd747b391342ff6bc762b00bd40f4b8148bff45c3c",
+  "interface_version": "seccomp-json-v1",
+  "training_provenance": "deterministic analytical rules; no external training data",
+  "randomization_rule": "deterministic; candidate has no environment seed access",
+  "expected_tradeoffs": "可能改变不同产品到达M5的结构。"
+}

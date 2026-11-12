@@ -1,0 +1,19 @@
+{
+  "candidate_id": "fifo",
+  "contract_id": "soft-procedure-contribution-loop-v1",
+  "parent_ids": [],
+  "hypothesis": "冻结参考策略",
+  "mechanism": "reference",
+  "interfaces": [
+    "dispatch",
+    "admission",
+    "release",
+    "defer"
+  ],
+  "parameters": {},
+  "bundle_sha256": "556242daa5e0b15205074c905eb4c2b6fd79f9db86c2146fd95d2d6fcfc29b56",
+  "interface_version": "seccomp-json-v1",
+  "training_provenance": "deterministic analytical rules; no external training data",
+  "randomization_rule": "deterministic; candidate has no environment seed access",
+  "expected_tradeoffs": "保留原参考策略行为"
+}

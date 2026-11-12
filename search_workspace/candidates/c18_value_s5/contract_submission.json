@@ -1,0 +1,26 @@
+{
+  "candidate_id": "c18_value_s5",
+  "contract_id": "soft-procedure-contribution-loop-v1",
+  "parent_ids": [
+    "c10_value_margin",
+    "c13_margin_s5"
+  ],
+  "hypothesis": "把经济准入与较强合批偏好组合，检查是否减少额外换模而保留收入。",
+  "mechanism": "combination",
+  "interfaces": [
+    "dispatch",
+    "admission",
+    "release",
+    "defer"
+  ],
+  "parameters": {
+    "dispatch": "margin",
+    "admission": "value",
+    "setup_weight": 5
+  },
+  "bundle_sha256": "a7a64ac4cb8263cdeb9127ee12f64ffbaa4affb9f89706bd8862292349fecf96",
+  "interface_version": "seccomp-json-v1",
+  "training_provenance": "deterministic analytical rules; no external training data",
+  "randomization_rule": "deterministic; candidate has no environment seed access",
+  "expected_tradeoffs": "过强合批可能锁定非最优产品。"
+}
