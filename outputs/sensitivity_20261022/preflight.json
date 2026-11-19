@@ -1,0 +1,121 @@
+{
+  "passed": true,
+  "tests": 7,
+  "errors": 0,
+  "failures": 0,
+  "seconds": 22.54814466099924,
+  "replays": [
+    {
+      "policy": "fifo",
+      "scenario": "standard",
+      "seed": 43,
+      "full_trajectory_equal": true,
+      "action_digest_equal": true
+    },
+    {
+      "policy": "fifo",
+      "scenario": "arrival_rate_plus5",
+      "seed": 43,
+      "full_trajectory_equal": true,
+      "action_digest_equal": true
+    },
+    {
+      "policy": "fifo",
+      "scenario": "processing_speed_plus5",
+      "seed": 43,
+      "full_trajectory_equal": true,
+      "action_digest_equal": true
+    },
+    {
+      "policy": "fifo",
+      "scenario": "mtbf_plus5",
+      "seed": 43,
+      "full_trajectory_equal": true,
+      "action_digest_equal": true
+    },
+    {
+      "policy": "fifo",
+      "scenario": "mttr_plus5",
+      "seed": 43,
+      "full_trajectory_equal": true,
+      "action_digest_equal": true
+    },
+    {
+      "policy": "same_family",
+      "scenario": "standard",
+      "seed": 43,
+      "full_trajectory_equal": true,
+      "action_digest_equal": true
+    },
+    {
+      "policy": "same_family",
+      "scenario": "arrival_rate_plus5",
+      "seed": 43,
+      "full_trajectory_equal": true,
+      "action_digest_equal": true
+    },
+    {
+      "policy": "same_family",
+      "scenario": "processing_speed_plus5",
+      "seed": 43,
+      "full_trajectory_equal": true,
+      "action_digest_equal": true
+    },
+    {
+      "policy": "same_family",
+      "scenario": "mtbf_plus5",
+      "seed": 43,
+      "full_trajectory_equal": true,
+      "action_digest_equal": true
+    },
+    {
+      "policy": "same_family",
+      "scenario": "mttr_plus5",
+      "seed": 43,
+      "full_trajectory_equal": true,
+      "action_digest_equal": true
+    },
+    {
+      "policy": "c20_hybrid",
+      "scenario": "standard",
+      "seed": 43,
+      "full_trajectory_equal": true,
+      "action_digest_equal": true
+    },
+    {
+      "policy": "c20_hybrid",
+      "scenario": "arrival_rate_plus5",
+      "seed": 43,
+      "full_trajectory_equal": true,
+      "action_digest_equal": true
+    },
+    {
+      "policy": "c20_hybrid",
+      "scenario": "processing_speed_plus5",
+      "seed": 43,
+      "full_trajectory_equal": true,
+      "action_digest_equal": true
+    },
+    {
+      "policy": "c20_hybrid",
+      "scenario": "mtbf_plus5",
+      "seed": 43,
+      "full_trajectory_equal": true,
+      "action_digest_equal": true
+    },
+    {
+      "policy": "c20_hybrid",
+      "scenario": "mttr_plus5",
+      "seed": 43,
+      "full_trajectory_equal": true,
+      "action_digest_equal": true
+    }
+  ],
+  "sample_scope": "public seed 43; preflight only, excluded from the 200 study replicates",
+  "source_hashes": {
+    "research/sensitivity/preflight.py": "2c211c0e25c0daf8ad921d34d99d0828cf58975fa2c300641b12f08c1c9b00b0",
+    "research/sensitivity/runner.py": "55286fd2930e081773ad316251ed7270560d783103ab7f4f130eff9be32e1496",
+    "research/sensitivity/model.py": "fcc5bf7d4552322630774dbd488f2bd3cde33e6e34ba5de159789a25e480ef29",
+    "research/sensitivity/analysis.py": "4cbd36fea59e9643e279bdb36823f408dfe85228b361d8937fd00f67504a6bfc"
+  }
+}

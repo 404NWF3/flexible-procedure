@@ -1,0 +1,151 @@
+[
+  {
+    "id": "c17_value_s0",
+    "label": "经济准入 · 弱切换惩罚",
+    "parents": [
+      "c10_value_margin",
+      "c15_margin_s0"
+    ],
+    "parameters": {
+      "dispatch": "margin",
+      "admission": "value",
+      "setup_weight": 0
+    },
+    "hypothesis": "在已验证有开发优势的经济准入下，移除分母的换模惩罚，检验更多高价值切换是否值得。",
+    "expected_tradeoffs": "实际换模费保留，可能增加切换成本。",
+    "mechanism": "combination",
+    "wave": "combination"
+  },
+  {
+    "id": "c18_value_s5",
+    "label": "经济准入 · 强切换惩罚",
+    "parents": [
+      "c10_value_margin",
+      "c13_margin_s5"
+    ],
+    "parameters": {
+      "dispatch": "margin",
+      "admission": "value",
+      "setup_weight": 5
+    },
+    "hypothesis": "把经济准入与较强合批偏好组合，检查是否减少额外换模而保留收入。",
+    "expected_tradeoffs": "过强合批可能锁定非最优产品。",
+    "mechanism": "combination",
+    "wave": "combination"
+  },
+  {
+    "id": "c19_terminal",
+    "label": "经济策略 + 期末控制",
+    "parents": [
+      "c10_value_margin"
+    ],
+    "parameters": {
+      "dispatch": "margin",
+      "admission": "value",
+      "terminal_window": 120,
+      "cutoff": 60
+    },
+    "hypothesis": "最后60分钟停止新放行，最后120分钟优先名义剩余时间可在截止前完成的工件。",
+    "expected_tradeoffs": "截止时间是合法观测，但策略收益只适用于本40小时窗口。",
+    "mechanism": "combination",
+    "wave": "combination"
+  },
+  {
+    "id": "c20_hybrid",
+    "label": "分工位合批组合",
+    "parents": [
+      "c10_value_margin",
+      "c09_value_open"
+    ],
+    "parameters": {
+      "dispatch": "margin",
+      "admission": "value",
+      "station_modes": {
+        "M2": "family",
+        "M3": "family",
+        "M4": "family"
+      }
+    },
+    "hypothesis": "保留M1和M5的经济排序，M2/M3/M4偏好同类合批，检验工位差异化。",
+    "expected_tradeoffs": "局部合批可能锁住低贡献工件。",
+    "mechanism": "combination",
+    "wave": "combination"
+  },
+  {
+    "id": "c21_ablate_admit",
+    "label": "消融 · 去掉经济准入",
+    "parents": [
+      "c20_hybrid"
+    ],
+    "parameters": {
+      "dispatch": "margin",
+      "admission": "fifo",
+      "station_modes": {
+        "M2": "family",
+        "M3": "family",
+        "M4": "family"
+      }
+    },
+    "hypothesis": "保持分工位规则，仅恢复原共同FIFO准入，辨识外部选择的增量作用。",
+    "expected_tradeoffs": "可能重新出现M1占机阻塞。",
+    "mechanism": "ablation",
+    "wave": "ablation"
+  },
+  {
+    "id": "c22_ablate_m2",
+    "label": "消融 · M2恢复经济排序",
+    "parents": [
+      "c20_hybrid"
+    ],
+    "parameters": {
+      "dispatch": "margin",
+      "admission": "value",
+      "station_modes": {
+        "M3": "family",
+        "M4": "family"
+      }
+    },
+    "hypothesis": "只移除M2的合批覆盖，识别M2的经济派工是否关键。",
+    "expected_tradeoffs": "M2换模次数可能变化。",
+    "mechanism": "ablation",
+    "wave": "ablation"
+  },
+  {
+    "id": "c23_ablate_m3",
+    "label": "消融 · M3恢复经济排序",
+    "parents": [
+      "c20_hybrid"
+    ],
+    "parameters": {
+      "dispatch": "margin",
+      "admission": "value",
+      "station_modes": {
+        "M2": "family",
+        "M4": "family"
+      }
+    },
+    "hypothesis": "只移除M3合批覆盖，识别并行工位M3的派工贡献。",
+    "expected_tradeoffs": "可能改变不同产品到达M5的结构。",
+    "mechanism": "ablation",
+    "wave": "ablation"
+  },
+  {
+    "id": "c24_ablate_m4",
+    "label": "消融 · M4恢复经济排序",
+    "parents": [
+      "c20_hybrid"
+    ],
+    "parameters": {
+      "dispatch": "margin",
+      "admission": "value",
+      "station_modes": {
+        "M2": "family",
+        "M3": "family"
+      }
+    },
+    "hypothesis": "只移除M4合批覆盖，识别M4对高价P4与其他产品的排序贡献。",
+    "expected_tradeoffs": "可能增加M4切换或改变P4产量。",
+    "mechanism": "ablation",
+    "wave": "ablation"
+  }
+]

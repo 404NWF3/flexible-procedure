@@ -1,0 +1,44 @@
+[
+  {
+    "policy": "fifo",
+    "seed": 42,
+    "seconds": 0.6999501089999853,
+    "contribution": 72133.3849968337,
+    "exact_trajectory_replay": true
+  },
+  {
+    "policy": "fifo",
+    "seed": 43,
+    "seconds": 0.546286533,
+    "contribution": 74701.39147207749,
+    "exact_trajectory_replay": true
+  },
+  {
+    "policy": "fifo",
+    "seed": 44,
+    "seconds": 0.45233059000003095,
+    "contribution": 68663.37558349919,
+    "exact_trajectory_replay": true
+  },
+  {
+    "policy": "same_family",
+    "seed": 42,
+    "seconds": 0.9013735910000378,
+    "contribution": 106051.52550724865,
+    "exact_trajectory_replay": true
+  },
+  {
+    "policy": "same_family",
+    "seed": 43,
+    "seconds": 0.6052468990000079,
+    "contribution": 100975.45813725429,
+    "exact_trajectory_replay": true
+  },
+  {
+    "policy": "same_family",
+    "seed": 44,
+    "seconds": 0.5357635849999838,
+    "contribution": 98761.28978868709,
+    "exact_trajectory_replay": true
+  }
+]

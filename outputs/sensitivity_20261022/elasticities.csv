@@ -1,0 +1,13 @@
+﻿policy,factor,elasticity,descriptive_ci95_low,descriptive_ci95_high,method
+fifo,arrival_rate,0.16659020398718535,0.12457001509521444,0.20861039287915628,central finite difference; paired delta-method ratio; descriptive 95%
+fifo,processing_speed,1.0525114489512888,1.013914735745831,1.0911081621567467,central finite difference; paired delta-method ratio; descriptive 95%
+fifo,mtbf,0.020598721761571435,-0.0016414866432591796,0.04283893016640205,central finite difference; paired delta-method ratio; descriptive 95%
+fifo,mttr,-0.05232045186640982,-0.06698623541254134,-0.03765466832027831,central finite difference; paired delta-method ratio; descriptive 95%
+same_family,arrival_rate,-0.017781838886737893,-0.09055064840425134,0.054986970630775546,central finite difference; paired delta-method ratio; descriptive 95%
+same_family,processing_speed,1.0465374797683191,0.973370237671006,1.1197047218656324,central finite difference; paired delta-method ratio; descriptive 95%
+same_family,mtbf,0.02157732851254486,0.006170198144828245,0.03698445888026147,central finite difference; paired delta-method ratio; descriptive 95%
+same_family,mttr,-0.04573658809129137,-0.06027351169237498,-0.031199664490207765,central finite difference; paired delta-method ratio; descriptive 95%
+c20_hybrid,arrival_rate,0.3327861519109329,0.15069394418856186,0.514878359633304,central finite difference; paired delta-method ratio; descriptive 95%
+c20_hybrid,processing_speed,0.8715647164594419,0.7099736925910479,1.0331557403278357,central finite difference; paired delta-method ratio; descriptive 95%
+c20_hybrid,mtbf,0.028276333712716147,-0.04122308302300011,0.09777575044843241,central finite difference; paired delta-method ratio; descriptive 95%
+c20_hybrid,mttr,-0.05313810631715248,-0.10198745359988495,-0.004288759034420012,central finite difference; paired delta-method ratio; descriptive 95%

@@ -1,0 +1,34 @@
+{
+  "id": "c14_local_s5",
+  "label": "局部排序 · 换模权重5",
+  "parents": [
+    "c03_local"
+  ],
+  "parameters": {
+    "dispatch": "local_value",
+    "setup_weight": 5
+  },
+  "hypothesis": "局部经济排序提高换模惩罚，减少切换导致的成本。",
+  "expected_tradeoffs": "产品服务偏向可能加剧。",
+  "mechanism": "refinement",
+  "wave": "refinement",
+  "reference": false,
+  "source": "search_workspace/candidates/c14_local_s5/policy.py",
+  "bundle_sha256": "44e0d89e0b972c377853d08e6d2005c8892c27ceebfaab96ec968397fea6f6e7",
+  "registered_at": "2026-10-22T14:20:14.005273+00:00",
+  "status": "registered",
+  "stages": {},
+  "interface_version": "seccomp-json-v1",
+  "training_provenance": "deterministic analytical rules; no external training data",
+  "randomization_rule": "deterministic; candidate has no environment seed access",
+  "contract_id": "soft-procedure-contribution-loop-v1",
+  "contract_sha256": "27232fd7826ebca1e73fe0a0b3e87381da39db2fd007795cf9240b9f527f7449",
+  "dependency_lock": "f6baad50c4cbe225874a9d354042d8857ebc53635779b7e07d3152f60345f93f",
+  "resource_limits": {
+    "decision_cpu_ms": 250,
+    "decision_wall_ms": 1000,
+    "path_cpu_s": 120,
+    "path_wall_s": 300,
+    "memory_mib": 2048
+  }
+}

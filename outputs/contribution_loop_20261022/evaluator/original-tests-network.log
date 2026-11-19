@@ -1,0 +1,43 @@
+test_api_bounds (test_delivery.DeliveryTests.test_api_bounds) ... ok
+test_empty_completion_outputs_remain_valid_json (test_delivery.DeliveryTests.test_empty_completion_outputs_remain_valid_json) ... ok
+test_http_run_and_invalid_input (test_delivery.DeliveryTests.test_http_run_and_invalid_input) ... ok
+test_standalone_artifact_and_csv (test_delivery.DeliveryTests.test_standalone_artifact_and_csv) ... ok
+test_case_prices_and_machine_calendar_cost_hand_calculation (test_economics.EconomicsTests.test_case_prices_and_machine_calendar_cost_hand_calculation) ... ok
+test_cost_bases_include_only_their_defined_states (test_economics.EconomicsTests.test_cost_bases_include_only_their_defined_states) ... ok
+test_default_cost_counts_only_work_executed_before_horizon (test_economics.EconomicsTests.test_default_cost_counts_only_work_executed_before_horizon) ... ok
+test_each_product_uses_its_own_price (test_economics.EconomicsTests.test_each_product_uses_its_own_price) ... ok
+test_economic_config_validation_and_independent_defaults (test_economics.EconomicsTests.test_economic_config_validation_and_independent_defaults) ... ok
+test_economic_parameters_do_not_change_production_events (test_economics.EconomicsTests.test_economic_parameters_do_not_change_production_events) ... ok
+test_incremental_payback_uses_gain_not_total_profit (test_economics.EconomicsTests.test_incremental_payback_uses_gain_not_total_profit) ... ok
+test_line_cost_is_not_multiplied_by_machine_count (test_economics.EconomicsTests.test_line_cost_is_not_multiplied_by_machine_count) ... ok
+test_no_payback_for_nonpositive_gain_or_no_investment (test_economics.EconomicsTests.test_no_payback_for_nonpositive_gain_or_no_investment) ... ok
+test_no_revenue_from_wip_external_or_exact_horizon_completion (test_economics.EconomicsTests.test_no_revenue_from_wip_external_or_exact_horizon_completion) ... ok
+test_paired_contribution_and_exports (test_economics.EconomicsTests.test_paired_contribution_and_exports) ... ok
+test_samples_and_product_ledger_reconcile_with_summary (test_economics.EconomicsTests.test_samples_and_product_ledger_reconcile_with_summary) ... ok
+test_weekly_cost_and_expansion_are_separate_from_capex (test_economics.EconomicsTests.test_weekly_cost_and_expansion_are_separate_from_capex) ... ok
+test_zero_prices_and_costs_stay_finite (test_economics.EconomicsTests.test_zero_prices_and_costs_stay_finite) ... ok
+test_blocked_machine_retains_job (test_simulation.MachineTests.test_blocked_machine_retains_job) ... ok
+test_failure_clock_does_not_consume_idle_or_blocked_time (test_simulation.MachineTests.test_failure_clock_does_not_consume_idle_or_blocked_time) ... ok
+test_failure_during_setup_resumes (test_simulation.MachineTests.test_failure_during_setup_resumes) ... ok
+test_failure_resumes_without_resampling (test_simulation.MachineTests.test_failure_resumes_without_resampling) ... ok
+test_horizon_clips_active_work (test_simulation.MachineTests.test_horizon_clips_active_work) ... ok
+test_invalid_transfer_rejected (test_simulation.MachineTests.test_invalid_transfer_rejected) ... ok
+test_parallel_machines_never_receive_same_job (test_simulation.MachineTests.test_parallel_machines_never_receive_same_job) ... ok
+test_reference_setup_example (test_simulation.MachineTests.test_reference_setup_example) ... ok
+test_all_four_routes_have_hand_calculated_completion (test_simulation.ModelTests.test_all_four_routes_have_hand_calculated_completion) ... ok
+test_arrival_schedule_unchanged_by_decisions (test_simulation.ModelTests.test_arrival_schedule_unchanged_by_decisions) ... ok
+test_conservation_and_residual_waits_under_load (test_simulation.ModelTests.test_conservation_and_residual_waits_under_load) ... ok
+test_experiments_paired_statistics_and_config_isolation (test_simulation.ModelTests.test_experiments_paired_statistics_and_config_isolation) ... ok
+test_external_arrivals_continue_under_full_buffers (test_simulation.ModelTests.test_external_arrivals_continue_under_full_buffers) ... ok
+test_processing_samples_bound_to_job_operation (test_simulation.ModelTests.test_processing_samples_bound_to_job_operation) ... ok
+test_queue_mean_is_time_weighted (test_simulation.ModelTests.test_queue_mean_is_time_weighted) ... ok
+test_reproducibility_and_fresh_state (test_simulation.ModelTests.test_reproducibility_and_fresh_state) ... ok
+test_same_family_and_aging_priority (test_simulation.ModelTests.test_same_family_and_aging_priority) ... ok
+test_stop_window_excludes_exact_horizon_completion (test_simulation.ModelTests.test_stop_window_excludes_exact_horizon_completion) ... ok
+test_student_t_interval_and_single_replication (test_simulation.ModelTests.test_student_t_interval_and_single_replication) ... ok
+test_validation (test_simulation.ModelTests.test_validation) ... ok
+
+----------------------------------------------------------------------
+Ran 38 tests in 0.732s
+
+OK

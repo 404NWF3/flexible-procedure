@@ -1,0 +1,21 @@
+{
+  "candidate_id": "same_family",
+  "contract_id": "soft-procedure-contribution-loop-v1",
+  "parent_ids": [],
+  "hypothesis": "冻结参考策略",
+  "mechanism": "reference",
+  "interfaces": [
+    "dispatch",
+    "admission",
+    "release",
+    "defer"
+  ],
+  "parameters": {
+    "dispatch": "family"
+  },
+  "bundle_sha256": "4930645c2356a5bce5311a8b013471001fd875110618d86aebdd5ba4e00240f7",
+  "interface_version": "seccomp-json-v1",
+  "training_provenance": "deterministic analytical rules; no external training data",
+  "randomization_rule": "deterministic; candidate has no environment seed access",
+  "expected_tradeoffs": "保留原参考策略行为"
+}

@@ -1,0 +1,2 @@
+# Optional scientific SVG/PNG/PDF exports; core analysis uses ../requirements.txt.
+matplotlib==3.10.8

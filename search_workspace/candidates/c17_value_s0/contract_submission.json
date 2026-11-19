@@ -1,0 +1,26 @@
+{
+  "candidate_id": "c17_value_s0",
+  "contract_id": "soft-procedure-contribution-loop-v1",
+  "parent_ids": [
+    "c10_value_margin",
+    "c15_margin_s0"
+  ],
+  "hypothesis": "在已验证有开发优势的经济准入下，移除分母的换模惩罚，检验更多高价值切换是否值得。",
+  "mechanism": "combination",
+  "interfaces": [
+    "dispatch",
+    "admission",
+    "release",
+    "defer"
+  ],
+  "parameters": {
+    "dispatch": "margin",
+    "admission": "value",
+    "setup_weight": 0
+  },
+  "bundle_sha256": "60ceb5d1db117325f02fc50fb9461239d97ef0046c0a8d32d0da955896b563c4",
+  "interface_version": "seccomp-json-v1",
+  "training_provenance": "deterministic analytical rules; no external training data",
+  "randomization_rule": "deterministic; candidate has no environment seed access",
+  "expected_tradeoffs": "实际换模费保留，可能增加切换成本。"
+}

@@ -1,0 +1,7 @@
+{
+  "at": "2026-10-22T14:22:34.592597+00:00",
+  "development_only": true,
+  "finding": "c10_value_margin achieves 143856.6 vs same_family 97222.0; c13/c14/c16 share identical development outcomes despite different parameters. Further exploration should combine external value admission with remaining-route economics, not repeat high setup-weight rules under FIFO admission.",
+  "sealed_feedback_seen": false,
+  "next": "Four combinations, then four one-mechanism ablations of the station-specific combination. All 24 candidates retain negative results."
+}

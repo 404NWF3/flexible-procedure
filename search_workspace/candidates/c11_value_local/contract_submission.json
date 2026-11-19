@@ -1,0 +1,25 @@
+{
+  "candidate_id": "c11_value_local",
+  "contract_id": "soft-procedure-contribution-loop-v1",
+  "parent_ids": [
+    "c08_release",
+    "c03_local"
+  ],
+  "hypothesis": "把外部选择和工位选择都与当前机时收益关联。",
+  "mechanism": "refinement",
+  "interfaces": [
+    "dispatch",
+    "admission",
+    "release",
+    "defer"
+  ],
+  "parameters": {
+    "dispatch": "local_value",
+    "admission": "value"
+  },
+  "bundle_sha256": "a69fbe4666a52e54203ca1840bcf9120103e91878971a80a1bff37f5f4546eb6",
+  "interface_version": "seccomp-json-v1",
+  "training_provenance": "deterministic analytical rules; no external training data",
+  "randomization_rule": "deterministic; candidate has no environment seed access",
+  "expected_tradeoffs": "局部贪心可能影响全线。"
+}

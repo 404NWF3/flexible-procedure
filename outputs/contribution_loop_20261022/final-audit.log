@@ -1,0 +1,145 @@
+{"passed": true, "registered_candidates": 24, "reference_policies": 2, "audited_runs": 1402, "run_count": {"development": 780, "smoke": 72, "validation": 250, "confirmation": 300}, "raw_hashes_verified": 1402, "hash_chain_events": 1547, "sealed_seed_commitments_verified": true, "all_products_conserved": true, "frozen_sources_unchanged": true, "final_bounds_recomputed": true, "no_post_confirmation_runs": true, "outcome": "confirmed_finite_horizon_gain", "winner": "c20_hybrid"}
+{
+  "winner_confirmation": {
+    "operating_contribution": {
+      "n": 100,
+      "mean": 140782.89974266582,
+      "sd": 18428.57455193708,
+      "ci95": [
+        137126.27074071305,
+        144439.52874461858
+      ]
+    },
+    "revenue": {
+      "n": 100,
+      "mean": 160733.8,
+      "sd": 20712.862435275,
+      "ci95": [
+        156623.91872400497,
+        164843.681275995
+      ]
+    },
+    "processing_cost": {
+      "n": 100,
+      "mean": 18463.303028958268,
+      "sd": 2323.802375166473,
+      "ci95": [
+        18002.21022246406,
+        18924.395835452477
+      ]
+    },
+    "setup_cost": {
+      "n": 100,
+      "mean": 1487.5972283759143,
+      "sd": 319.2758676662012,
+      "ci95": [
+        1424.2459694903405,
+        1550.948487261488
+      ]
+    },
+    "completed": {
+      "n": 100,
+      "mean": 595.55,
+      "sd": 80.24424520729751,
+      "ci95": [
+        579.6278008392422,
+        611.4721991607577
+      ]
+    },
+    "external": {
+      "n": 100,
+      "mean": 2237.42,
+      "sd": 202.36057327493816,
+      "ci95": [
+        2197.2672720175124,
+        2277.572727982488
+      ]
+    },
+    "wip": {
+      "n": 100,
+      "mean": 172.29,
+      "sd": 19.63674920122776,
+      "ci95": [
+        168.39364293608728,
+        176.1863570639127
+      ]
+    },
+    "blocked_minutes": {
+      "n": 100,
+      "mean": 3785.2604542687204,
+      "sd": 1143.9996297382204,
+      "ci95": [
+        3558.2661084752044,
+        4012.2548000622364
+      ]
+    },
+    "products": {
+      "P1": {
+        "arrived": 902.66,
+        "completed": 0.48,
+        "external": 872.99,
+        "wip": 29.19,
+        "unfinished": 902.18,
+        "unfinished_max_age": 2384.7614793944135
+      },
+      "P2": {
+        "arrived": 751.27,
+        "completed": 0.81,
+        "external": 711.04,
+        "wip": 39.42,
+        "unfinished": 750.46,
+        "unfinished_max_age": 2384.3252433820167
+      },
+      "P3": {
+        "arrived": 751.25,
+        "completed": 355.72,
+        "external": 351.94,
+        "wip": 43.59,
+        "unfinished": 395.53,
+        "unfinished_max_age": 1260.9195662115053
+      },
+      "P4": {
+        "arrived": 600.08,
+        "completed": 238.54,
+        "external": 301.45,
+        "wip": 60.09,
+        "unfinished": 361.54,
+        "unfinished_max_age": 1430.6767987673722
+      }
+    }
+  },
+  "comparisons": {
+    "fifo": {
+      "n": 100,
+      "mean": 73109.26459416188,
+      "sd": 15970.920740781472,
+      "ci95": [
+        69940.28742753172,
+        76278.24176079205
+      ],
+      "formal_lower": 69474.2774840623,
+      "alpha": 0.0125,
+      "decomposition": {
+        "revenue": 77120.0,
+        "processing_cost": 7389.250902436668,
+        "setup_cost": -3378.515496598548
+      }
+    },
+    "same_family": {
+      "n": 100,
+      "mean": 45717.030531682205,
+      "sd": 16921.91290014852,
+      "ci95": [
+        42359.35588870785,
+        49074.70517465656
+      ],
+      "formal_lower": 41865.59727566456,
+      "alpha": 0.0125,
+      "decomposition": {
+        "revenue": 50430.3,
+        "processing_cost": 3835.6722399418804,
+        "setup_cost": 877.5972283759143
+      }
+    }
+  }
+}

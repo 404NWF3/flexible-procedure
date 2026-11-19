@@ -1,0 +1,16 @@
+{"candidate": "c09_value_open", "stage": "smoke", "valid": true, "mean": 90864.49556184356}
+{"candidate": "c09_value_open", "stage": "development", "valid": true, "mean": 108236.93196791674}
+{"candidate": "c10_value_margin", "stage": "smoke", "valid": true, "mean": 141915.71775471495}
+{"candidate": "c10_value_margin", "stage": "development", "valid": true, "mean": 143856.5866284141}
+{"candidate": "c11_value_local", "stage": "smoke", "valid": true, "mean": 120537.62513469018}
+{"candidate": "c11_value_local", "stage": "development", "valid": true, "mean": 114621.8355600611}
+{"candidate": "c12_age480", "stage": "smoke", "valid": true, "mean": 92345.31601127727}
+{"candidate": "c12_age480", "stage": "development", "valid": true, "mean": 91323.62829350577}
+{"candidate": "c13_margin_s5", "stage": "smoke", "valid": true, "mean": 96683.44288165389}
+{"candidate": "c13_margin_s5", "stage": "development", "valid": true, "mean": 94815.93750101831}
+{"candidate": "c14_local_s5", "stage": "smoke", "valid": true, "mean": 96683.44288165389}
+{"candidate": "c14_local_s5", "stage": "development", "valid": true, "mean": 94815.93750101831}
+{"candidate": "c15_margin_s0", "stage": "smoke", "valid": true, "mean": 99626.91576392128}
+{"candidate": "c15_margin_s0", "stage": "development", "valid": true, "mean": 96860.28087627987}
+{"candidate": "c16_local_s10", "stage": "smoke", "valid": true, "mean": 96683.44288165389}
+{"candidate": "c16_local_s10", "stage": "development", "valid": true, "mean": 94815.93750101831}
