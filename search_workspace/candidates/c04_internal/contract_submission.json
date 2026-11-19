@@ -1,0 +1,23 @@
+{
+  "candidate_id": "c04_internal",
+  "contract_id": "soft-procedure-contribution-loop-v1",
+  "parent_ids": [
+    "fifo"
+  ],
+  "hypothesis": "下游先接内部在制品，减少上游占机阻塞，释放M1产能。",
+  "mechanism": "diverse",
+  "interfaces": [
+    "dispatch",
+    "admission",
+    "release",
+    "defer"
+  ],
+  "parameters": {
+    "admission": "internal"
+  },
+  "bundle_sha256": "505a6680650bca7360504725150734285b2cb113c2bc7bc1ad3f4e334096e143",
+  "interface_version": "seccomp-json-v1",
+  "training_provenance": "deterministic analytical rules; no external training data",
+  "randomization_rule": "deterministic; candidate has no environment seed access",
+  "expected_tradeoffs": "线外毛坯会等待更久。"
+}

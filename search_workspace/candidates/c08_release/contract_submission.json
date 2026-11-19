@@ -1,0 +1,25 @@
+{
+  "candidate_id": "c08_release",
+  "contract_id": "soft-procedure-contribution-loop-v1",
+  "parent_ids": [
+    "c07_wip80"
+  ],
+  "hypothesis": "内部交接优先，外部按单位剩余机时贡献择优放行。",
+  "mechanism": "diverse",
+  "interfaces": [
+    "dispatch",
+    "admission",
+    "release",
+    "defer"
+  ],
+  "parameters": {
+    "dispatch": "family",
+    "admission": "value",
+    "cap": 80
+  },
+  "bundle_sha256": "f3f61c00b4377adba2fe4d35a8c13adc156a1cdb71e85a80cccae78c638b0de4",
+  "interface_version": "seccomp-json-v1",
+  "training_provenance": "deterministic analytical rules; no external training data",
+  "randomization_rule": "deterministic; candidate has no environment seed access",
+  "expected_tradeoffs": "低贡献产品可能更多滞留线外。"
+}

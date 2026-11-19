@@ -1,0 +1,29 @@
+{
+  "candidate_id": "c21_ablate_admit",
+  "contract_id": "soft-procedure-contribution-loop-v1",
+  "parent_ids": [
+    "c20_hybrid"
+  ],
+  "hypothesis": "保持分工位规则，仅恢复原共同FIFO准入，辨识外部选择的增量作用。",
+  "mechanism": "ablation",
+  "interfaces": [
+    "dispatch",
+    "admission",
+    "release",
+    "defer"
+  ],
+  "parameters": {
+    "dispatch": "margin",
+    "admission": "fifo",
+    "station_modes": {
+      "M2": "family",
+      "M3": "family",
+      "M4": "family"
+    }
+  },
+  "bundle_sha256": "84bb518c1755b50c2ea8a15672d63cb80f14917d59d38081eaf50e060a31dfa8",
+  "interface_version": "seccomp-json-v1",
+  "training_provenance": "deterministic analytical rules; no external training data",
+  "randomization_rule": "deterministic; candidate has no environment seed access",
+  "expected_tradeoffs": "可能重新出现M1占机阻塞。"
+}

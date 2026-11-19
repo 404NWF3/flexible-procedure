@@ -1,0 +1,12 @@
+test_common_arrival_streams (__main__.SensitivityTests.test_common_arrival_streams) ... ok
+test_full_fixed_policy_replay (__main__.SensitivityTests.test_full_fixed_policy_replay) ... ok
+test_hand_calculated_processing_and_cost (__main__.SensitivityTests.test_hand_calculated_processing_and_cost) ... ok
+test_invalid_factor_and_source (__main__.SensitivityTests.test_invalid_factor_and_source) ... ok
+test_only_declared_physics_changes (__main__.SensitivityTests.test_only_declared_physics_changes) ... ok
+test_processing_draws_scale_without_policy_recalibration (__main__.SensitivityTests.test_processing_draws_scale_without_policy_recalibration) ... ok
+test_rate_uses_reciprocal_time (__main__.SensitivityTests.test_rate_uses_reciprocal_time) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 22.548s
+
+OK

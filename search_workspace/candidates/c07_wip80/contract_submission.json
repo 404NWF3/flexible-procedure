@@ -1,0 +1,25 @@
+{
+  "candidate_id": "c07_wip80",
+  "contract_id": "soft-procedure-contribution-loop-v1",
+  "parent_ids": [
+    "c05_flow_family"
+  ],
+  "hypothesis": "80个令牌保留合批选择空间，检验比40更高在制的收益。",
+  "mechanism": "diverse",
+  "interfaces": [
+    "dispatch",
+    "admission",
+    "release",
+    "defer"
+  ],
+  "parameters": {
+    "dispatch": "family",
+    "admission": "internal",
+    "cap": 80
+  },
+  "bundle_sha256": "d92ae130c909872c95ae4ea56c22936652975598347828f7868b308ffc6646c3",
+  "interface_version": "seccomp-json-v1",
+  "training_provenance": "deterministic analytical rules; no external training data",
+  "randomization_rule": "deterministic; candidate has no environment seed access",
+  "expected_tradeoffs": "线内等待可能上升。"
+}

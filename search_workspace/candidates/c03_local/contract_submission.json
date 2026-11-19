@@ -1,0 +1,23 @@
+{
+  "candidate_id": "c03_local",
+  "contract_id": "soft-procedure-contribution-loop-v1",
+  "parent_ids": [
+    "fifo"
+  ],
+  "hypothesis": "按当前工位的加工与换模占用衡量贡献，优先释放局部能力。",
+  "mechanism": "diverse",
+  "interfaces": [
+    "dispatch",
+    "admission",
+    "release",
+    "defer"
+  ],
+  "parameters": {
+    "dispatch": "local_value"
+  },
+  "bundle_sha256": "cb427f62afb9cdeb251b2c60452a938b594d5fd8fcf1c3a2f1a23ffe9bac6dd7",
+  "interface_version": "seccomp-json-v1",
+  "training_provenance": "deterministic analytical rules; no external training data",
+  "randomization_rule": "deterministic; candidate has no environment seed access",
+  "expected_tradeoffs": "局部高分可能增加后续拥堵。"
+}

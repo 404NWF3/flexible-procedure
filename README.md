@@ -2,6 +2,39 @@
 
 基于 **SimPy** 复现《案例二十二：多品种小批量柔性生产线调度优化》，采用“工件 → 工位 → 单台机床”结构，提供可重复实验、原始记录和中文 HTML 面板。模型时间统一为**分钟**。
 
+## 已保存的静态网页与搜索实验
+
+直接用浏览器打开 [Flexline 实验搜索树](docs/flexline/index.html)，或查看 [五方案仿真面板](docs/flexline/baseline.html)。两页都已内嵌数据、样式与脚本，可以离线使用，无需安装 Python、启动服务或构建前端；页面之间可相互跳转。GitHub 文件预览不执行 HTML，需先下载/克隆仓库。
+
+搜索页保存了 2026-10-22 本轮 **24 个候选、2 个对照、1,402 次仿真**的路径、负结果、参数、逐轮统计与一次独立确认。胜出策略 `c20_hybrid` 的确认均值为 **140,782.90 元 / 40 工作小时**，相对同类优先增加 **45,717.03 元**，正式单侧下界为 **41,865.60 元**。其 P1 / P2 平均仅交付 **0.48 / 0.81 件**；结论限于无保供约束、空系统起步的 40 小时窗口。
+
+[静态页说明](docs/flexline/README.md)提供生成与核验命令；[实验归档说明](research/README.md)说明预算、统计方法、代码与证据。公开仓库收录逐轮统计和原始轨迹哈希清单；按用户选择，原始轨迹与封闭种子库继续保存在本地。网页展示已完成结果，重新仿真仍使用下方的本地服务。
+
+## 独立实验：参数灵敏度分析
+
+[灵敏度静态页](docs/sensitivity/index.html)与上面的系统提升搜索是**两项实验**。这轮固定 FIFO、同类优先和 c20 的策略代码、参数与名义排序信息，只在独立诊断情景中改变物理参数；参数扰动的收益不计入上一轮策略提升。
+
+本轮覆盖到达速率、加工速度、平均无故障工作时间和平均修复时间的 ±2% / ±5% 单参数变化。每个策略 17 个情景，每情景固定 200 次，共 10,200 次；各情景与**同策略、本轮新样本的标准参数情景**作共同随机数配对比较。上一轮的实验树、输出、种子库与 α 账本原样保留。
+
+独立协议、进度及结果位于 `outputs/sensitivity_20261022/`，执行代码和方法说明见 [research/sensitivity/README.md](research/sensitivity/README.md)。原始轨迹及本轮种子库仍仅保存在本地。
+
+## 复核历史实验
+
+五方案面板的原始 JSON 和 CSV 保存在 [五方案结果归档](work_outputs/flexline_baseline_20261022/)。日常运行生成的文件写到 `outputs/`。
+
+搜索实验和灵敏度实验的审计及网页重建依赖当时冻结的模拟器和页面模板。请在原始提交的独立工作树中运行核验命令。浅克隆缺少该提交时，先运行 `git fetch origin refs/pull/2/head`。
+
+```bash
+git worktree add --detach ../flexline-archive fc185b67e1e0251743efaae407e51b9101a963e9
+cd ../flexline-archive
+uv venv .venv-research --python 3.12
+uv pip install --python .venv-research/bin/python -r research/requirements.txt
+.venv-research/bin/python tools/audit_contribution_snapshot.py
+.venv-research/bin/python research/sensitivity/audit_snapshot.py
+.venv-research/bin/python tools/build_flexline_static.py --check
+.venv-research/bin/python research/sensitivity/render.py --check
+```
+
 ## 直接运行
 
 需要 Python 3.12+ 和 [uv](https://docs.astral.sh/uv/)。运行时仅依赖 SimPy；HTML 不使用 CDN、外部字体或前端构建工具。

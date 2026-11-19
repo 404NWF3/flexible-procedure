@@ -1,0 +1,480 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "soft-procedure-contribution-loop-v1",
+  "authored_date": "2026-10-22",
+  "status": "design_only_not_executed",
+  "enforcement_implemented": false,
+  "objective": {
+    "metric": "operating_contribution",
+    "direction": "maximize",
+    "aggregation": "mean_across_all_prespecified_replications_only_if_entire_candidate_stage_valid",
+    "unit": "CNY per 2400 working minutes",
+    "formula": "sum_p(price[p] * completed_before_H[p]) - (100/60) * sum_m(processing_minutes_in_window[m] + setup_minutes_in_window[m])",
+    "horizon": 2400,
+    "window": "[0,H)",
+    "initial_state": "empty",
+    "warmup": 0,
+    "repair_blocked_idle_charged": false,
+    "include_unfinished_processing_and_setup_cost": true,
+    "wip_revenue": 0,
+    "co_objectives": [],
+    "diagnostics": [
+      "total_completed",
+      "completed_by_product",
+      "unreleased_by_product",
+      "unfinished_by_product",
+      "waiting_and_age",
+      "processing_cost",
+      "setup_cost",
+      "revenue",
+      "machine_states"
+    ],
+    "contractual_delivery_constraints": []
+  },
+  "fixed_configuration": {
+    "horizon": 2400.0,
+    "arrival_mean": 10.0,
+    "batch_min": 5,
+    "batch_max": 20,
+    "machine_counts": {
+      "M1": 2,
+      "M2": 1,
+      "M3": 2,
+      "M4": 1,
+      "M5": 2
+    },
+    "buffer_capacity": 50,
+    "processing_cv": 0.1,
+    "setup_time": 15.0,
+    "mtbf": 6000.0,
+    "mttr": 240.0,
+    "failures_enabled": true,
+    "sample_interval": 20.0,
+    "product_prices": {
+      "P1": 200.0,
+      "P2": 180.0,
+      "P3": 250.0,
+      "P4": 300.0
+    },
+    "machine_purchase_cost": 500000.0,
+    "operating_cost_per_hour": 100.0,
+    "operating_cost_basis": "machine_active",
+    "product_mix": {
+      "P1": 0.3,
+      "P2": 0.25,
+      "P3": 0.25,
+      "P4": 0.2
+    },
+    "routes": {
+      "P1": [
+        [
+          "M1",
+          5
+        ],
+        [
+          "M2",
+          8
+        ],
+        [
+          "M3",
+          6
+        ],
+        [
+          "M4",
+          4
+        ],
+        [
+          "M5",
+          3
+        ]
+      ],
+      "P2": [
+        [
+          "M1",
+          4
+        ],
+        [
+          "M3",
+          7
+        ],
+        [
+          "M4",
+          5
+        ],
+        [
+          "M5",
+          6
+        ]
+      ],
+      "P3": [
+        [
+          "M2",
+          6
+        ],
+        [
+          "M3",
+          5
+        ],
+        [
+          "M5",
+          8
+        ]
+      ],
+      "P4": [
+        [
+          "M1",
+          3
+        ],
+        [
+          "M4",
+          9
+        ],
+        [
+          "M5",
+          4
+        ]
+      ]
+    }
+  },
+  "fixed_semantics": [
+    "first arrival waits for first exponential interval",
+    "positive normal processing samples; reject nonpositive draws",
+    "first setup free per machine; family state persists",
+    "failure clock advances only during processing and setup",
+    "exponential repair; resume remaining work",
+    "buffer limit applies to waiting jobs, not machine-occupied jobs",
+    "blocking after service; upstream held until downstream accepts",
+    "zero transport time; no extra resource or transit storage",
+    "all arrivals remain accounted for; no cancellation",
+    "no end-of-horizon flushing or salvage credit"
+  ],
+  "reference_policies": [
+    "fifo",
+    "same_family"
+  ],
+  "permissions": [
+    {
+      "id": "dispatch",
+      "area": "派工与批量",
+      "authority": "Agent 可自行尝试",
+      "allowed": "经济排序、同类合批、老化、工位差异规则、多机与工件联合匹配、受控等待",
+      "boundary": "只能选已准入且工序合法的工件；不抢占、不跳工序、不改工时"
+    },
+    {
+      "id": "release",
+      "area": "放行与准入",
+      "authority": "Agent 可自行尝试",
+      "allowed": "动态 CONWIP、分产品/工位限额、放行顺序、内外部请求优先级、全线联动",
+      "boundary": "所有来料照常到达并入账；不删单；下游接收前仍占用上游机床"
+    },
+    {
+      "id": "algorithm",
+      "area": "算法与内部表示",
+      "authority": "Agent 可自行尝试",
+      "allowed": "规则组合、分段函数、搜索、离线学习、强化学习、滚动规划、运行内状态估计",
+      "boundary": "只用允许观测与独立规划随机流；不读真实未来；遵守算力预算"
+    },
+    {
+      "id": "schema",
+      "area": "观测与执行接口",
+      "authority": "可信维护层审查后升级",
+      "allowed": "提出新传感字段、动作原语或必要依赖的变更请求",
+      "boundary": "搜索 Agent 不改接口、合法性检查和隔离；新版本重做基准验证"
+    },
+    {
+      "id": "scenario",
+      "area": "物理与业务情景",
+      "authority": "负责人另建题目版本",
+      "allowed": "提出扩容、改善换模/可靠性、调整需求、增加真实保供约束的情景",
+      "boundary": "不进入当前榜单，不与现有资源下的调度收益混算"
+    },
+    {
+      "id": "judge",
+      "area": "目标与评分",
+      "authority": "搜索 Agent 不可修改",
+      "allowed": "读取公式、检查结果、提出疑似缺陷",
+      "boundary": "不改 G、价格/费率、终止口径、初始状态、样本筛选、置信规则或原始账本"
+    },
+    {
+      "id": "inputs",
+      "area": "题目与随机环境",
+      "authority": "搜索 Agent 不可修改",
+      "allowed": "读取公开分布和既定参数",
+      "boundary": "不改路线、设备、缓冲、来料、产品比例、故障模型；不选终测种子或重置环境"
+    }
+  ],
+  "proposed_runtime_interface": {
+    "status": "requires_trusted_implementation",
+    "transport": "serialized observations and validated actions across an OS permission boundary",
+    "observations": [
+      "current_simulation_time",
+      "remaining_time_to_declared_horizon",
+      "arrived_job_opaque_handles",
+      "products_and_remaining_routes",
+      "nominal_processing_distributions",
+      "public_prices_and_rate",
+      "current_queues_and_pending_requests",
+      "machine_states_and_last_family",
+      "elapsed_work_wait_repair_and_observed_histories",
+      "current_wip_tokens_and_backlog"
+    ],
+    "excluded": [
+      "environment_seed",
+      "replication_id",
+      "evaluation_stage",
+      "source_schedule",
+      "SimPy_event_queue",
+      "RNG_state",
+      "machine_life_left",
+      "unfinished_operation_true_required_processing",
+      "future_failure_or_repair_duration",
+      "mutable_simulation_objects",
+      "hidden_evaluation_files"
+    ],
+    "actions": [
+      "dispatch_matching_at_station",
+      "release_order_and_dynamic_token_limit",
+      "rank_eligible_admission_requests",
+      "defer_decision_with_trusted_positive_timer"
+    ],
+    "defer_max_minutes": 15,
+    "negative_or_zero_time_defer": false,
+    "job_preemption": false,
+    "action_commit": "trusted_atomic_validator",
+    "reset_policy_state_each_replication": true,
+    "cross_replication_learning": false,
+    "policy_randomness": "separate private policy stream; never derived by the candidate from environment seed",
+    "online_planning": "allowed with public distributions and independent private planning randomness; no true future access"
+  },
+  "search": {
+    "max_registered_candidate_versions": 24,
+    "registration_counts_invalid_versions": true,
+    "proposal_allocation": {
+      "diverse_mechanisms": 8,
+      "refinements": 8,
+      "combinations": 4,
+      "ablations": 4
+    },
+    "allocation_is_guidance_not_gate": true,
+    "no_restriction_to_old_parameter_grid": true,
+    "stop_after_development_budget": true
+  },
+  "evaluation": {
+    "budget": [
+      {
+        "id": "smoke",
+        "phase": "合法性冒烟",
+        "configurations": 24,
+        "repetitions": 3,
+        "runs": 72,
+        "feedback": "开发样本；只判可运行与语义正确"
+      },
+      {
+        "id": "development",
+        "phase": "自适应开发",
+        "configurations": 26,
+        "repetitions": 30,
+        "runs": 780,
+        "feedback": "24个候选＋2个对照；可看全量开发轨迹"
+      },
+      {
+        "id": "validation",
+        "phase": "一次封闭验证",
+        "configurations": 5,
+        "repetitions": 50,
+        "runs": 250,
+        "feedback": "最多3个冻结候选＋2个对照；禁止返工"
+      },
+      {
+        "id": "confirmation",
+        "phase": "一次最终确认",
+        "configurations": 3,
+        "repetitions": 100,
+        "runs": 300,
+        "feedback": "1个冻结胜者＋2个对照；结束后出报告"
+      }
+    ],
+    "formal_runs_upper_bound": 1330,
+    "smoke_runs_upper_bound": 72,
+    "development_seeds": [
+      1000,
+      1001,
+      1002,
+      1003,
+      1004,
+      1005,
+      1006,
+      1007,
+      1008,
+      1009,
+      1010,
+      1011,
+      1012,
+      1013,
+      1014,
+      1015,
+      1016,
+      1017,
+      1018,
+      1019,
+      1020,
+      1021,
+      1022,
+      1023,
+      1024,
+      1025,
+      1026,
+      1027,
+      1028,
+      1029
+    ],
+    "smoke_seeds": [
+      42,
+      43,
+      44
+    ],
+    "validation_seeds": "fresh private bank held only by evaluator; 50 disjoint samples",
+    "confirmation_seeds": "fresh private bank held only by evaluator; 100 disjoint samples",
+    "private_banks": "generated and hash-committed by evaluator before use; never candidate-controlled",
+    "prior_public_seed_ranges_excluded_from_private_banks": [
+      [
+        42,
+        51
+      ],
+      [
+        1000,
+        1029
+      ],
+      [
+        2000,
+        2029
+      ],
+      [
+        2200,
+        2229
+      ],
+      [
+        2300,
+        2329
+      ],
+      [
+        3000,
+        3099
+      ],
+      [
+        4000,
+        4029
+      ],
+      [
+        5000,
+        5029
+      ]
+    ],
+    "selection": "one sealed submission of at most 3 candidate bundles; evaluator ranks these and both controls by validation mean G",
+    "exact_ties": "same_family first, then fifo, then lexicographic immutable candidate id",
+    "feedback_barrier": "no validation/final feedback or code changes until terminal disposition",
+    "final_comparisons": "candidate minus fifo; candidate minus same_family; deduplicate identical candidates and self-comparisons",
+    "final_rule": "all applicable one-sided Bonferroni paired-t lower bounds > 0 for a novel policy to claim improvement over both controls",
+    "study_error_budget": 0.05,
+    "campaign_index_starts_at": 1,
+    "never_reset_alpha_ledger_after_rebaseline": true,
+    "campaign_alpha_formula": "0.05 / 2**campaign_index",
+    "per_contrast_alpha": "campaign_alpha / number_of_applicable_predeclared_comparisons",
+    "first_campaign_two_contrast_t_quantile": 0.9875,
+    "confirmation_repetitions": 100,
+    "final_failure": "retain validated incumbent; no peeking-driven extension, changed candidate, seed replacement, or auto-new campaign",
+    "invalid_policy_run": "candidate fails entire stage; never drop that replication",
+    "evaluator_infrastructure_failure": "audited same-bundle same-seed replay only",
+    "actual_global_optimum_claim": false
+  },
+  "resource_budget": {
+    "status": "proposed_defaults_to_calibrate_and_freeze_before_search",
+    "offline_training_total_cpu_hours": 8,
+    "policy_process_memory_mib": 2048,
+    "per_decision_cpu_ms": 250,
+    "per_decision_wall_ms": 1000,
+    "per_short_path_cpu_seconds": 120,
+    "per_short_path_wall_seconds": 300,
+    "note": "Formal run count excludes offline training and internal planning. These consume the separate resource budgets; no automatic quota increase."
+  },
+  "optional_post_confirmation": {
+    "long_run": {
+      "configurations_max": 3,
+      "paths_each": 30,
+      "horizon": 48000,
+      "warmup": 9600,
+      "measure": 38400,
+      "metric": "window contribution divided by 16 weeks; one path-level average per replication",
+      "use": "disclose persistence and terminal effects; no replacement of the primary score",
+      "policy_observation": "continuous clock and actual horizon; never reset at 2400-minute boundaries",
+      "runs_max": 90
+    },
+    "load_and_resource_scenarios": "separate owner-frozen tasks; no pooling with main leaderboard"
+  },
+  "file_capabilities": {
+    "proposed_only": true,
+    "search_agent_write": [
+      "search_workspace/candidates/**",
+      "search_workspace/training/**",
+      "search_workspace/notes/**"
+    ],
+    "search_agent_read": [
+      "published_contract",
+      "public_model_specification",
+      "development_receipts",
+      "own_candidate_bundles"
+    ],
+    "search_agent_no_access": [
+      "evaluator/private_seeds/**",
+      "evaluator/process_memory",
+      "evaluator/raw_ledger_write",
+      "evaluator/config_write",
+      "evaluator/grader_write"
+    ],
+    "evaluator_write": [
+      "evaluator/receipts/**",
+      "evaluator/ledger/**"
+    ],
+    "protection": "different OS identity/container mount policy and IPC; folder names, hashes and prompts alone do not enforce isolation"
+  },
+  "candidate_freeze_fields": [
+    "source_bundle",
+    "parameters",
+    "model_weights",
+    "dependency_lock",
+    "interface_version",
+    "training_provenance",
+    "policy_randomization_rule",
+    "resource_limits",
+    "contract_version"
+  ],
+  "protocol_gates": [
+    "unchanged frozen task and evaluator hashes",
+    "action membership and atomicity",
+    "no duplicates or skipped operations",
+    "physical occupancy and buffer capacity",
+    "arrivals = completed + all unfinished",
+    "machine state time sum = horizon",
+    "independent revenue and cost replay",
+    "CONWIP token conservation",
+    "no hidden-state access or undeclared I/O",
+    "all registered runs and failures recorded"
+  ],
+  "outcome_states": [
+    "development_only",
+    "invalid_candidate",
+    "validated_candidate",
+    "confirmed_finite_horizon_gain",
+    "no_new_gain",
+    "insufficient_evidence",
+    "protocol_issue_requires_rebaseline"
+  ],
+  "implementation_prerequisites": [
+    "safe observation/action adapter",
+    "release and admission controllers",
+    "independent accounting and audit",
+    "generic runner supporting 100 replications and valid t quantiles",
+    "isolated execution and seed custody",
+    "reference replay and frozen evaluator bundle"
+  ]
+}

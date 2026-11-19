@@ -1,0 +1,11 @@
+# Preserve the archived exports' byte formats and hide generated data by default.
+docs/flexline/*.html text eol=lf linguist-generated=true
+docs/sensitivity/*.html text eol=lf linguist-generated=true
+docs/sensitivity/figures/* linguist-generated=true
+research/** text eol=lf
+search_workspace/** text eol=lf
+outputs/**/*.json text eol=lf linguist-generated=true
+outputs/**/*.jsonl text eol=lf linguist-generated=true
+outputs/**/*.csv -text whitespace=cr-at-eol linguist-generated=true
+work_outputs/flexline_baseline_20261022/*.json text eol=lf linguist-generated=true
+work_outputs/flexline_baseline_20261022/*.csv -text whitespace=cr-at-eol linguist-generated=true

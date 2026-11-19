@@ -1,0 +1,22 @@
+{
+  "ready": true,
+  "at": "2026-10-22T14:09:52.253898+00:00",
+  "interface_version": "seccomp-json-v1",
+  "evaluator_sha256": "f6baad50c4cbe225874a9d354042d8857ebc53635779b7e07d3152f60345f93f",
+  "seed_commitments": {
+    "validation": "a043d5c122f97c510eed9dea7a4b0ac4d89ee51df371377e6d1a9d80ea313758",
+    "confirmation": "22846a87af2a8ef57211b87793dac003d7809414b706d5fa0a1836b56c2ec1cf"
+  },
+  "checks": {
+    "reference_replay": "6 条完整轨迹逐字段一致",
+    "original_tests": "38/38 通过",
+    "boundary_tests": "5/5 通过",
+    "os_boundary": "seccomp allowlist + isolated process; no files/network/other processes"
+  },
+  "limitations": [
+    "空系统起步的40小时窗口；长期收益未验证",
+    "经营贡献不是完整净利润",
+    "无合同保供门槛；分产品交付与积压完整披露",
+    "本轮开放固定机器顺序下的派工、准入排序、全线CONWIP与截止放行；未实现联合多机匹配和在线学习"
+  ]
+}
